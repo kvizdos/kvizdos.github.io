@@ -20,8 +20,12 @@
   <h3><center>Only Awesomeness Here.</center></h3>
 </div>
 
+<?php 
+  echo "hi";
+?>
+
 <div class="container">
-  <p>This is some text.</p>
+  <p>PHP</p>
   <p>This is another text.</p>
 </div>
 
