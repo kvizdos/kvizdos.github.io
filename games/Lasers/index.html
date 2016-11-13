@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--<html manifest="snake.appcache">-->
+<head>
+    <title>Lasers | Kenton Vizdos Dev</title>
+    <style>
+
+    #PlayField {
+      padding: 10px;
+      max-width: 1000px;
+      background-color: lightgray;
+      position: relative;
+      z-index: -2;
+      width: 95%;
+      max-height: 630px;
+    }
+
+      #player {
+           background:blue;
+    height:50px;
+    width:50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 40%;
+    z-index:-1;
+      }
+
+    #row {
+      width: 50px;
+      height: 50px;
+      background-color: darkred;
+      margin: 10px;
+      z-index: 5;
+      position: relative;
+    }
+
+    #laser {
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      z-index: -1;
+      height: 40px;
+      top: 95px;
+      background-color: red;
+
+    }
+     #plaser {
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      z-index: 4;
+      height: 40px;
+      top: 55px;
+      background-color: red;
+      opacity: 0.6;
+    }
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+     var pressed = false;
+$(document).keydown(function(e) {
+    if(!pressed){
+        width = $(this).width();
+        height = $(this).height();
+        switch (e.which) {
+            case 38:
+                $('#player').stop().animate({
+                    top: '-=' + height
+                }, 2000); //up arrow key
+                break;
+            case 40:
+                $('#player').stop().animate({
+                    top: '+=' + height
+                }, 2000); //bottom arrow key
+                break;
+        }
+    }
+    pressed = true;
+}).keyup(function(){
+    $('#player').stop();
+    pressed = false;
+});
+    </script>
+
+<script>
+      window.onload = function() {
+        window.setInterval(function(){
+          var row = Math.floor((Math.random() * 6) + 1);
+          this.row = row;
+          var lasers = [6];
+          var rand = lasers[lasers.length];
+
+            document.getElementById("player").innerHTML = row.toString();
+            if(row == 1) {
+              $('#plaser').css('top', 55);
+              lasers.push(1);
+            }
+            if(row == 2) {
+              $('#plaser').css('top', 115);
+              lasers.push(2);
+
+            }
+            if(row == 3) {
+              $('#plaser').css('top', 175);
+              lasers.push(3); 
+            }
+            if(row == 4) {
+              $('#plaser').css('top', 235);
+              lasers.push(4);              
+            }
+            if(row == 5) {
+              $('#plaser').css('top', 295);
+              lasers.push(5); 
+            }
+            if(row == 6) {
+              $('#plaser').css('top', 355);
+              lasers.push(6); 
+            }
+          }, 1001);
+        
+
+        window.setInterval(function(){
+          var lRow = this.row;
+
+            if(lRow == 1) {
+              $('#laser').css('top', 95);
+            }
+            if(lRow == 2) {
+              $('#laser').css('top', 155);
+
+            }
+            if(lRow == 3) {
+              $('#laser').css('top', 215);
+            }
+            if(lRow == 4) {
+              $('#laser').css('top', 275);
+            }
+            if(lRow == 5) {
+              $('#laser').css('top', 335);
+            }
+            if(lRow == 6) {
+              $('#laser').css('top', 395);
+            }
+          }, 1000);
+
+      window.setInterval(function(){
+          
+            if($("#player").collision("#laser")) {
+              window.location = "target.com";
+            }
+            
+          }, 33);
+
+}
+
+</script>
+   
+</head>
+<div id="PlayField">
+<div id="player"></div>
+<div id="laser"></div><div id="plaser"></div>
+
+
+  <div id="row" class="one"></div>
+
+  <div id="row" class="two"></div>
+
+  <div id="row" class="three"></div>
+
+  <div id="row" class="four"></div>
+
+  <div id="row" class="five"></div>
+
+  <div id="row" class="six"></div>
+</div>
+
+
+</html>

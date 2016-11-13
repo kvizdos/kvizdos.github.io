@@ -1,0 +1,27 @@
+<script>
+      window.onload = function() {
+        window.setInterval(function(){
+          var row = Math.floor((Math.random() * 6) + 1);
+          document.getElementById("player").innerHTML = row.toString();
+          if(row == 1) {
+            $('#laser').css('top', 55);
+          }
+          if(row == 2) {
+            $('#laser').css('top', 115);
+          }
+          if(row == 3) {
+            $('#laser').css('top', 175);
+          }
+          if(row == 4) {
+            $('#laser').css('top', 235);
+          }
+          if(row == 5) {
+            $('#laser').css('top', 295);
+          }
+          if(row == 6) {
+            $('#laser').css('top', 355);
+          }
+
+        }, 1000);
+      }
+</script>
