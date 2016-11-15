@@ -12,6 +12,7 @@
       z-index: -2;
       width: 95%;
       max-height: 630px;
+      position: relative;
     }
 
       #player {
@@ -20,9 +21,9 @@
     width:50px;
     position: absolute;
     top: 0;
-    left: 0;
-    margin-left: 40%;
-    z-index:-1;
+           left: 0;
+           margin-left: 40%;
+           z-index:-1;
       }
 
     #row {
@@ -144,15 +145,8 @@ $(document).keydown(function(e) {
             }
           }, 1000);
 
-      window.setInterval(function(){
-          
-            if($("#player").collision("#laser")) {
-              window.location = "target.com";
-            }
-            
-          }, 33);
-
 }
+
 
 </script>
    
