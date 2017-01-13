@@ -1,0 +1,177 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Avenir;
+}
+body {
+  background-color: rgb(226, 226, 226);
+  max-width: 100000px;
+}
+
+.container {
+  display: none;
+}
+
+#homepage {
+  width: 550px;
+  position: relative;
+
+  transform: translateY(30%);
+}
+.name {
+  font-size: 64px;
+}
+.slugline {
+  font-size: 24px;
+  color: rgb(149, 149, 149);
+}
+.aboutme {
+  font-size: 20px;
+}
+hr {
+  background-color: rgb(144, 144, 144);
+  border: none;
+  height: 20px;
+}
+#homepage a {
+  color: rgb(98, 22, 172);
+  font-size: 24px;
+}
+.QLink {
+  padding: 55px;
+}
+
+#navbtn {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  margin: 25px;
+  font-size: 25px;
+}
+
+#navbar {
+  width: 350px;
+  height: 100%;
+  background-color: rgb(236, 236, 236);
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 25px;
+}
+#navbar a {
+  color: black;
+
+}
+
+#navbar h3 {
+  display: inline;
+}
+#navbar span {
+  float: right;
+}
+
+#navbar hr {
+  color: black;
+}
+
+#navbar .nav-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 15px;
+}
+
+#exitbutton {
+  float: right;
+  padding-right: 15px;
+}
+
+.abp-text {
+  z-index: -1;
+  position: absolute;
+  margin: 15px;
+  margin-bottom: 50px;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+}
+.ad {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  align-content: center;
+}
+
+@media (max-width: 670px) {
+  #navbtn {
+    margin: 2px;
+  }
+}
+/* 6+, 5, N6P, 5X, N6 */
+@media (max-width: 550px) {
+  * {
+    overflow-x: hidden;
+  }
+  #navbtn {
+    margin: 25px;
+    width: 150px;
+  }
+  #homepage {
+    transform: translateY(0%);
+
+    top: 0px;
+    margin: 15px;
+    width: 100%;
+    padding-right: 30px;
+  }
+  .aboutme a {
+    font-size: 24px;
+  }
+  .QLink {
+    padding: 15px;
+  }
+  .name {
+    font-size: 48px;
+  }
+  .slugline {
+    font-size: 18px;
+  }
+}
+/* FOR MAC SCREEN */
+@media and (min-width: 961px) {
+  #homepage {
+    transform: translateY(8%);
+
+    top: 0px;
+    margin: 15%;
+    width: auto;
+  }
+  .aboutme a {
+    font-size: 42px !important;
+  }
+  .QLink {
+    font-size: 42px !important;
+  }
+  .name {
+    font-size: 80px;
+  }
+  .slugline {
+    font-size: 42px;
+  }
+  .aboutme {
+    font-size: 42px;
+  }
+
+  #navbutton {
+    font-size: 48px;
+  }
+
+  #navbar a{
+    font-size: 42px;
+  }
+
+
+}

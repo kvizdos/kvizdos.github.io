@@ -1,3 +1,0 @@
-#### NOT ALL MY CODE. PARTIAL CREDIT TO PATORJK FOR MAIN SOURCE THAT HAS BEEN HEAVILY MODIFIED ####
-
-If you Fork this, please give Patorjk credit as well, for he has created the main code. 

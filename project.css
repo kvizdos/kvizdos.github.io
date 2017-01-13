@@ -1,0 +1,77 @@
+body, html {
+overflow-x: hidden;
+overflow-y: auto;
+}
+  #homepage {
+    transform: translateY(1%);
+  }
+  #project {
+    border: 1px solid rgb(213, 213, 213);
+    overflow-y: hidden;
+    height: auto;
+  }
+  #project .project-desc {
+    padding: 2px;
+  }
+  #project img {
+    border-bottom: 1px solid rgb(213, 213, 213);
+  }
+
+  #project a {
+    color: rgb(41, 41, 41);
+  }
+
+  #sp-project {
+    position: relative;
+    border: 1px solid rgb(213, 213, 213);
+    display: inline-block;
+    height: 150px;
+    width: 100%;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-y: hidden;
+  }
+
+  #sp-project .sp-project-img {
+    position: absolute;
+    vertical-align: middle;
+    top: 0;
+    float: left;
+    height: 148px;
+    left: 1px;
+  }
+
+  #sp-project .sp-project-name {
+    position: relative;
+    float: left;
+    text-align: left;
+    padding-left: 155px;
+    margin-top: 0;
+ }
+
+  #sp-project .sp-project-desc {
+    position: absolute;;
+    float: left;
+    text-align: left;
+    bottom: -10px;
+    padding-left: 155px;
+    padding-bottom: 2px;
+  }
+
+  #sp-project a {
+    color: rgb(41, 41, 41);
+  }
+  #cat-websites:hover {
+    cursor: pointer;
+  }
+  #cat-plugins {
+    cursor: pointer;
+  }
+  #cat-all {
+    cursor: pointer;
+  }
+  #success {
+    color: green;
+    font-size: 18px;
+    display: none;
+  }
