@@ -1,34 +1,8 @@
 <html>
 <style>
-* {
-  padding: 0;
-  margin: 0;
-}
-
-#banner {
-  background-image: url("banner.png");
+body {
+  background-image: url("bg.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 525px;
-}
-#banner #buynow {
-  background-color: rgba(50, 0, 205, .75);
-  color: white;
-  padding: 25px;
-  width: 250px;
-  height: 200px;
-}
-#buynow {
-  position: absolute;
-  left: 50px;
-  bottom: 10px;
-}
-#banner .bn-head {
-  padding-bottom: 0;
-  padding-top: 10px;
-}
-#banner .bn-slug {
-  padding-bottom: 10px;
 }
 form {
   height: 100%;
@@ -37,22 +11,14 @@ form {
     margin: auto;
     align-content: center;
   }
-#about {
-  position: absolute;
-  bottom: 50px;
-  left: 400px;
-}
+  h1 {
+    color: black;
+  }
 </style>
   <title>Donald Turnip Chrome Extension</title>
 <body>
-  <div id="banner">
-    <div id="buynow">
-      <h1 class="bn-head">
-        Lets Make<br>History
-      </h1>
-      <div class="bn-slug">
-        <p>Buy the Extension and Donate to Planned Parenthood</p>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <h1>Support Donald Turnip! Buy the Chrome Extension and donate to Planned Parenthood!</h1>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
   <input type="hidden" name="cmd" value="_s-xclick">
   <table>
   <tr><td><input type="hidden" name="on0" value="Donations"></td></tr><tr><td><select name="os0">
@@ -66,15 +32,6 @@ form {
   <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
   <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
   </form>
-      </div>
-    </div>
-
-    <div id="about">
-      <h1>President Turnip</h1>
-      <p>Is a Chrome Extension that changes all words that say "Trump" with "Turnip". When you purchase the extension, you also donate to Planned Parenthood!</p>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=Check%20out%20President%20Turnip,%20the%20BEST%20chrome%20extension%20here%3A%20%20https%3A//kvizdos.github.io/PresidentTurnip/">SHARE ME ON FACEBOOK</a>
-    </div>
-  </div>
 </body>
 
 </html>
