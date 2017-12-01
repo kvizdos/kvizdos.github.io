@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="container-fluid">
+        <!--The content below is only a placeholder and can be replaced.-->
+        <div id="me" style="text-align:center; overflow: hidden;">
+        <h1>Kenton Vizdos</h1> 
+        <p>Web & Mobile Developer</p>
+            <li id="aboutBtn">About</li>
+            <li id="projectsBtn">Projects</li>
+            <li id="freelanceBtn">Hire</li>            
+        </div>
+        <br>
+        <div id="about">
+            <div class="row">
+                <div class="col-sm-4"></div>        
+                <div class="col-sm-4 description">
+                    <h1 style="overflow: hidden;">About Me</h1>
+                    <p><strong>I am Kenton,</strong> also known as Kento. I am a teenaged YouTube programmer that mainly focuses on creating helpful, inspiring coding tutorials. I also do LiveCoding, while practicing Scrum and Agile methods like TDD, Mob Programming, Pair Programming, and more. I have been programming for years, and knowledgeable in Java, Bukkit API, HTML/CSS, Bootstrap, JQuery, JavaScript, PHP, and more. The videos are always on a strict schedule of daily at 7am. If you would like to watch some of these, please visit <a href="https://www.youtube.com/user/TheRealmOfTheGeek/">here</a>!</p>
+                    <hr>
+                    <h1 style="overflow: hidden;">Certifications</h1>
+                    <div class="cert text-center">
+                        <img src="csm.jpg" width="100%">
+                        <br>
+                        <span class="cert-title"><strong>Certified Scrum Master</strong></span>
+                        <br>
+                        <span class="cert-desc"><strong>Issuer:</strong> Scrum Alliance<br><strong>Date:</strong> May 5, 2017</strong></span>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>        
+            </div>
+        </div>
+
+        <div id="projects">
+            <div class="row">
+                <div class="col-sm-4"></div>        
+                <div class="col-sm-4">
+                    <h1 style="overflow: hidden;"><strong>Mobile Games</strong></h1>
+                    <hr>
+                    <div class="item">
+                        <span class="header">Lasers!</span>
+                        <br>
+                        <span class="item-desc">The iconic web-based game called "Lasers!" (that I made) converted into an early stage android app. The app is made in Cordova and is my first app.<br><a href="http://getthe.lasersgame.com" target="_blank">Download</a></span>
+                    </div>
+                    <br>
+                    <h1 style="overflow: hidden;"><strong>Websites</strong></h1>
+                    <hr>
+                    <div class="item">
+                        <span class="header">Bracketify</span>
+                        <br>
+                        <span class="item-desc">Ever wanted to host a tournament? Don't want to pay outrageous fees to create a bracket for it? Well, Bracketify is here for you, being 100% free for life, with no limitations. <br><a href="https://bracketify.com" target="_blank">Visit</a></span>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>        
+            </div>
+        </div>
+
+        <div id="hire">
+                <div class="row">
+                    <div class="col-sm-4"></div>        
+                    <div class="col-sm-4">
+                        <h1 style="overflow: hidden;"><strong>Hire Me</strong></h1>
+                        <hr>
+                        <p>If you would like to have me make you a website, mobile app, or whatever you would like, please email me at <a href="mailto:kvizdos@gmail.com">kvizdos@gmail.com</a></p>
+                    </div>
+                    <div class="col-sm-4"></div>        
+                </div>
+            </div>
+
+        <div class="footer text-center">
+            <a href="https://twitter.com/kvizdos">Twitter (@kvizdos)</a>
+            <a href="https://www.linkedin.com/in/kentonvizdos/s">LinkedIn (in/kentonvizdos)</a>
+            <a href="https://www.youtube.com/user/TheRealmOfTheGeek/">YouTube (TheRealmOfTheGeek)</a>
+        </div>
+    </div>
+    </body>
+
+    <script>
+        $(function() {
+            $('#aboutBtn').on('click', function() {
+                $('#projects').hide(150);
+                $('#about').show(150);
+                $('#hire').hide(150);
+
+            });
+
+            $('#projectsBtn').on('click', function() {
+                $('#projects').show(150);
+                $('#about').hide(150);
+                $('#hire').hide(150);
+
+            });
+
+            $('#freelanceBtn').on('click', function() {
+                $('#projects').hide(150);
+                $('#about').hide(150);
+                $('#hire').show(150);
+            });
+        });
+    </script>
+</html>
