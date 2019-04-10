@@ -12,6 +12,19 @@
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+.sectionHolder {
+    width: 75vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sectionContainer {
+    width: 100%;
+    font-size: 16pt;
+}
+
 #me h1 {
     font-size: 40px;
     margin-bottom: 0;
@@ -38,10 +51,6 @@
     cursor: pointer;
 }
 
-.row {
-    font-size: 16pt;
-}
-
 #projects {
     display: none;
 }
@@ -62,6 +71,15 @@
     font-size: 16pt;
 }
 
+.certContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
 .cert {
     width: 250px;
 }
@@ -70,7 +88,11 @@
 }
 .cert-title {
     font-size: 18pt;
-    
+    font-weight: bold;
+}
+
+.experienceItem {
+    width: 100%;
 }
 
 .footer {
@@ -82,4 +104,9 @@
     padding-left: 15px;
     font-size: 14pt;
     display: inline;
+}
+
+.aside {
+    font-size: 14pt;
+    color: #9a9a9a;
 }
