@@ -110,3 +110,19 @@
     font-size: 14pt;
     color: #9a9a9a;
 }
+
+.sectionHeader {
+    display: flex;
+}
+
+.sectionHeader i {
+    align-items: center;
+    margin: 8px;
+    cursor: pointer;
+    transition: 300ms;
+    transform-origin: center;
+}
+
+.experiencePiece {
+    display: none;
+}

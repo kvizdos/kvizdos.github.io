@@ -6,7 +6,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+
+        <script src="nav.js"></script>
+
         <title>Kenton Vizdos</title>
     </head>
     <body>
@@ -45,114 +49,117 @@
             </div>
         </div>
         <div id="projects" class="sectionContainer">
-            <h1 style="overflow: hidden;"><strong>Real World Experience</strong></h1>
-            <hr>
-            <div class="experienceItem">
-                <span class="cert-title">Intern Web Developer @ SingleStone's Reverb</span>
-                <br>
-                <span class="cert-desc">I was an intern doing front-end web development focusing on Reverb's website. For this, I used Angular 6 to modify, add, and simplify sections and features on their site.<br><span class="aside">Jul 2018 - Sep 2018 (3 mos)</span></span>    
+            <h1 class="sectionHeader" style="overflow: hidden;"><strong>Real World Experience</strong> <i class="fas fa-caret-right" onclick="show('RealWorldExperience', this)"></i></h1>
+            <div class="experiencePiece" id="realWorldExperience">
+                <div class="experienceItem">
+                    <span class="cert-title">Intern Web Developer @ SingleStone's Reverb</span>
+                    <br>
+                    <span class="cert-desc">I was an intern doing front-end web development focusing on Reverb's website. For this, I used Angular 6 to modify, add, and simplify sections and features on their site.<br><span class="aside">Jul 2018 - Sep 2018 (3 mos)</span></span>    
+                </div>
             </div>
-            <br>
+            <!-- <br> -->
 
-            <h1 style="overflow: hidden;"><strong>Volunteer Experience</strong></h1>
-            <hr>
-            <div class="experienceItem">
-                <span class="cert-title">ScrumRVA Organizer</span>
-                <br>
-                <span class="cert-desc">I help organize the ScrumRVA monthly meetups. This includes attending organizer meetings and doing work when needed as well as attending and helping at 99% of the meetups. <br><span class="aside">2017 - Current</span></span>    
-            </div>
-            
-            <hr>
-            <div class="experienceItem">
-                <span class="cert-title">MetaCTF Problem Writing</span> <span class="aside">and helping to organize Deep Run CTF powered by MetaCTF</span> 
-                <br>
-                <span class="cert-desc">I've wrote problems for MetaCTF's that have happend at Deep Run CTF. I'm also planning on writing some problems for their RVASec 2019 competition. Overall, I started really helping to plan the Deep Run CTF's in 2018 and have been loving every minute, from planning the design of the rooms to creating fun and interesting problems (I mainly write Web Exploitation problems)</span>    
-            </div>
-            
-            <hr>
-            <div class="experienceItem">
-                <span class="cert-title">CIT Council Network Administrator</span>
-                <br>
-                <span class="cert-desc">I helped in my school's Center by being on the council as a Network Administrator where I helped starting VMs, setting up machines, securing some networks, setting up competition systems, and more. <br><span class="aside">2018 - 2019 school year</span></span>    
-            </div>
-
-            <br>
-
-            <h1 style="overflow: hidden;"><strong>Mobile</strong></h1>
-            <hr>
-            
-            <div class="experienceItem">
-                <span class="cert-title">Yogapp</span>
-                <br>
-                <span class="cert-desc">"Yogapp" is my sophomore year's CIT Project, which is a 3 month team project to design, create, and finalize a project for a specified client in the span of three months. I was the lead developer for this app and completed all of the programming, if you would like to test it, please visit <a href="https://yogapp.kvizdos.com">yogapp.kvizdos.com</a> to download and test. The app was made in HTML/JS and is written completely object-oriented using ES6+ techniques and is useable by downloading the site as a Progressive Web App. If you would like to view the code, please visit <a href="https://yogapp-source.kvizdos.com">yogapp-source.kvizdos.com</a> to view the GitHub (and maybe follow!)</span>    
-            </div>
-
-            <hr>
-            
-            <div class="experienceItem">
-                <span class="cert-title">Lasers!</span>
-                <br>
-                <span class="cert-desc">The iconic web-based game called "Lasers!" (that I made) converted into an early stage android app. The app is made in Cordova and is my first app.<br><a href="http://getthe.lasersgame.com" target="_blank">Download</a></span>    
-            </div>
-            <br>
-
-            <h1 style="overflow: hidden;"><strong>Websites</strong></h1>
-            <hr>
-
-            <div class="experienceItem">
-                <span class="cert-title">URL Shortener</span>
-                <br>
-                <span class="cert-desc">I've created a custom Node-based URL shortening system that tracks clicks, refs while remaining easy to use and efficient. I created this system with the intention of it being fully customizable and able to support multiple users (mulitple users coming soon hopefully) through a config.js file as well as a front-end UI. It is completely open source and available <a href="https://github.com/kvizdos/URL-Shortener">here</a></span>    
-            </div>
-
-            <hr>
-
-            <div class="experienceItem">
-                <span class="cert-title">Bracketify</span>
-                <br>
-                <span class="cert-desc">Ever wanted to host a tournament? Don't want to pay outrageous fees to create a bracket for it? Well, Bracketify is here for you, being 100% free for life, with no limitations. <br><a href="https://bracketify.com" target="_blank">Visit</a></span>
-            </div>
-
-            <h1 style="overflow: hidden;"><strong>Extra Curricular</strong> <span class="aside">Hackathons, programming competitions, hacking competitions, etc</span></h1>
-            <hr>
-
-            <div class="experienceItem">
-                <span class="cert-title">SpiderHacks 2019 - "Best Financial Hack"</span>
-                <br>
-                <span class="cert-desc">My new high school team and I won the SpiderHacks 2019 "Best Financial Hack" (sponsored by Capital One) prize by creating a financial app called "Spend n' Save" that automatically places a percentage of money spent into savings after every purchase using Capital One's "Nessie" API. The code for this app is on my GitHub under "SpiderHacks2019"</span>
+            <h1 class="sectionHeader" style="overflow: hidden;"><strong>Volunteer Experience</strong> <i class="fas fa-caret-right" onclick="show('VolunteerExperience', this)"></i></h1>
+            <div class="experiencePiece" id="VolunteerExperience">
+                <div class="experienceItem">
+                    <span class="cert-title">ScrumRVA Organizer</span>
+                    <br>
+                    <span class="cert-desc">I help organize the ScrumRVA monthly meetups. This includes attending organizer meetings and doing work when needed as well as attending and helping at 99% of the meetups. <br><span class="aside">2017 - Current</span></span>    
+                </div>
                 
+                <hr>
+                <div class="experienceItem">
+                    <span class="cert-title">MetaCTF Problem Writing</span> <span class="aside">and helping to organize Deep Run CTF powered by MetaCTF</span> 
+                    <br>
+                    <span class="cert-desc">I've wrote problems for MetaCTF's that have happend at Deep Run CTF. I'm also planning on writing some problems for their RVASec 2019 competition. Overall, I started really helping to plan the Deep Run CTF's in 2018 and have been loving every minute, from planning the design of the rooms to creating fun and interesting problems (I mainly write Web Exploitation problems)</span>    
+                </div>
+                
+                <hr>
+                <div class="experienceItem">
+                    <span class="cert-title">CIT Council Network Administrator</span>
+                    <br>
+                    <span class="cert-desc">I helped in my school's Center by being on the council as a Network Administrator where I helped starting VMs, setting up machines, securing some networks, setting up competition systems, and more. <br><span class="aside">2018 - 2019 school year</span></span>    
+                </div>
+            </div>
+            <!-- <br> -->
+
+            <h1 class="sectionHeader" style="overflow: hidden;"><strong>Mobile</strong> <i class="fas fa-caret-right" onclick="show('Mobile', this)"></i></h1>
+            <div class="experiencePiece" id="Mobile">                
+                <div class="experienceItem">
+                    <span class="cert-title">Yogapp</span>
+                    <br>
+                    <span class="cert-desc">"Yogapp" is my sophomore year's CIT Project, which is a 3 month team project to design, create, and finalize a project for a specified client in the span of three months. I was the lead developer for this app and completed all of the programming, if you would like to test it, please visit <a href="https://yogapp.kvizdos.com">yogapp.kvizdos.com</a> to download and test. The app was made in HTML/JS and is written completely object-oriented using ES6+ techniques and is useable by downloading the site as a Progressive Web App. If you would like to view the code, please visit <a href="https://yogapp-source.kvizdos.com">yogapp-source.kvizdos.com</a> to view the GitHub (and maybe follow!)</span>    
+                </div>
+
+                <hr>
+                
+                <div class="experienceItem">
+                    <span class="cert-title">Lasers!</span>
+                    <br>
+                    <span class="cert-desc">The iconic web-based game called "Lasers!" (that I made) converted into an early stage android app. The app is made in Cordova and is my first app.<br><a href="http://getthe.lasersgame.com" target="_blank">Download</a></span>    
+                </div>
+            </div>
+            <!-- <br> -->
+
+            <h1 class="sectionHeader" style="overflow: hidden;"><strong>Websites</strong> <i class="fas fa-caret-right" onclick="show('Websites', this)"></i></h1>
+            <div class="experiencePiece" id="Websites">
+                <div class="experienceItem">
+                    <span class="cert-title">URL Shortener</span>
+                    <br>
+                    <span class="cert-desc">I've created a custom Node-based URL shortening system that tracks clicks, refs while remaining easy to use and efficient. I created this system with the intention of it being fully customizable and able to support multiple users (mulitple users coming soon hopefully) through a config.js file as well as a front-end UI. It is completely open source and available <a href="https://github.com/kvizdos/URL-Shortener">here</a></span>    
+                </div>
+
+                <hr>
+
+                <div class="experienceItem">
+                    <span class="cert-title">Bracketify</span>
+                    <br>
+                    <span class="cert-desc">Ever wanted to host a tournament? Don't want to pay outrageous fees to create a bracket for it? Well, Bracketify is here for you, being 100% free for life, with no limitations. <br><a href="https://bracketify.com" target="_blank">Visit</a></span>
+                </div>
             </div>
 
-            <hr>
+            <h1 class="sectionHeader" style="overflow: hidden;"><strong>Extra Curricular</strong><i class="fas fa-caret-right" onclick="show('Extracurricular', this)"></i></h1>
+            <div class="experiencePiece" id="Extracurricular">
+                <span class="aside">Hackathons, programming competitions, hacking competitions, etc</span> 
 
-            <div class="experienceItem">
-                <span class="cert-title">DRHS Programming Contest 2018 - 1st Place Winner</span>
-                <br>
-                <span class="cert-desc">My team and I placed 1st Place in Deep Run's yearly programming competition</span>
-            </div>
+                <div class="experienceItem">
+                    <span class="cert-title">SpiderHacks 2019 - "Best Financial Hack"</span>
+                    <br>
+                    <span class="cert-desc">My new high school team and I won the SpiderHacks 2019 "Best Financial Hack" (sponsored by Capital One) prize by creating a financial app called "Spend n' Save" that automatically places a percentage of money spent into savings after every purchase using Capital One's "Nessie" API. The code for this app is on my GitHub under "SpiderHacks2019"</span>
+                    
+                </div>
 
-            <hr>
+                <hr>
 
-            <div class="experienceItem">
-                <span class="cert-title">Cyber Patriots (2018-2019) - Platinum Semifinals - 4th in VA - 88th in the world</span>
-                <br>
-                <span class="cert-desc">Since I learned a lot the first year I did CP and continued researching over the summer (while creating amazing scripts), I was the lead Ubuntu person on our team that helped us get to 88th in the World. We aced Ubuntu in the first round and did very well in later rounds, but sadly didn't get top 12 to move onto finals.</span>
-            </div>
+                <div class="experienceItem">
+                    <span class="cert-title">DRHS Programming Contest 2018 - 1st Place Winner</span>
+                    <br>
+                    <span class="cert-desc">My team and I placed 1st Place in Deep Run's yearly programming competition</span>
+                </div>
 
-            <hr>
+                <hr>
 
-            <div class="experienceItem">
-                <span class="cert-title">SpiderHacks 2018 - 1st Place Winner</span>
-                <br>
-                <span class="cert-desc">My high school team and I won First Place at the 2018 SpiderHacks hackathon (hosted by the ACM @ University of Richmond) by creating an Ionic app that was made to reduce the possibility of online embarrassment in college.</span>
-            </div>
+                <div class="experienceItem">
+                    <span class="cert-title">Cyber Patriots (2018-2019) - Platinum Semifinals - 4th in VA - 88th in the world</span>
+                    <br>
+                    <span class="cert-desc">Since I learned a lot the first year I did CP and continued researching over the summer (while creating amazing scripts), I was the lead Ubuntu person on our team that helped us get to 88th in the World. We aced Ubuntu in the first round and did very well in later rounds, but sadly didn't get top 12 to move onto finals.</span>
+                </div>
 
-            <hr>
+                <hr>
 
-            <div class="experienceItem">
-                <span class="cert-title">Cyber Patriots (2017-2018) - Platinum Semifinals - Top 28% in the world</span>
-                <br>
-                <span class="cert-desc">As this was my first year on a Cyber Patriot team, I was mainly shadowing on Ubuntu and taking over when the main Ubuntu person had to help someone else. We managed to get 28$% overall in the world.</span>
+                <div class="experienceItem">
+                    <span class="cert-title">SpiderHacks 2018 - 1st Place Winner</span>
+                    <br>
+                    <span class="cert-desc">My high school team and I won First Place at the 2018 SpiderHacks hackathon (hosted by the ACM @ University of Richmond) by creating an Ionic app that was made to reduce the possibility of online embarrassment in college.</span>
+                </div>
+
+                <hr>
+
+                <div class="experienceItem">
+                    <span class="cert-title">Cyber Patriots (2017-2018) - Platinum Semifinals - Top 28% in the world</span>
+                    <br>
+                    <span class="cert-desc">As this was my first year on a Cyber Patriot team, I was mainly shadowing on Ubuntu and taking over when the main Ubuntu person had to help someone else. We managed to get 28$% overall in the world.</span>
+                </div>
             </div>
         </div>
 
