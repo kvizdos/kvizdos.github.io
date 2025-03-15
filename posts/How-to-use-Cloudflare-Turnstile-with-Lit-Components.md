@@ -1,6 +1,6 @@
 ---
 Date: 03/15/2025
-Summary: This will show up in the index.html & OG Descriptor
+Summary: Integrate Cloudflare Turnstile in LitJS via slots for seamless, secure bot protection in your apps.
 Author: Kenton Vizdos
 Tags: Guides
 ---

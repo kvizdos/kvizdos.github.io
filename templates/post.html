@@ -39,7 +39,7 @@
     </head>
     <body>
         <header class="full-center">
-            <a href="/index.html"
+            <a href="/"
                 ><img alt="selfie of Kenton" src="/assets/icon.webp"
             /></a>
             <div>
@@ -57,7 +57,7 @@
         <div class="mobile-hide"></div>
 
         <aside>
-            <a class="home mobile-hide" href="/index.html"><- All Posts</a>
+            <a class="home mobile-hide" href="/"><- All Posts</a>
             <p class="title">Table of Contents</p>
             {{ .ToC }}
 
@@ -67,7 +67,7 @@
 
             <div id="tags">
                 {{ range .Tags }}
-                <a href="/tags/{{ TagToURL . }}.html" class="tag">{{ . }}</a>
+                <a href="/tags/{{ TagToURL . }}" class="tag">{{ . }}</a>
                 {{ end }}
             </div>
         </aside>
