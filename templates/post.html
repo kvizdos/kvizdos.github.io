@@ -1,0 +1,84 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark.min.css"
+        />
+        <link rel="stylesheet" href="/assets/style.css" />
+        <link rel="stylesheet" href="/assets/post.css" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <script
+            defer
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"
+        ></script>
+        <script
+            defer
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/html.min.js"
+        ></script>
+        <script
+            defer
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"
+        ></script>
+
+        <meta property="og:title" content="{{.Title}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{.OGImageURL}}" />
+        <meta property="og:description" content="{{.Summary}}" />
+        <title>{{ .Title }} - Kenton Vizdos</title>
+    </head>
+    <body>
+        <header class="full-center">
+            <a href="/index.html"
+                ><img alt="selfie of Kenton" src="/assets/icon.webp"
+            /></a>
+            <div>
+                <h1>Kenton Vizdos</h1>
+                <p>i make cool things in go. this is my dev log.</p>
+                <div id="social">
+                    <a href="https://bsky.app/profile/kv.codes" class="bsky">
+                        <img alt="bluesky logo" src="/assets/bsky.svg" />
+                        <p>@kv.codes</p></a
+                    >
+                </div>
+            </div>
+        </header>
+        <h1 id="title" class="full-center">{{.Title}}</h1>
+        <div class="mobile-hide"></div>
+
+        <aside>
+            <a class="home mobile-hide" href="/index.html"><- All Posts</a>
+            <p class="title">Table of Contents</p>
+            {{ .ToC }}
+
+            <hr class="mobile-hide" />
+
+            <p class="title mobile-hide">Tags</p>
+
+            <div id="tags">
+                {{ range .Tags }}
+                <a href="/tags/{{ TagToURL . }}.html" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+        </aside>
+        <main>{{.Body}}</main>
+
+        <footer class="full-center">
+            <p>&copy; Kenton Vizdos</p>
+        </footer>
+    </body>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</html>

@@ -1,0 +1,56 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="/assets/style.css" />
+    </head>
+    <body>
+        <header class="full-center">
+            <a href="/index.html"
+                ><img alt="selfie of Kenton" src="/assets/icon.webp"
+            /></a>
+            <div>
+                <h1>Kenton Vizdos</h1>
+                <p>i make cool things in go. this is my dev log.</p>
+                <div id="social">
+                    <a href="https://bsky.app/profile/kv.codes" class="bsky">
+                        <img alt="bluesky logo" src="/assets/bsky.svg" />
+                        <p>@kv.codes</p></a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main class="full-center">
+            {{ range . }}
+            <article>
+                <a href="{{ .Slug }}" class="article">
+                    <p id="title">{{ .Title }}</p>
+                    <div>
+                        <p id="summary">{{ .Summary }}</p>
+                        <p id="meta">{{ .Date }} &bull; {{ .Author }}</p>
+                    </div>
+                </a>
+
+                <div id="tags">
+                    {{ range .Tags }}
+                    <a href="/tags/{{ TagToURL . }}.html" class="tag"
+                        >{{ . }}</a
+                    >
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </main>
+    </body>
+    <footer class="full-center">
+        <p>&copy; Kenton Vizdos</p>
+    </footer>
+</html>

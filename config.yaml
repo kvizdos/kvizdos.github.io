@@ -1,0 +1,4 @@
+InputDirectory: .
+OGImageConfig:
+  IconPath: "./og/icon.jpg"
+  FontPath: "./og/regular.ttf"
