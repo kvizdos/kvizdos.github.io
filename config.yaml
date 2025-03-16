@@ -2,3 +2,4 @@ InputDirectory: .
 OGImageConfig:
   IconPath: "./og/icon.jpg"
   FontPath: "./og/zed-sans-bold.ttf"
+  FontSize: 92
