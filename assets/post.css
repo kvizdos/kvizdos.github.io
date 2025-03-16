@@ -31,14 +31,31 @@ h6 {
     padding-top: 1rem;
 }
 
+h3 {
+    font-size: 1.35rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
 p,
 pre,
 ul {
     margin-bottom: 0.75rem;
 }
 
+ul > li > ul > li > ul {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
 main p {
     line-height: 1.5rem;
+}
+
+main li {
+    margin-bottom: 0.25rem;
 }
 
 pre code {
@@ -73,4 +90,8 @@ figure figcaption {
 
 main li {
     padding-left: 0.5rem;
+}
+
+strong {
+    font-weight: 500;
 }
