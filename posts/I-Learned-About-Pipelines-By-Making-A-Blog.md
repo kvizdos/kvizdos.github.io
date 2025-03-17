@@ -120,11 +120,11 @@ fmt.Println("Done!")
 
 Within this example code, the output would look like this:
 
-```
-Hello
-Go Routine 2
-Go Routine 1
-Done!
+```bash
+> Hello
+> Go Routine 2
+> Go Routine 1
+> Done!
 ```
 
 The beauty is in the FACT that "Done!" will **NEVER** be printed until both tasks are complete: something that is wonderful to guarantee in a concurrent system. These WaitGroups *can* also be nested, to where one `goroutine` can spin up another `goroutine`, wait till it's done, and then `.Done()` the original waitgroup.
@@ -145,8 +145,8 @@ That's around 65% of my 1s goal with OG creation, and about 2% of my goal time w
 
 I also streamlined deployment using a GitHub Action to build the blog repo and push it to GitHub Pages. One thing I love about Go is its package management: installing EasyBlog (the hyper-creative name I came up with) in a CI pipeline is as simple as:
 
-```sh
-go install github.com/kvizdos/easyblog
+```bash
+$ go install github.com/kvizdos/easyblog
 ```
 
 Then, running easyblog with `easyblog --config config.yaml` handles the blog build automatically.

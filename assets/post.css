@@ -58,6 +58,23 @@ main li {
     margin-bottom: 0.25rem;
 }
 
+pre {
+    overflow-x: scroll;
+    border-radius: 0.25rem;
+}
+
+pre code > span:first-of-type {
+    padding-top: 1rem;
+}
+
+pre code > span:last-of-type {
+    padding-bottom: 1rem;
+}
+
+pre code > span {
+    padding-left: 0.5rem;
+}
+
 pre code {
     border-radius: 0.5rem;
 }
