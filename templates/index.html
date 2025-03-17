@@ -17,6 +17,8 @@
             name="description"
             content="Blog by Kenton Vizdos related to all things programming."
         />
+        <link rel="prefetch" href="/assets/post.css" />
+        <link rel="prefetch" href="/assets/fonts/zed.woff2" />
     </head>
     <body>
         <header class="full-center">
@@ -67,4 +69,35 @@
     <footer class="full-center">
         <p>&copy; Kenton Vizdos</p>
     </footer>
+
+    <script>
+        document.addEventListener("mouseover", (event) => {
+            const link = event.target.closest("a");
+            if (link && link.dataset.prefetch !== "true") {
+                link.dataset.prefetch = "pending"; // Temporary state
+
+                const timeoutId = setTimeout(() => {
+                    if (link.dataset.prefetch === "pending") {
+                        // Ensure still pending
+                        const prefetch = document.createElement("link");
+                        prefetch.rel = "prefetch";
+                        prefetch.href = link.href;
+                        document.head.appendChild(prefetch);
+                        link.dataset.prefetch = "true"; // Mark as prefetched
+                    }
+                }, 200);
+
+                link.addEventListener(
+                    "mouseleave",
+                    () => {
+                        clearTimeout(timeoutId);
+                        if (link.dataset.prefetch === "pending") {
+                            delete link.dataset.prefetch; // Reset if not prefetched
+                        }
+                    },
+                    { once: true },
+                ); // Ensures the event only runs once
+            }
+        });
+    </script>
 </html>
