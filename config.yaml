@@ -1,5 +1,6 @@
 InputDirectory: .
 CodeStyle: "dracula"
+BaseURL: https://kv.codes
 OGImageConfig:
   IconPath: "./og/icon.jpg"
   FontPath: "./og/zed-sans-bold.ttf"
