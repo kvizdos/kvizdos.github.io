@@ -6,6 +6,7 @@ body main {
 @font-face {
     font-family: "Zed"; /*a name to be used later*/
     src: url("/assets/fonts/zed.ttf"); /*URL to font*/
+    font-display: optional;
 }
 
 @media (min-width: 1300px) {
