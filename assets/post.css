@@ -5,7 +5,7 @@ body main {
 
 @font-face {
     font-family: "Zed"; /*a name to be used later*/
-    src: url("/assets/fonts/zed.ttf"); /*URL to font*/
+    src: url("/assets/fonts/zed.woff2"); /*URL to font*/
     font-display: optional;
 }
 
