@@ -73,6 +73,7 @@ pre code > span:last-of-type {
 }
 
 pre code > span {
+    font-variant-numeric: tabular-nums;
     padding-left: 0.5rem;
 }
 
