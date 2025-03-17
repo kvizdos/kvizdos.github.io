@@ -2,8 +2,12 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <link rel="stylesheet" href="/assets/style.css" />
+        <link rel="stylesheet" href="/assets/post.css" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
         <link
             href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
             rel="stylesheet"
@@ -13,10 +17,11 @@
             rel="stylesheet"
             href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark.min.css"
         />
-        <link rel="stylesheet" href="/assets/style.css" />
-        <link rel="stylesheet" href="/assets/post.css" />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script
+            async
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+        ></script>
 
         <script
             defer
@@ -35,6 +40,7 @@
         <meta property="og:type" content="article" />
         <meta property="og:image" content="{{.OGImageURL}}" />
         <meta property="og:description" content="{{.Summary}}" />
+        <meta name="description" content="{{.Summary}}" />
         <title>{{ .Title }} - Kenton Vizdos</title>
     </head>
     <body>
@@ -69,7 +75,12 @@
 
             <div id="tags">
                 {{ range .Tags }}
-                <a href="/tags/{{ TagToURL . }}" class="tag">{{ . }}</a>
+                <a
+                    href="/tags/{{ TagToURL . }}"
+                    alt="Posts tagged with {{ . }}"
+                    class="tag"
+                    >{{ . }}</a
+                >
                 {{ end }}
             </div>
         </aside>

@@ -10,6 +10,12 @@
         />
 
         <link rel="stylesheet" href="/assets/style.css" />
+
+        <title>Kenton Vizdos Development Log</title>
+        <meta
+            name="description"
+            content="Blog by Kenton Vizdos related to all things programming."
+        />
     </head>
     <body>
         <header class="full-center">
@@ -45,7 +51,12 @@
 
                 <div id="tags">
                     {{ range .Tags }}
-                    <a href="/tags/{{ TagToURL . }}" class="tag">{{ . }}</a>
+                    <a
+                        href="/tags/{{ TagToURL . }}"
+                        alt="Posts tagged with {{ . }}"
+                        class="tag"
+                        >{{ . }}</a
+                    >
                     {{ end }}
                 </div>
             </article>
