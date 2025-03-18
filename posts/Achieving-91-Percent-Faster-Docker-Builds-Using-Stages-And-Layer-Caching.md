@@ -12,7 +12,7 @@ I use (what I thought were decent) Docker Multi-Stage builds to keep image sizes
 - **Layer Caching:** I was invalidating my cache way too often, making unnecessary rebuilds.
 - **Parallelization:** Docker automatically runs independent stages in parallel, but I wasn't structuring my builds to take advantage of it.
 
-Once I optimized both of these, my (`buildx`) build time **dropped from 540 seconds to just 45**, a 91% speedup!
+Once I optimized both of these, my (`buildx cross compilation`) build time **dropped from 540 seconds to just 45**, a 91% speedup!
 
 For context, this is what my Dockerfile looked like in the beginning:
 
