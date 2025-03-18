@@ -1,6 +1,6 @@
 ---
 Date: 03/16/2025
-Summary: I built a static blog generator using Go's concurrency model, leveraging pipelines for parallel processing. The result? 1,000 posts built in 25ms!
+Summary: I built a static blog generator using Go's concurrency model, leveraging pipelines for parallel processing. The result? 100 posts built in 25ms!
 Author: Kenton Vizdos
 Tags: Go, Concurrency, Thinking Out Loud
 ---
@@ -15,7 +15,7 @@ My constraints for this blog system were:
 
 - Posts need to be written in Markdown, converted to HTML.
 - Posts need an OG Image to be created automatically
-- It needs to be fast (less than 1 second for 1,000 posts)
+- It needs to be fast (less than 1 second for 100 posts)
 
 Thinking over these requirements, a Pipeline concept seemed like an ideal candidate, especially with my overarching goal of learning more concurrency patterns. This pattern makes it easy to add steps as needed while ensuring the system doesn't get overwhelmed by tracking 'maximum in progress' tasks.
 
@@ -139,7 +139,7 @@ Luckily for me, Go has deadlock detection built in (magically), which helped me 
 
 ## The Outcome
 
-By limiting concurrency to 5 using pooling, I was able to test out performance under realistic circumstances (e.g. CI runners). Without OG image creation, I can generate 1,000 blog posts in just 25ms. With OG image creation, that time increases to 630ms (63 microseconds per post); still well under one second. These numbers reflect a first-run scenario where each post and OG image are generated from scratch.
+By limiting concurrency to 5 using pooling, I was able to test out performance under realistic circumstances (e.g. CI runners). Without OG image creation, I can generate 100 blog posts in just 25ms. With OG image creation, that time increases to 630ms; still well under one second. These numbers reflect a first-run scenario where each post and OG image are generated from scratch.
 
 That's around 65% of my 1s goal with OG creation, and about 2% of my goal time without, so I am very happy in the results. However, I'm confident there is still room for growth.
 

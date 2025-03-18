@@ -31,7 +31,7 @@ runtime.systemstack()
 
 ## Why does this issue happen?
 
-This issue occurs because the image you imported using a `FROM` does not have the correct platform set. It's really weird that Docker doesn't do this for you, but the fix is easy.
+This issue occurs because the image you imported using a `FROM` does not have the correct platform set. Therefor, any dependencies that get installed will be installed under an incorrect architecture. It's really weird that Docker doesn't do this for you, but the fix is easy.
 
 ## Fixing fatal error: lfstack.push is simple.
 

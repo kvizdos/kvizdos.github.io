@@ -215,6 +215,10 @@ footer {
     padding-bottom: var(--padding);
 }
 
+footer p {
+    font-size: 0.85rem;
+}
+
 #tags {
     display: flex;
     gap: 0.5rem;
