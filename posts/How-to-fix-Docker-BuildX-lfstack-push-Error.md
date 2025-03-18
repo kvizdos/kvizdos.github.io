@@ -42,3 +42,5 @@ Full code example:
 ```dockerfile
 FROM --platform=$BUILDPLATFORM node:lts-alpine AS node-builder
 ```
+
+Note: You should set this on **every** Docker stage; not just a builder / dependency install stage.
