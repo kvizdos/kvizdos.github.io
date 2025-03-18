@@ -7,12 +7,12 @@ Tags: Docker, Thinking Out Loud
 
 ## The Problem
 
-I use (what I thought were decent) Docker Multi-Stage builds to keep image sizes down, but I still had a massive problem: **my (buildx) builds took 9 minutes!** What I didn't realize is that I wasn't entirely knowledgeable on 2 core Docker optimizations:
+I use (what I thought were decent) Docker Multi-Stage builds to keep image sizes down, but I still had a massive problem: **my (buildx cross compilation) builds took 9 minutes!** What I didn't realize is that I wasn't entirely knowledgeable on 2 core Docker optimizations:
 
 - **Layer Caching:** I was invalidating my cache way too often, making unnecessary rebuilds.
 - **Parallelization:** Docker automatically runs independent stages in parallel, but I wasn't structuring my builds to take advantage of it.
 
-Once I optimized both of these, my (`buildx cross compilation`) build time **dropped from 540 seconds to just 45**, a 91% speedup!
+Once I optimized both of these, my (buildx cross compilation) build time **dropped from 540 seconds to just 45**, a 91% speedup!
 
 For context, this is what my Dockerfile looked like in the beginning:
 
