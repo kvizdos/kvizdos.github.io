@@ -200,6 +200,13 @@ You will also see how I reiterated the learning of "only pull in necessary files
 ```dockerfile
 FROM --platform=$BUILDPLATFORM golang:1.24 AS build-env
 
+ARG BUILD_VERSION
+ARG BUILD_DATE
+ARG BUILD_COMMIT
+ARG BUILD_TAGS
+ARG GOARCH
+ARG GOOS
+
 WORKDIR /app
 
 COPY go.mod go.sum ./
