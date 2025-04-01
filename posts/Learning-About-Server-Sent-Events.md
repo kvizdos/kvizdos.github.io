@@ -1,6 +1,6 @@
 ---
 Date: 03/31/2025
-Summary: "I Cut Docker BuildX Times from 9 Minutes to 45 Seconds using better Layer Caching and Multi-Stage builds."
+Summary: "This post is a quick, hands-on intro to Server-Sent Events (SSE)—a lightweight way to push real-time updates from server to browser. It walks through sending events with Go, listening in JavaScript, handling custom events, and tweaking reconnection settings. If you want simple, one-way live updates without the overhead of WebSockets, SSE might be your new best friend."
 Author: Kenton Vizdos
 Tags: JavaScript, Go
 ---
