@@ -61,7 +61,7 @@ My blog uses the following data:
 {
     title: "{{.Title}}",
     text: "I just learned some cool things from kv.codes:",
-    url: "https://kv.codes/post/{{.OGName}}",
+    url: "https://kv.codes/post/{{.OGName}}?utm_medium=share",
 }
 ```
 

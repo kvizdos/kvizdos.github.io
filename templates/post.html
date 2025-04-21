@@ -174,7 +174,7 @@
             const shareData = {
                 title: "{{.Title}}",
                 text: "I just learned some cool things from kv.codes:",
-                url: "https://kv.codes/post/{{.OGName}}",
+                url: "https://kv.codes/post/{{.OGName}}?utm_medium=share",
             };
 
             const btn = document.querySelector("button");
@@ -203,7 +203,7 @@
                 // Fall Back
                 try {
                     await navigator.clipboard.writeText(
-                        `https://kv.codes/post/{{.OGName}}`,
+                        `https://kv.codes/post/{{.OGName}}?utm_medium=share`,
                     );
                     alert(
                         "I copied the link to your clipboard! Thanks for sharing.",
