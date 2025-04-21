@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="/assets/style.css" />
 
-        <title>Kenton Vizdos - Connect with Me</title>
+        <title>Kenton Vizdos</title>
 
         <meta
             property="og:title"
@@ -20,12 +20,15 @@
         />
         <meta property="og:image" content="/assets/about/og.png" />
         <meta property="og:image:secure_url" content="/assets/about/og.png" />
-        <meta property="og:description" content="links to connect with me." />
-        <meta name="description" content="links to connect with me." />
+        <meta
+            property="og:description"
+            content="tldr: I'm a software engineer."
+        />
+        <meta name="description" content="tldr: I'm a software engineer." />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <link rel="prefetch" href="/assets/post.css" />
+
         <link rel="prefetch" href="/assets/fonts/zed.woff2" />
 
         <script>
@@ -97,6 +100,62 @@
         </script>
 
         <style>
+            header {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 35svh;
+                background: radial-gradient(#e8e5da, transparent),
+                    url("/assets/map.png");
+                background-position: center;
+                background-size: cover;
+                grid-column: span 4 !important;
+                max-width: 100vw !important;
+                text-align: center;
+            }
+
+            header img {
+                height: 6rem;
+                aspect-ratio: 1/1;
+                border-radius: 100%;
+            }
+
+            h1,
+            h2 {
+                font-family: "Crimson Pro", sans-serif;
+                font-weight: 600;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            #content {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            section {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section h2 {
+                margin-bottom: 0.85rem;
+            }
+
+            #badges {
+                display: flex;
+                gap: 1rem;
+            }
+            #badges img {
+                max-width: 6rem;
+                aspect-ratio: 1/1;
+                width: 100%;
+            }
+
             .social {
                 display: flex;
                 flex-direction: row;
@@ -126,78 +185,110 @@
                 color: #57554f;
                 font-size: 0.85rem;
             }
-
-            #content {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
         </style>
     </head>
     <body>
         <header class="full-center">
-            <a href="/"
-                ><img alt="selfie of Kenton" src="/assets/icon.webp"
-            /></a>
+            <img src="/assets/icon.webp" />
             <div>
                 <h1>Kenton Vizdos</h1>
-                <p>
-                    i make cool stuff in Go · currently doing contract software
-                    development.
-                </p>
+                <p>Full Stack Engineer</p>
             </div>
         </header>
 
         <main class="full-center" id="content">
-            <a
-                href="https://www.linkedin.com/in/kentonvizdos/"
-                class="social"
-                id="linkedin"
-            >
-                <img src="/assets/linkedin.png" alt="LinkedIn logo" />
-                <div>
-                    <p id="title">LinkedIn</p>
-                    <p>Easiest way to connect with me is on here!</p>
+            <section>
+                <h2>About Me</h2>
+                <p>
+                    I'm Kenton Vizdos, a developer in Richmond, VA with a
+                    passion for creating full-stack applications with a focus on
+                    accessibility (a11y) and security. Whenever I have some free
+                    time, you can find me tinkering with new technologies and
+                    building solutions to real-world problems with Golang.
+                </p>
+                <p>
+                    I currently work as a contract software engineer building
+                    out internal tooling for K12 schools. From sending faxes
+                    with code (eesh) to automating workflows, I'm always looking
+                    for ways to improve efficiency and streamline processes.
+                </p>
+                <div id="badges">
+                    <img
+                        src="/assets/about/csd.png"
+                        alt="Certified Scrum Developer"
+                    />
+                    <img
+                        src="/assets/about/csm.png"
+                        alt="Certified Scrum Master"
+                    />
+                    <img
+                        src="/assets/about/cspo.png"
+                        alt="Certified Scrum Product Owner"
+                    />
                 </div>
-            </a>
-            <a class="social" href="https://bsky.app/profile/kv.codes/">
-                <img src="/assets/bsky.svg" />
-                <div>
-                    <p id="title">Bluesky</p>
-                    <p id="meta">@kv.codes</p>
-                </div>
-            </a>
-            <a href="https://github.com/kvizdos" class="social">
-                <img src="/assets/github.svg" />
-                <div>
-                    <p id="title">GitHub</p>
-                    <p id="meta">@kvizdos</p>
-                </div>
-            </a>
+            </section>
 
-            <p
-                style="
-                    font-family: &quot;Crimson Pro&quot;, sans-serif;
-                    font-weight: 600;
-                    font-size: 1.5rem;
-                    margin-top: 1rem;
-                "
-            >
-                Other helpful links:
-            </p>
+            <section>
+                <h2>My Skills</h2>
+                <p>
+                    I have experience with a variety of technologies, including
+                    HTML, CSS, JavaScript, TypeScript, Python, and Golang. I am
+                    also familiar with a variety of frameworks and libraries,
+                    including React, Angular, and Web Components (my current
+                    focus).
+                </p>
+            </section>
 
-            <a href="https://cal.com/kenton" class="social">
-                <div>
-                    <p id="title">Schedule some time to talk</p>
-                    <p id="meta">cal.com/kenton</p>
-                </div>
-            </a>
-            <a href="/" class="social">
-                <div>
-                    <p id="title">Read my Tech Blog</p>
-                    <p id="meta">kv.codes</p>
-                </div>
-            </a>
+            <section>
+                <h2>Learn more about me</h2>
+
+                <a href="/" class="social">
+                    <div>
+                        <p id="title">Read my Tech Blog</p>
+                        <p id="meta">
+                            I keep a log of what I learn. From small things like
+                            how to use a new tool or language feature, to more
+                            complex topics like building a full-stack
+                            application.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://cal.com/kenton" class="social">
+                    <div>
+                        <p id="title">Schedule some time to talk</p>
+                        <p id="meta">cal.com/kenton</p>
+                    </div>
+                </a>
+            </section>
+            <section>
+                <h2>Connect with me</h2>
+
+                <a
+                    href="https://www.linkedin.com/in/kentonvizdos/"
+                    class="social"
+                    id="linkedin"
+                >
+                    <img src="/assets/linkedin.png" alt="LinkedIn logo" />
+                    <div>
+                        <p id="title">LinkedIn</p>
+                        <p>Easiest way to connect with me is on here!</p>
+                    </div>
+                </a>
+                <a class="social" href="https://bsky.app/profile/kv.codes/">
+                    <img src="/assets/bsky.svg" />
+                    <div>
+                        <p id="title">Bluesky</p>
+                        <p id="meta">@kv.codes</p>
+                    </div>
+                </a>
+                <a href="https://github.com/kvizdos" class="social">
+                    <img src="/assets/github.svg" />
+                    <div>
+                        <p id="title">GitHub</p>
+                        <p id="meta">@kvizdos</p>
+                    </div>
+                </a>
+            </section>
         </main>
     </body>
 </html>
