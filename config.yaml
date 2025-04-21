@@ -5,3 +5,5 @@ OGImageConfig:
   IconPath: "./og/icon.jpg"
   FontPath: "./og/zed-sans-bold.ttf"
   FontSize: 90
+StaticConfig:
+  Path: "./static"
