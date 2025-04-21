@@ -57,6 +57,8 @@ main p {
 
 main li {
     margin-bottom: 0.25rem;
+    margin-left: 1rem;
+    padding-left: 0.5rem;
 }
 
 pre {
@@ -81,10 +83,14 @@ pre code {
     border-radius: 0.5rem;
 }
 
-code {
-    font-family: "Zed", monospace;
+pre code {
+    font-family: "Zed", monospace !important;
     background-color: #c7c3b3;
     text-wrap: nowrap;
+}
+
+code > * {
+    font-family: "Zed", monospace !important;
 }
 
 a {
@@ -106,10 +112,6 @@ figure figcaption {
     margin-top: 0.5rem;
     text-align: center;
     color: #595439;
-}
-
-main li {
-    padding-left: 0.5rem;
 }
 
 strong {
