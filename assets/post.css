@@ -115,3 +115,19 @@ main li {
 strong {
     font-weight: 500;
 }
+
+button#share {
+    background-color: #6d18f5;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+button#share:hover {
+    background-color: #5a16e5;
+}

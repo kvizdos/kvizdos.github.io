@@ -25,6 +25,74 @@
         <meta property="og:image:height" content="630" />
 
         <title>{{ .Title }} - Kenton Vizdos</title>
+
+        <script>
+            !(function (t, e) {
+                var o, n, p, r;
+                e.__SV ||
+                    ((window.posthog = e),
+                    (e._i = []),
+                    (e.init = function (i, s, a) {
+                        function g(t, e) {
+                            var o = e.split(".");
+                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                                (t[e] = function () {
+                                    t.push(
+                                        [e].concat(
+                                            Array.prototype.slice.call(
+                                                arguments,
+                                                0,
+                                            ),
+                                        ),
+                                    );
+                                });
+                        }
+                        ((p = t.createElement("script")).type =
+                            "text/javascript"),
+                            (p.crossOrigin = "anonymous"),
+                            (p.async = !0),
+                            (p.src =
+                                s.api_host.replace(
+                                    ".i.posthog.com",
+                                    "-assets.i.posthog.com",
+                                ) + "/static/array.js"),
+                            (r =
+                                t.getElementsByTagName(
+                                    "script",
+                                )[0]).parentNode.insertBefore(p, r);
+                        var u = e;
+                        for (
+                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                                u.people = u.people || [],
+                                u.toString = function (t) {
+                                    var e = "posthog";
+                                    return (
+                                        "posthog" !== a && (e += "." + a),
+                                        t || (e += " (stub)"),
+                                        e
+                                    );
+                                },
+                                u.people.toString = function () {
+                                    return u.toString(1) + ".people (stub)";
+                                },
+                                o =
+                                    "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(
+                                        " ",
+                                    ),
+                                n = 0;
+                            n < o.length;
+                            n++
+                        )
+                            g(u, o[n]);
+                        e._i.push([i, s, a]);
+                    }),
+                    (e.__SV = 1));
+            })(document, window.posthog || []);
+            posthog.init("phc_FR3wM2xMD5StKjesbDf0B0seeJQ8bY9UMdoL6YM7Vat", {
+                api_host: "https://us.i.posthog.com",
+                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+            });
+        </script>
     </head>
     <body>
         <header class="full-center">
@@ -66,11 +134,24 @@
                 >
                 {{ end }}
             </div>
+
+            <button id="share">Share this Post</button>
         </aside>
         <main>{{.Body}}</main>
 
         <footer class="full-center">
-            <p>
+            <div id="linkedin">
+                <img src="/assets/linkedin.png" alt="LinkedIn logo" />
+                <div>
+                    <p id="title">Let's Connect on LinkedIn</p>
+                    <p>
+                        I post what I'm learning as I go, follow along if you're
+                        into real-world technical deep dives.
+                    </p>
+                </div>
+            </div>
+
+            <p style="margin-top: 3rem">
                 &copy; {{.Date}} Kenton Vizdos. Unless otherwise noted, all blog
                 posts, photos, graphics, presentations, and other media are
                 published under a
@@ -87,5 +168,41 @@
                 >.
             </p>
         </footer>
+
+        <script>
+            const shareBtn = document.querySelector("#share");
+            const shareData = {
+                title: "{{.Title}}",
+                text: "I just learned some cool things from kv.codes:",
+                url: "https://kv.codes/post/{{.OGName}}",
+            };
+
+            const btn = document.querySelector("button");
+            const resultPara = document.querySelector(".result");
+
+            // Share must be triggered by "user activation"
+            shareBtn.addEventListener("click", async () => {
+                try {
+                    await navigator.share(shareData);
+                    posthog.capture("post_shared", {
+                        post_title: "{{.Title}}",
+                    });
+                } catch (err) {
+                    posthog.capture("post_share_cancelled", {
+                        post_title: "{{.Title}}",
+                    });
+                }
+            });
+
+            const linkedinBtn = document.querySelector("#linkedin");
+            linkedinBtn.addEventListener("click", async () => {
+                posthog.capture("social_click", {
+                    platform: "LinkedIn",
+                    from: "{{.Title}}",
+                });
+                window.location.href =
+                    "https://www.linkedin.com/in/kentonvizdos";
+            });
+        </script>
     </body>
 </html>
