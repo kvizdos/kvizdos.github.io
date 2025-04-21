@@ -180,17 +180,36 @@
             const btn = document.querySelector("button");
             const resultPara = document.querySelector(".result");
 
+            if (!navigator.share) {
+                shareBtn.innerText = "Copy Post Link";
+            }
+
             // Share must be triggered by "user activation"
             shareBtn.addEventListener("click", async () => {
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                        posthog.capture("post_shared", {
+                            post_title: "{{.Title}}",
+                        });
+                    } catch (err) {
+                        posthog.capture("post_share_cancelled", {
+                            post_title: "{{.Title}}",
+                        });
+                    }
+                    return;
+                }
+
+                // Fall Back
                 try {
-                    await navigator.share(shareData);
-                    posthog.capture("post_shared", {
-                        post_title: "{{.Title}}",
-                    });
+                    await navigator.clipboard.writeText(
+                        `https://kv.codes/post/{{.OGName}}`,
+                    );
+                    alert(
+                        "I copied the link to your clipboard! Thanks for sharing.",
+                    );
                 } catch (err) {
-                    posthog.capture("post_share_cancelled", {
-                        post_title: "{{.Title}}",
-                    });
+                    console.error("Failed to copy text: ", err);
                 }
             });
 

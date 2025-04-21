@@ -81,9 +81,6 @@ pre code > span {
 
 pre code {
     border-radius: 0.5rem;
-}
-
-pre code {
     font-family: "Zed", monospace !important;
     background-color: #c7c3b3;
     text-wrap: nowrap;
@@ -91,6 +88,10 @@ pre code {
 
 code > * {
     font-family: "Zed", monospace !important;
+}
+
+code {
+    background-color: #c7c3b3;
 }
 
 a {
