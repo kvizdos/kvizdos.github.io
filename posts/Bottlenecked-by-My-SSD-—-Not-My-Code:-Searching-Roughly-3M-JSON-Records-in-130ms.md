@@ -134,7 +134,7 @@ As a 10,000 foot overview, I wrote Jetson to be so fast by:
 
 #### Avoid Parsing JSON
 
-Most tools / methods (`jq`, `json.Unmarshal`, etc.) parse every field into memory, converting, in Go-speak, bytes into maps, strings, interfaces, etc. This adds CPU overhead, allocations, and garbage collection pressure. For Jetson, my end goal was: given a key, count all records that contain the requested value. This is then (in reality, unless trying to break) highly likely to succeed.
+Most tools / methods (`jq`, `json.Unmarshal`, etc.) parse every field into memory, converting, in Go-speak, bytes into maps, strings, interfaces, etc. This adds CPU overhead, allocations, and garbage collection pressure. For Jetson, my end goal was: given a key, count all records that contain the requested value. This is then (in reality, unless trying to break) highly likely to succeed using a bunch more "simple" approach.
 
 For each row, Jetson first finds the key's position using `bytes.IndexByte`. If `" + key + ":"` is found, it then moves on to finding the end index of the value using `bytes.IndexByte` again. Once the start and end indices are known, the value can be extracted and compared to the requested value.
 
