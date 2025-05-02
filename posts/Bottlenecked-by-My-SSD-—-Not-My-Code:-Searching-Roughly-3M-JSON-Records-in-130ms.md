@@ -121,12 +121,6 @@ The title said "Bottlenecked by My SSD — Not My Code" (oh, and that emdash.. m
 
 Now.. you might be wondering how Jetson achieved such blazing speed. The answer lies in its unique architecture and optimization techniques.
 
-- Explain the code, what it does well.
-- Explain the speed: 130ms for 2.7 M records (processing only, 0.9s for reading + processing), and getting ~5GB/s throughput
-- Insert a flame chart of the CPU usage being 90% indexbytebody (C code at its core, SIMD optimized)
-- Really go in depth about how that is so fucking cool
-- Insert a heap flame chart of memory usage showing *most* things are just runtime Go code that can't be optimized further.
-
 ## How'd Jetson Get So Fast?
 
 As a 10,000 foot overview, I wrote Jetson to be so fast by:
