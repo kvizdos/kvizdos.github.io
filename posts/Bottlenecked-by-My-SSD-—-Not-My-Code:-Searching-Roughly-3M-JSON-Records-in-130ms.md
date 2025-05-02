@@ -179,6 +179,8 @@ CPU Flame Graph showing `indexbytebody` being the only (real) "bottleneck"
 
 This Flame Graph, like the memory one, is a testament to Jetson's efficiency. The #1 clock-time is `indexbytebody`, which is expected given its role in searching JSON data, but, as mentioned before, this function is already optimized to the max via hand-written (thanks, Go team!) assembly code + SIMD.
 
+(to put the clock-time in perspective, that is ~480 nanoseconds per row)
+
 **Later on..** I want to start caching the positions of keys to allow for real-time CLI based searches. But for now, 1s total running time will be acceptable :)
 
 ![](/assets/blog/jetson-heap-pprof.webp)
