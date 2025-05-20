@@ -138,3 +138,21 @@ button#share {
 button#share:hover {
     background-color: #5a16e5;
 }
+
+blockquote {
+    border-left: 4px solid #595439;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+}
+
+blockquote code,
+blockquote strong,
+blockquote p {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-family: var(--header-font), serif;
+}
+
+blockquote strong {
+    font-weight: 700;
+}

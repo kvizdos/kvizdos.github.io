@@ -141,10 +141,10 @@
             </article>
 
             {{ if eq $i 1 }}
-            <div id="linkedin" style="margin-top: 1rem; margin-bottom: 1rem">
-                <img src="/assets/linkedin.png" alt="LinkedIn logo" />
+            <div id="bsky" style="margin-top: 1rem; margin-bottom: 1rem">
+                <img src="/assets/bsky.svg" alt="Bluesky logo" />
                 <div>
-                    <p id="title">Let's Connect on LinkedIn</p>
+                    <p id="title">Let's Connect on Bluesky</p>
                     <p>
                         I post what I'm learning as I go, follow along if you're
                         into real-world technical deep dives.
@@ -202,13 +202,13 @@
             }
         });
 
-        const linkedinBtn = document.querySelector("#linkedin");
+        const linkedinBtn = document.querySelector("#bsky");
         linkedinBtn.addEventListener("click", async () => {
             posthog.capture("social_click", {
-                platform: "LinkedIn",
+                platform: "Bluesky",
                 from: "Home Page",
             });
-            window.location.href = "https://www.linkedin.com/in/kentonvizdos";
+            window.location.href = "https://bsky.app/profile/kv.codes";
         });
     </script>
 </html>

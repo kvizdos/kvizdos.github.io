@@ -225,8 +225,8 @@ footer p {
     flex-wrap: wrap;
 }
 
-#linkedin {
-    background-color: #3966ad;
+#bsky {
+    background-color: #1185fe;
     color: #fff;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -235,27 +235,28 @@ footer p {
     align-items: center;
     transition: 200ms;
     cursor: pointer;
-    border: 1px solid #2f559a;
+    border: 1px solid #b5c8dd;
     filter: drop-shadow(0 0.15rem 0.75rem #9db7e0);
 }
 
-#linkedin:hover {
-    background-color: #2f559a;
+#bsky:hover {
+    background-color: #1567bd;
     transition: 200ms;
 }
 
-#linkedin * {
+#bsky * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-#linkedin img {
+#bsky img {
     aspect-ratio: 1.08 / 1;
+    filter: grayscale(1) brightness(10);
     height: 2.25rem;
 }
 
-#linkedin #title {
+#bsky #title {
     font-family: "Crimson Pro", serif;
     font-size: 1.35rem;
     font-weight: 600;
