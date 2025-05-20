@@ -198,11 +198,25 @@ main article {
     margin-bottom: 1rem;
 }
 
+article .header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+article .header p {
+    font-weight: 600;
+    color: #6c623b;
+    font-size: 0.85rem;
+}
+
 article p#title {
     font-family: var(--header-font), serif;
     font-size: 1.25rem;
     line-height: 1.5rem;
     font-weight: 500;
+    margin-bottom: 0.25rem;
 }
 
 article div p#meta {

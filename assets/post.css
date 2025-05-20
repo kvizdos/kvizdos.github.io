@@ -156,3 +156,67 @@ blockquote p {
 blockquote strong {
     font-weight: 700;
 }
+
+.danger blockquote {
+    border-left: 4px solid #b91818;
+}
+
+.callout blockquote p:first-of-type {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.callout.danger blockquote p:first-of-type {
+    color: #ac1b1b;
+    margin-bottom: 0;
+}
+
+.callout.danger blockquote p:not(:first-of-type) {
+    color: #791414;
+}
+
+.callout blockquote p:not(:first-of-type) {
+    font-size: 1.25rem;
+}
+
+#snippetFiles ul {
+    list-style: none;
+}
+
+#snippetFiles li {
+    margin: 0;
+    padding: 0;
+}
+
+#snippetFiles ul li ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#snippetFiles ul li ul li {
+    list-style: none;
+}
+#snippetFiles ul li ul li a {
+    background-color: #dbd7c5;
+    color: #29230e;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    transition: 200ms;
+}
+#snippetFiles ul li ul li a:hover {
+    transition: 200ms;
+    background-color: #b5af98;
+}
+
+#snippetFiles p {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+#snippetFiles {
+    margin-bottom: 2rem;
+}
