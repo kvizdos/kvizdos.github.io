@@ -29,7 +29,7 @@ Without debouncing, a network may look like:
 On the other hand, if the search was debounced and the user types quickly:
 - **User types: "test"**: `GET /api/search?q=test`
 
-Since the user typed "test" with less than 200ms between each keystroke, the debounce timer kept resetting. Only after typing stopped for 100ms did the final request fire, saving three unnecessary fetches.
+Since the user typed "test" with less than 200ms between each keystroke, the debounce timer kept resetting. Only after typing stopped for 200ms did the final request fire, saving three unnecessary fetches.
 
 Debounce comes in three distinct flavors, each tuned to when you want the callback to fire:
 
