@@ -16,7 +16,7 @@ I'm not officially IT, I'm a developer who works with schools, but I help out wh
 
 Just another day in a school environment where HR requests, encrypted PDFs, and cross-district emails are routine… and inboxes are far too trusted (though, not trusted in this case :D!).
 
-![](/assets/blog/phishing/email.png)
+![](/assets/blog/phishing/email.webp)
 Initial phishing email
 
 Nothing overtly wrong at first glance. The headers all validated. The email address matched the school's domain. The signature looked real. And even the password aligned with the school acronym.
@@ -62,7 +62,7 @@ $ pdftoppm decrypted.pdf output -png
 
 Yeah, this is definitely looking.. suspicious!
 
-![](/assets/blog/phishing/pdf.png)
+![](/assets/blog/phishing/pdf.webp)
 Screenshot of PDF asking us to click a link.
 
 "Your security is our priority."
@@ -73,7 +73,7 @@ But, where does that link go..?
 
 For this, we will use `pdfcpu` to extract the links from the PDF:
 
-![](/assets/blog/phishing/links.png)
+![](/assets/blog/phishing/links.webp)
 
 ```bash
 $ ./pdfcpu validate -vv decrypted.pdf 2>&1 | grep -Eo 'https?://[^ >")]+'
@@ -83,7 +83,7 @@ https://docsend.com/view/[REDACTED]
 
 For now, we will boot up ANY.RUN and examine the URL:
 
-![](/assets/blog/phishing/anyrun.png)
+![](/assets/blog/phishing/anyrun.webp)
 Screenshot of ANY.RUN; it is a phishing page.
 
 Yup. Microsoft phishing page.
