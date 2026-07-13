@@ -61,7 +61,7 @@
                         "@type": "ListItem",
                         "position": 2,
                         "name": "{{ index .Tags 0 }}",
-                        "item": "https://kv.codes/tags/{{ index .Tags 0 }}"
+                        "item": "https://kv.codes/tags/{{ TagToURL (index .Tags 0) }}"
                     },
                     {
                         "@type": "ListItem",
@@ -121,7 +121,7 @@
                     </li>
                     <li>
                         <a
-                            href="/tags/{{ index .Tags 0 }}"
+                            href="/tags/{{ TagToURL (index .Tags 0) }}"
                             class="hover:text-primary-700 p-category"
                         >
                             {{ index .Tags 0 }}
@@ -323,7 +323,7 @@
                 <p>Tagged with</p>
 
                 {{ range .Tags}}
-                <a href="/tags/{{.}}">#{{.}}</a>{{end }}
+                <a href="/tags/{{TagToURL .}}">#{{.}}</a>{{end }}
             </div>
             {{ if .Syndications }}
             <div class="mt-2! flex gap-2 text-sm items-center">
