@@ -2,8 +2,15 @@ InputDirectory: .
 CodeStyle: "dracula"
 BaseURL: https://kv.codes
 OGImageConfig:
-  IconPath: "./og/icon.jpg"
-  FontPath: "./og/zed-sans-bold.ttf"
+  FontPath: "./og/Literata-Bold.ttf"
   FontSize: 90
+
+  BgR: 255
+  BgG: 255
+  BgB: 255
+
+  TextR: 1
+  TextG: 1
+  TextB: 1
 StaticConfig:
   Path: "./static"

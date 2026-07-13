@@ -3,142 +3,239 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <link rel="icon" type="image/png" href="/assets/favicon.png" />
+        <link rel="stylesheet" href="/assets/style.css" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
             rel="stylesheet"
         />
 
-        <link rel="stylesheet" href="/assets/style.css" />
+        <link rel="prefetch" href="/assets/post.css" />
+        <link rel="prefetch" href="/assets/fonts/zed.woff2" />
 
-        <meta property="og:image" content="/assets/about/og.png" />
-        <meta property="og:image:secure_url" content="/assets/about/og.png" />
+        <title>{{ .Tag }} Posts - Kenton Vizdos</title>
+
+        <meta
+            name="description"
+            content="Articles and notes tagged with {{ .Tag }} on Kenton Vizdos's development log."
+        />
+
+        <meta property="og:title" content="{{ .Tag }} Posts - Kenton Vizdos" />
+        <meta
+            property="og:description"
+            content="Articles and notes tagged with {{ .Tag }}."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kv.codes/tags/{{ .Tag }}" />
+        <meta
+            property="og:image"
+            content="https://kv.codes/assets/about/og.png"
+        />
+        <meta
+            property="og:image:secure_url"
+            content="https://kv.codes/assets/about/og.png"
+        />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <title>{{ .Tag }} Posts - Kenton Vizdos</title>
 
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "CollectionPage",
+                        "@id": "https://kv.codes/tags/{{ .Tag }}#page",
+                        "url": "https://kv.codes/tags/{{ .Tag }}",
+                        "name": "{{ .Tag }} Posts - Kenton Vizdos",
+                        "description": "Articles and notes tagged with {{ .Tag }}.",
+                        "isPartOf": {
+                            "@id": "https://kv.codes/#website"
+                        },
+                        "author": {
+                            "@id": "https://kv.codes/#person"
                         }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_FR3wM2xMD5StKjesbDf0B0seeJQ8bY9UMdoL6YM7Vat", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://kv.codes/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "{{ .Tag }}"
+                            }
+                        ]
+                    }
+                ]
+            }
         </script>
     </head>
-    <body>
-        <header class="full-center">
-            <a href="/"
-                ><img alt="selfie of Kenton" src="/assets/icon.webp"
-            /></a>
-            <div>
-                <h1>Kenton Vizdos</h1>
-                <p>
-                    i make cool things in go. this is my dev log. note: it's not
-                    a technical masterpiece, I just like writing (sometimes
-                    poorly) about what I learn!
-                </p>
-                <div id="social">
-                    <a href="https://bsky.app/profile/kv.codes" class="bsky">
-                        <img alt="bluesky logo" src="/assets/bsky.svg" />
-                        <p>give me some feedback on bluesky: @kv.codes</p></a
+
+    <body class="bg-white">
+        <header
+            class="mt-8 sm:mt-12 contained mb-8 pb-8 border-b border-slate-100"
+        >
+            <div
+                class="mb-4 flex items-center gap-4 font-content text-xs text-slate-600"
+            >
+                <a href="/" aria-label="Kenton Vizdos homepage">
+                    <img
+                        src="/assets/icon.webp"
+                        alt="Kenton Vizdos"
+                        class="w-6 rounded-full"
+                    />
+                </a>
+
+                <div class="flex flex-1 items-center justify-between">
+                    <a href="/" class="hover:text-primary-700">
+                        Kenton Vizdos
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/kentonvizdos/"
+                        aria-label="Kenton Vizdos on LinkedIn"
+                        class="hover:text-primary-500"
                     >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 duration-200"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
+                            />
+                        </svg>
+                    </a>
                 </div>
             </div>
+
+            <nav
+                aria-label="Breadcrumb"
+                class="mt-2 font-content text-xs text-slate-500"
+            >
+                <ol class="flex min-w-0 items-center gap-2">
+                    <li>
+                        <a href="/" class="hover:text-primary-800">Home</a>
+                    </li>
+
+                    <li aria-hidden="true">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-4"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
+                            />
+                        </svg>
+                    </li>
+
+                    <li class="truncate text-primary-900" aria-current="page">
+                        {{ .Tag }}
+                    </li>
+                </ol>
+            </nav>
+
+            <h1
+                class="mt-4 font-header text-4xl font-bold leading-12 tracking-wide text-primary-900"
+            >
+                {{ .Tag }}
+            </h1>
+
+            <p class="mt-4 max-w-[65ch] font-content text-sm text-slate-700">
+                Posts, notes, and snippets tagged with
+                <strong class="font-semibold text-primary-900">
+                    {{ .Tag }} </strong
+                >.
+            </p>
         </header>
 
-        <h1 id="title" class="full-center">Posts tagged with {{.Tag}}</h1>
-        <div></div>
-        <main class="full-center">
-            {{ range .Posts }}
-            <a href="{{ .Slug }}" class="article">
-                <article>
-                    <p id="title">{{ .Title }}</p>
-                    <div>
-                        <p id="summary">{{ .Summary }}</p>
-                        <p id="meta">{{ .Date }} &bull; {{ .Author }}</p>
-                    </div>
-                </article>
-            </a>
+        <main class="contained flex flex-col gap-4">
+            {{ if .Posts }} {{ range $post := .Posts }}
+            <article class="group border-slate-200 py-1 pb-6 not-last:border-b">
+                <a
+                    href="{{ $post.Slug }}"
+                    class="block rounded-sm focus-visible:text-primary-600 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-primary-600"
+                >
+                    <h2
+                        class="mb-1 font-header text-xl font-semibold tracking-wide text-primary-900 duration-100 group-hover:text-primary-500"
+                    >
+                        {{ $post.Title }}
+                    </h2>
+
+                    <p class="font-content text-slate-800">
+                        {{ $post.Summary }}
+                    </p>
+
+                    <p class="mt-2 font-content text-xs text-slate-600">
+                        {{- range $i, $tag := $post.Tags -}} {{- if $i
+                        -}},&nbsp;{{- end -}} {{- $tag -}} {{- end -}} {{- if
+                        $post.Tags }} &bull; {{ end -}} Published on {{
+                        $post.Date }}
+                    </p>
+                </a>
+            </article>
+            {{ end }} {{ else }}
+            <div
+                class="rounded-lg border border-slate-200 bg-slate-50 px-6 py-8"
+            >
+                <h2 class="font-header text-xl font-semibold text-primary-900">
+                    No posts found.
+                </h2>
+
+                <p class="mt-2 font-content text-sm text-slate-700">
+                    There aren't any posts tagged with {{ .Tag }} yet.
+                </p>
+
+                <a
+                    href="/"
+                    class="mt-4 inline-block font-content text-sm font-semibold text-primary-700 hover:text-primary-500"
+                >
+                    Browse all posts →
+                </a>
+            </div>
             {{ end }}
         </main>
+
+        <footer class="contained my-12 border-t border-slate-200 pt-12">
+            <p class="font-content text-sm text-slate-600">
+                &copy; Kenton Vizdos. Unless otherwise noted, all blog posts,
+                photos, graphics, presentations, and other media are published
+                under a
+                <a
+                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
+                    class="text-primary-700 underline hover:text-primary-500"
+                >
+                    CC BY-NC-SA 4.0
+                </a>
+                license. Unless otherwise noted, all code snippets are available
+                under the
+                <a
+                    href="https://spdx.org/licenses/Unlicense.html"
+                    class="text-primary-700 underline hover:text-primary-500"
+                >
+                    Unlicense </a
+                >. This website is
+                <a
+                    href="https://github.com/kvizdos/kvizdos.github.io"
+                    class="text-primary-700 underline hover:text-primary-500"
+                >
+                    open source </a
+                >.
+            </p>
+        </footer>
     </body>
-    <footer class="full-center">
-        <p>
-            &copy; Kenton Vizdos. Unless otherwise noted, all blog posts,
-            photos, graphics, presentations, and other media are published under
-            a
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
-                >CC BY-NC-SA 4.0</a
-            >
-            license. Unless otherwise noted, all code snippets are available
-            under the
-            <a href="https://spdx.org/licenses/Unlicense.html">Unlicense</a>.
-            This website is
-            <a href="https://github.com/kvizdos/kvizdos.github.io"
-                >open source</a
-            >.
-        </p>
-    </footer>
 </html>

@@ -3,10 +3,13 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <link rel="icon" type="image/png" href="/assets/favicon.png" />
+
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
             rel="stylesheet"
         />
 
@@ -25,163 +28,149 @@
         <meta property="og:image:height" content="630" />
         <link rel="prefetch" href="/assets/post.css" />
         <link rel="prefetch" href="/assets/fonts/zed.woff2" />
-
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://kv.codes/#website",
+                        "url": "https://kv.codes/",
+                        "name": "Kenton Vizdos Development Log",
+                        "description": "A development log about programming, product design, UX, and things I've learned.",
+                        "publisher": {
+                            "@id": "https://kv.codes/#person"
                         }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_FR3wM2xMD5StKjesbDf0B0seeJQ8bY9UMdoL6YM7Vat", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
+                    },
+                    {
+                        "@type": "Person",
+                        "@id": "https://kv.codes/#person",
+                        "name": "Kenton Vizdos",
+                        "url": "https://kv.codes/about",
+                        "image": "https://kv.codes/assets/icon.webp",
+                        "sameAs": [
+                            "https://www.linkedin.com/in/kentonvizdos/",
+                            "https://github.com/kvizdos",
+                            "https://bsky.app/profile/kv.codes"
+                        ]
+                    }
+                ]
+            }
         </script>
     </head>
-    <body>
-        <header class="full-center">
-            <a href="/"
-                ><img alt="selfie of Kenton" src="/assets/icon.webp"
-            /></a>
-            <div>
-                <h1>Kenton Vizdos</h1>
-                <p>
-                    i make cool things in go. this is my dev log. note: it's not
-                    a technical masterpiece, I just like writing (sometimes
-                    poorly) about what I learn!
-                </p>
-                <div id="social">
-                    <a href="https://bsky.app/profile/kv.codes" class="bsky">
-                        <img alt="bluesky logo" src="/assets/bsky.svg" />
-                        <p>give me some feedback on bluesky: @kv.codes</p></a
-                    >
+    <body class="bg-white">
+        <header
+            class="mt-8 sm:mt-12 contained mb-8 pb-8 border-b border-slate-100"
+        >
+            <div
+                class="mb-4 flex text-slate-600 font-content text-xs items-center gap-4"
+            >
+                <img
+                    src="/assets/icon.webp"
+                    alt="Kenton Vizdos Headshot"
+                    class="w-6 rounded-full"
+                />
+                <div class="flex items-center justify-between flex-1">
+                    <p>Kenton Vizdos</p>
                 </div>
-            </div>
-        </header>
 
-        <main class="full-center">
-            {{ $total := len . }} {{ range $i, $post := . }}
-            <article>
-                <a href="{{ $post.Slug }}" class="article">
-                    {{ if contains $post.Tags "Snippets" }}
-                    <div class="header">
+                <div>
+                    <a href="https://github.com/kvizdos" rel="me" alt="GitHub">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            class="icon-code"
-                            width="18px"
+                            fill="currentColor"
+                            class="w-6 hover:text-primary-500 duration-200"
                         >
-                            <rect
-                                fill="#6c623b"
-                                width="18"
-                                height="18"
-                                x="3"
-                                y="3"
-                                rx="2"
-                            />
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path
-                                fill="#fcfbf7"
-                                d="M8.7 13.3a1 1 0 0 1-1.4 1.4l-2-2a1 1 0 0 1 0-1.4l2-2a1 1 0 1 1 1.4 1.4L7.42 12l1.3 1.3zm6.6 0l1.29-1.3-1.3-1.3a1 1 0 1 1 1.42-1.4l2 2a1 1 0 0 1 0 1.4l-2 2a1 1 0 0 1-1.42-1.4zm-3.32 3.9a1 1 0 0 1-1.96-.4l2-10a1 1 0 0 1 1.96.4l-2 10z"
+                                d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
                             />
                         </svg>
-
-                        <p>CODE SNIPPET</p>
-                    </div>
-                    {{end}}
-                    <p id="title">{{ $post.Title }}</p>
-                    <div>
-                        <p id="summary">{{ $post.Summary }}</p>
-                        <p id="meta">
-                            {{ $post.Date }} &bull; {{ $post.Author }}
-                        </p>
-                    </div>
-                </a>
-
-                {{ if not (contains .Tags "Snippets") }}
-                <div id="tags">
-                    {{ range $post.Tags }}
+                    </a>
                     <a
-                        href="/tags/{{ TagToURL . }}"
-                        alt="Posts tagged with {{ . }}"
-                        class="tag"
-                        >{{ . }}</a
+                        href="https://www.linkedin.com/in/kentonvizdos/"
+                        rel="me"
+                        alt="LinkedIn"
                     >
-                    {{ end }}
-                </div>
-                {{ end }}
-            </article>
-
-            {{ if eq $i 1 }}
-            <div id="bsky" style="margin-top: 1rem; margin-bottom: 1rem">
-                <img src="/assets/bsky.svg" alt="Bluesky logo" />
-                <div>
-                    <p id="title">Let's Connect on Bluesky</p>
-                    <p>
-                        I post what I'm learning as I go, follow along if you're
-                        into real-world technical deep dives.
-                    </p>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 hover:text-primary-500 duration-200"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
+                            />
+                        </svg>
+                    </a>
                 </div>
             </div>
-            {{ end }} {{ end }}
+
+            <nav
+                aria-label="Breadcrumb"
+                class="contained px-0! mt-2 text-xs font-content text-slate-500"
+            >
+                <ol class="flex items-center gap-2">
+                    <li>
+                        <a href="/" class="hover:text-primary-800">Home</a>
+                    </li>
+                </ol>
+            </nav>
+
+            <h1
+                class="mt-4 font-header text-4xl font-bold leading-12 tracking-wide text-primary-900"
+            >
+                Things I've Learned
+            </h1>
+            <p class="font-content text-slate-700 mt-4 text-sm">
+                this is my dev log. note: it's not a technical masterpiece, I
+                just like writing (sometimes poorly) about what I learn!
+            </p>
+        </header>
+
+        <main class="contained flex flex-col gap-4">
+            {{ $total := len . }} {{ range $i, $post := . }}
+            <article class="py-1 not-last:border-b border-slate-200 pb-6 group">
+                <a
+                    href="{{ $post.Slug }}"
+                    class="block rounded-sm focus-visible:outline-2 focus-visible:outline-primary-600 focus-visible:outline-offset-8 focus-visible:text-primary-600"
+                >
+                    <p
+                        class="group-hover:text-primary-500 duration-100 font-semibold text-xl font-header mb-1 tracking-wide flex items-center"
+                    >
+                        {{ if (contains .Tags "Snippets") }}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-4 mr-2 text-slate-600"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-1.553 11.106a1 1 0 0 0 -1.341 .447l-1 2a1 1 0 0 0 0 .894l1 2a1 1 0 0 0 1.341 .447l.102 -.058a1 1 0 0 0 .345 -1.283l-.776 -1.553l.776 -1.553a1 1 0 0 0 -.447 -1.341m4.447 .447a1 1 0 0 0 -1.341 -.447l-.102 .058a1 1 0 0 0 -.345 1.283l.774 1.553l-.775 1.553a1 1 0 0 0 1.788 .894l1 -2a1 1 0 0 0 0 -.894z"
+                            />
+                            <path d="M19 7h-4l-.001 -4.001z" />
+                        </svg>
+                        {{ end }} {{ $post.Title }}
+                    </p>
+
+                    <p class="text-slate-800 font-content">
+                        {{ $post.Summary }}
+                    </p>
+
+                    <p class="font-content text-xs text-slate-600 mt-2">
+                        {{- range $i, $tag := .Tags -}}{{- if $i -}},&nbsp;{{-
+                        end -}}{{- $tag -}}{{- end -}}{{ if .Tags }} &bull; {{
+                        end }} Published on {{ $post.Date }}
+                    </p>
+                </a>
+            </article>
+            {{ end }}
         </main>
     </body>
-    <footer class="full-center">
+    <footer class="contained text-content text-sm text-slate-600 my-12">
         <p>
             &copy; Kenton Vizdos. Unless otherwise noted, all blog posts,
             photos, graphics, presentations, and other media are published under
@@ -198,44 +187,4 @@
             >.
         </p>
     </footer>
-
-    <script>
-        document.addEventListener("mouseover", (event) => {
-            const link = event.target.closest("a");
-            if (link && link.dataset.prefetch !== "true") {
-                link.dataset.prefetch = "pending"; // Temporary state
-
-                const timeoutId = setTimeout(() => {
-                    if (link.dataset.prefetch === "pending") {
-                        // Ensure still pending
-                        const prefetch = document.createElement("link");
-                        prefetch.rel = "prefetch";
-                        prefetch.href = link.href;
-                        document.head.appendChild(prefetch);
-                        link.dataset.prefetch = "true"; // Mark as prefetched
-                    }
-                }, 200);
-
-                link.addEventListener(
-                    "mouseleave",
-                    () => {
-                        clearTimeout(timeoutId);
-                        if (link.dataset.prefetch === "pending") {
-                            delete link.dataset.prefetch; // Reset if not prefetched
-                        }
-                    },
-                    { once: true },
-                ); // Ensures the event only runs once
-            }
-        });
-
-        const linkedinBtn = document.querySelector("#bsky");
-        linkedinBtn.addEventListener("click", async () => {
-            posthog.capture("social_click", {
-                platform: "Bluesky",
-                from: "Home Page",
-            });
-            window.location.href = "https://bsky.app/profile/kv.codes";
-        });
-    </script>
 </html>

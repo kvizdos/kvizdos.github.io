@@ -3,6 +3,8 @@ Date: 03/18/2025
 Summary: "I Cut Docker BuildX Times from 9 Minutes to 45 Seconds using better Layer Caching and Multi-Stage builds."
 Author: Kenton Vizdos
 Tags: Docker, Thinking Out Loud
+#Syndications:
+#  Bluesky: https://bsky.app/profile/kv.codes
 ---
 
 ## The Problem

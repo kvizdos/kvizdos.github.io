@@ -94,3 +94,6 @@ clean-originals:
     echo "Removing any remaining PNG/JPEG files..."
     find . \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) -type f -delete
     echo "✅ Cleanup complete"
+
+tailwind:
+    npx @tailwindcss/cli -i ./input.css -o ./assets/style.css --watch

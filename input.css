@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+    --font-header: "Literata", serif;
+    --font-content: "IBM Plex Sans", sans-serif;
+    --font-zed: "Zed", monospace;
+
+    --color-primary-50: #f8f6f9;
+    --color-primary-100: #efebf3;
+    --color-primary-200: #dbd3e4;
+    --color-primary-300: #baadcc;
+    --color-primary-400: #9480b0;
+    --color-primary-500: #776097;
+    --color-primary-600: #624c7d;
+    --color-primary-700: #503e66;
+    --color-primary-800: #443656;
+    --color-primary-900: #3c3149;
+    --color-primary-950: #0a070d;
+
+    --color-go-50: #ebfdff;
+    --color-go-100: #cef8ff;
+    --color-go-200: #a2f0ff;
+    --color-go-300: #63e3fd;
+    --color-go-400: #1cccf4;
+    --color-go-500: #00add8;
+    --color-go-600: #038ab7;
+    --color-go-700: #0a6f94;
+    --color-go-800: #125a78;
+    --color-go-900: #144b65;
+    --color-go-950: #063046;
+}
+
+body {
+    @apply bg-white;
+}
+
+.contained {
+    @apply max-w-5xl mx-auto sm:px-8 px-6;
+}
+
+#post {
+    @apply font-content text-primary-800;
+}
+
+#post > * {
+    @apply my-2;
+}
+
+#post h2 {
+    @apply font-header text-xl font-semibold mb-5 text-primary-800;
+}
+
+#post h2:not(:first-of-type) {
+    @apply mt-14;
+}
+
+#post h3 {
+    @apply font-header text-lg font-semibold mb-2 mt-4 text-primary-800;
+}
+
+#post h4 {
+    @apply font-header font-semibold mb-2 mt-4 text-primary-800;
+}
+
+#post p {
+    @apply font-content tracking-wide leading-7 max-w-[80ch];
+}
+
+#post strong {
+    @apply font-medium text-primary-800;
+}
+
+#post ul {
+    @apply list-disc pl-8 max-w-[calc(80ch+4rem)];
+}
+
+#post ul li:first-of-type {
+    @apply mt-0;
+}
+
+#post ul li:not(:first-of-type) {
+    @apply mt-1;
+}
+
+#post pre {
+    @apply font-zed px-2 py-4 pr-8 rounded my-8 overflow-x-scroll text-sm w-full md:w-fit  md:min-w-[72ch] md:max-w-3xl;
+}
+
+#post pre code {
+    @apply rounded overflow-hidden;
+}
+
+#post a:not(.headerPermalink) {
+    @apply text-sky-600 underline;
+}
+
+#post p > code {
+    @apply font-zed bg-slate-50 text-slate-800 px-1 py-0.5 rounded;
+}
+
+#post figure {
+    @apply my-8;
+}
+#post figure img {
+    @apply mx-auto;
+}
+
+#post figure figcaption {
+    @apply text-xs text-slate-600 mt-2 text-center w-full flex-1;
+}
+
+#post figure figcaption p {
+    @apply max-w-[unset];
+}
+
+#post blockquote {
+    @apply border-l-4 border-primary-200 pl-4 py-1 my-4;
+}
+
+#post blockquote p {
+    @apply font-header;
+}

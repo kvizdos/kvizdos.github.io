@@ -2,15 +2,17 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
         <link rel="stylesheet" href="/assets/style.css" />
-        <link rel="stylesheet" href="/assets/post.css" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
             rel="stylesheet"
         />
 
@@ -26,239 +28,357 @@
 
         <title>{{ .Title }} - Kenton Vizdos</title>
 
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_FR3wM2xMD5StKjesbDf0B0seeJQ8bY9UMdoL6YM7Vat", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": "{{ .Title }}",
+                "image": ["{{ .OGImageURL }}"],
+                "datePublished": "{{ .Date }}",
+                "dateModified": "{{ .Date }}",
+                "author": [
+                    {
+                        "@type": "Person",
+                        "name": "{{ .Author }}",
+                        "url": "https://kv.codes/about"
+                    }
+                ]
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://kv.codes/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "{{ index .Tags 0 }}",
+                        "item": "https://kv.codes/tags/{{ index .Tags 0 }}"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "{{ .Title }}"
+                    }
+                ]
+            }
         </script>
     </head>
-    <body>
-        <header class="full-center">
-            <a href="/"
-                ><img alt="selfie of Kenton" src="/assets/icon.webp"
-            /></a>
-            <div>
-                <h1>Kenton Vizdos</h1>
-                <p>
-                    i make cool things in go. this is my dev log. note: it's not
-                    a technical masterpiece, I just like writing (sometimes
-                    poorly) about what I learn!
-                </p>
-                <div id="social">
-                    <a href="https://bsky.app/profile/kv.codes" class="bsky">
-                        <img alt="bluesky logo" src="/assets/bsky.svg" />
-                        <p>give me some feedback on bluesky: @kv.codes</p></a
+    <body class="h-entry">
+        <header
+            class="mt-8 sm:mt-12 contained mb-12 pb-12 border-b border-slate-100"
+        >
+            <div
+                class="mb-4 flex text-slate-600 font-content text-xs items-center gap-4"
+            >
+                <a href="/">
+                    <img
+                        src="/assets/icon.webp"
+                        alt="Kenton Vizdos Headshot"
+                        class="w-6 rounded-full u-photo"
+                    />
+                </a>
+                <div class="flex items-center justify-between flex-1">
+                    <a rel="author" href="/" class="h-card p-author"
+                        >Kenton Vizdos</a
                     >
+                    <p>
+                        Published on
+                        <span class="dt-published">{{ .Date }}</span>
+                    </p>
                 </div>
             </div>
-        </header>
-        <h1 id="title" class="full-center">{{.Title}}</h1>
-        <div class="mobile-hide"></div>
+            <nav
+                aria-label="Breadcrumb"
+                class="contained px-0! mt-2 text-xs font-content text-slate-500"
+            >
+                <ol class="flex items-center gap-2">
+                    <li>
+                        <a href="/" class="hover:text-primary-800">Home</a>
+                    </li>
 
-        <aside>
-            {{ if not (contains .Tags "Snippets") }}
-            <a class="home mobile-hide" href="/"><- All Posts</a>
-            <p class="title">Table of Contents</p>
-            {{ .ToC }}
-
-            <p class="title mobile-hide">Tags</p>
-
-            <div id="tags">
-                {{ range .Tags }}
-                <a
-                    href="/tags/{{ TagToURL . }}"
-                    alt="Posts tagged with {{ . }}"
-                    class="tag"
-                    >{{ . }}</a
-                >
-                {{ end }}
-            </div>
-
-            <button id="share">Share this Post</button>
-            {{end}}
-        </aside>
-        <main>
-            {{ if contains .Tags "Snippets" }}
-            <div class="danger callout">
-                <blockquote>
-                    <p id="title">
+                    {{ if gt (len .Tags) 0 }}
+                    <li>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            class="icon-bug"
-                            width="24px"
+                            fill="currentColor"
+                            class="h-4"
                         >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path
-                                fill="#ac1b1b"
-                                d="M3 9a1 1 0 1 1 2 0c0 1.1.9 2 2 2h1v2H7a4 4 0 0 1-4-4zm18 0a4 4 0 0 1-4 4h-1v-2h1a2 2 0 0 0 2-2 1 1 0 0 1 2 0zM4 21a4 4 0 0 1 4-4h1v2H8a2 2 0 0 0-2 2 1 1 0 0 1-2 0zm-1-7h4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm14 0h4a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2zm3 7a1 1 0 0 1-2 0 2 2 0 0 0-2-2h-1v-2h1a4 4 0 0 1 4 4zM8.27 3.67a5 5 0 0 1 7.46 0A2 2 0 0 1 14.23 7H9.77a2 2 0 0 1-1.49-3.33z"
-                            />
-                            <path
-                                fill="#ac1b1b"
-                                d="M13 19.58V13a1 1 0 0 0-2 0v6.58a1 1 0 0 1-1.4.92A6 6 0 0 1 6 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3a6 6 0 0 1-3.6 5.5 1 1 0 0 1-1.4-.92z"
+                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
                             />
                         </svg>
-                        This probably isn't production-ready code.
-                    </p>
-                    <p id="description">
-                        Unless otherwise specified below, this is just a snippet
-                        of some lightweight code. The following code is probably
-                        too small for a full repo.
-                    </p>
-                </blockquote>
-            </div>
+                    </li>
+                    <li>
+                        <a
+                            href="/tags/{{ index .Tags 0 }}"
+                            class="hover:text-primary-700 p-category"
+                        >
+                            {{ index .Tags 0 }}
+                        </a>
+                    </li>
+                    {{ end }}
 
-            <div id="snippetFiles">
-                <p>Jump to file</p>
+                    <li>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-4"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
+                            />
+                        </svg>
+                    </li>
+                    <li class="text-primary-900 truncate" aria-current="page">
+                        <a
+                            href="{{ .Slug }}"
+                            class="hover:text-primary-700 u-url"
+                        >
+                            {{ .Title }}
+                        </a>
+                    </li>
+                </ol>
+            </nav>
 
+            <h1
+                class="mt-4 max-w-[24ch] tracking-wide leading-14 font-header text-4xl font-bold text-primary-900 p-name"
+            >
+                {{.Title}}
+            </h1>
+            <p class="font-content text-slate-700 mt-4 text-sm max-w-[65ch]">
+                {{.Summary}}
+            </p>
+        </header>
+
+        <aside class="contained mb-8">
+            <p
+                class="flex items-center gap-2 font-header font-semibold text-primary-900"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                    <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                    <path d="M3 6l0 13" />
+                    <path d="M12 6l0 13" />
+                    <path d="M21 6l0 13" />
+                </svg>
+                {{ if not (contains .Tags "Snippets") }} Table of Contents {{
+                else }} Jump to File {{ end }}
+            </p>
+            <div
+                class="text-sm text-slate-600 *:*:*:*:not-first:mt-1 *:*:*:*:hover:text-primary-600 mt-2"
+            >
                 {{ .ToC }}
             </div>
-            {{end}} {{.Body}}
-        </main>
+        </aside>
 
-        <footer class="full-center">
-            <div id="bsky" style="margin-top: 1rem; margin-bottom: 1rem">
-                <img src="/assets/bsky.svg" alt="Bluesky logo" />
-                <div>
-                    <p id="title">Let's Connect on Bluesky</p>
-                    <p>
-                        I post what I'm learning as I go, follow along if you're
-                        into real-world technical deep dives.
-                    </p>
+        {{ if contains .Tags "Snippets" }}
+        <div class="bg-rose-50 py-4 mb-8">
+            <blockquote class="contained">
+                <p
+                    class="text-lg font-header flex gap-2 items-center font-bold text-rose-900"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        class="icon-bug"
+                        width="24px"
+                    >
+                        <path
+                            fill="#ac1b1b"
+                            d="M3 9a1 1 0 1 1 2 0c0 1.1.9 2 2 2h1v2H7a4 4 0 0 1-4-4zm18 0a4 4 0 0 1-4 4h-1v-2h1a2 2 0 0 0 2-2 1 1 0 0 1 2 0zM4 21a4 4 0 0 1 4-4h1v2H8a2 2 0 0 0-2 2 1 1 0 0 1-2 0zm-1-7h4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm14 0h4a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2zm3 7a1 1 0 0 1-2 0 2 2 0 0 0-2-2h-1v-2h1a4 4 0 0 1 4 4zM8.27 3.67a5 5 0 0 1 7.46 0A2 2 0 0 1 14.23 7H9.77a2 2 0 0 1-1.49-3.33z"
+                        />
+                        <path
+                            fill="#ac1b1b"
+                            d="M13 19.58V13a1 1 0 0 0-2 0v6.58a1 1 0 0 1-1.4.92A6 6 0 0 1 6 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3a6 6 0 0 1-3.6 5.5 1 1 0 0 1-1.4-.92z"
+                        />
+                    </svg>
+                    This probably isn't production-ready code.
+                </p>
+                <p class="font-content mt-2 text-rose-900">
+                    Unless otherwise specified below, this is just a snippet of
+                    some lightweight code. The following code is probably too
+                    small for a full repo.
+                </p>
+            </blockquote>
+        </div>
+        {{end}}
+
+        <main id="post" class="contained">
+            <div class="e-content">{{.Body}}</div>
+
+            {{ if .Syndications }}
+            <div class="mt-8! border-t border-slate-200 pt-8">
+                <p class="font-header! text-lg font-semibold">
+                    Replies & Comments
+                </p>
+
+                <p class="font-content mt-4 text-sm text-primary-700">
+                    If you spotted an error, disagree with something, or have a
+                    better approach, I'd genuinely love to hear it. Reply to
+                    this post on <a href="{{index .Syndications "Bluesky"}}">Bluesky</a>.
+                </p>
+
+                <div class="mt-4 flex flex-col gap-4">
+                    <div class="border-l border-slate-300 pl-2">
+                        <div class="flex gap-2 items-center">
+                            <img
+                                src="/assets/icon.webp"
+                                class="w-5 rounded-full"
+                            />
+
+                            <a
+                                href="#"
+                                class="font-semibold text-sm flex items-center gap-2 text-sky-600 underline"
+                            >
+                                Kenton Vizdos
+                            </a>
+
+                            <p class="text-xs text-slate-600">via Bluesky</p>
+                        </div>
+
+                        <p class="mt-1">This is a demo of a reply.</p>
+                    </div>
+
+                    <div class="border-l border-slate-300 pl-2">
+                        <div class="flex gap-2 items-center">
+                            <img
+                                src="/assets/icon.webp"
+                                class="w-5 rounded-full"
+                            />
+
+                            <div class="*:leading-normal!">
+                                <p
+                                    class="m-0! font-semibold text-sm flex items-center gap-2 hover:text-sky-600"
+                                >
+                                    Kenton Vizdos (via Bluesky)
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        class="w-4"
+                                    >
+                                        <path
+                                            stroke="none"
+                                            d="M0 0h24v24H0z"
+                                            fill="none"
+                                        />
+                                        <path
+                                            d="M12 5a1 1 0 0 1 0 2h-6a1 1 0 0 0 -1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1 -1v-6a1 1 0 0 1 2 0v6a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3zm3 -2h5l.075 .003l.126 .017l.111 .03l.111 .044l.098 .052l.096 .067l.09 .08q .054 .053 .097 .112l.071 .11l.054 .114l.035 .105l.03 .148l.006 .118v5a1 1 0 0 1 -2 0v-2.586l-7.293 7.293a1 1 0 0 1 -1.414 -1.414l7.291 -7.293h-2.584a1 1 0 0 1 0 -2"
+                                        />
+                                    </svg>
+                                </p>
+                                <p class="text-xs text-slate-700">8:15 AM</p>
+                            </div>
+                        </div>
+
+                        <p>This is a demo of a reply.</p>
+                    </div>
                 </div>
             </div>
+            {{end}}
 
-            <p style="margin-top: 3rem">
-                &copy; {{.Date}} Kenton Vizdos. Unless otherwise noted, all blog
-                posts, photos, graphics, presentations, and other media are
-                published under a
-                <a
-                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
-                    >CC BY-NC-SA 4.0</a
+            <div class="mt-8! flex gap-2 text-sm items-center">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 text-slate-600"
                 >
-                license. Unless otherwise noted, all code snippets are available
-                under the
-                <a href="https://spdx.org/licenses/Unlicense.html">Unlicense</a
-                >. This website is
-                <a href="https://github.com/kvizdos/kvizdos.github.io"
-                    >open source</a
-                >.
-            </p>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M3 8v4.172a2 2 0 0 0 .586 1.414l5.71 5.71a2.41 2.41 0 0 0 3.408 0l3.592 -3.592a2.41 2.41 0 0 0 0 -3.408l-5.71 -5.71a2 2 0 0 0 -1.414 -.586h-4.172a2 2 0 0 0 -2 2"
+                    />
+                    <path
+                        d="M18 19l1.592 -1.592a4.82 4.82 0 0 0 0 -6.816l-4.592 -4.592"
+                    />
+                    <path d="M7 10h-.01" />
+                </svg>
+                <p>Tagged with</p>
+
+                {{ range .Tags}}
+                <a href="/tags/{{.}}">#{{.}}</a>{{end }}
+            </div>
+            {{ if .Syndications }}
+            <div class="mt-2! flex gap-2 text-sm items-center">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="w-5 text-slate-600"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M15.707 8.293a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l6 -6a1 1 0 0 1 1.414 0"
+                    />
+                    <path
+                        d="M19.242 4.757c2.343 2.344 2.342 6.143 -.052 8.534l-.534 .464a1 1 0 1 1 -1.312 -1.51l.483 -.416a4 4 0 0 0 0 -5.657c-1.562 -1.563 -4.095 -1.563 -5.607 -.054l-.463 .536a1 1 0 1 1 -1.514 -1.308l.513 -.59a6 6 0 0 1 8.486 .001"
+                    />
+                    <path
+                        d="M6.75 10.338a1 1 0 0 1 -.088 1.411l-.483 .425a3.97 3.97 0 0 0 0 5.649a4.064 4.064 0 0 0 5.678 .038l.34 -.458a1 1 0 1 1 1.606 1.194l-.397 .534l-.1 .114a6.07 6.07 0 0 1 -8.533 0a5.97 5.97 0 0 1 -1.773 -4.247c0 -1.595 .638 -3.124 1.814 -4.284l.524 -.463a1 1 0 0 1 1.411 .087"
+                    />
+                </svg>
+                <p>Syndicated to</p>
+                {{ range $provider, $url := .Syndications }}
+                <a href="{{$url}}" rel="syndication" class="u-syndication"
+                    >{{$provider}}</a
+                >
+                {{ end }}
+            </div>
+            {{ end }}
+        </main>
+
+        <footer class="contained mt-12 mb-12 pt-12 border-t border-slate-200">
+            <h2 class="font-header text-primary-900 font-semibold text-xl">
+                Thanks for reading.
+            </h2>
+
+            <div class="mt-4 flex gap-2 text-slate-600 text-sm items-center">
+                <a
+                    href="https://www.linkedin.com/in/kentonvizdos/"
+                    class="inline-flex items-center gap-2 text-sky-700"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="w-6 hover:text-sky-600 duration-200"
+                    >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
+                        />
+                    </svg>
+                </a>
+                <p>&bull;</p>
+                <a href="/">Continue reading some of my other posts</a>
+            </div>
         </footer>
-
-        <script>
-            const shareBtn = document.querySelector("#share");
-            const shareData = {
-                title: "{{.Title}}",
-                text: "I just learned some cool things from kv.codes:",
-                url: "https://kv.codes/post/{{.OGName}}?utm_medium=share",
-            };
-
-            const btn = document.querySelector("button");
-            const resultPara = document.querySelector(".result");
-
-            if (!navigator.share) {
-                shareBtn.innerText = "Copy Post Link";
-            }
-
-            // Share must be triggered by "user activation"
-            shareBtn.addEventListener("click", async () => {
-                if (navigator.share) {
-                    try {
-                        await navigator.share(shareData);
-                        posthog.capture("post_shared", {
-                            post_title: "{{.Title}}",
-                        });
-                    } catch (err) {
-                        posthog.capture("post_share_cancelled", {
-                            post_title: "{{.Title}}",
-                        });
-                    }
-                    return;
-                }
-
-                // Fall Back
-                try {
-                    await navigator.clipboard.writeText(
-                        `https://kv.codes/post/{{.OGName}}?utm_medium=share`,
-                    );
-                    alert(
-                        "I copied the link to your clipboard! Thanks for sharing.",
-                    );
-                } catch (err) {
-                    console.error("Failed to copy text: ", err);
-                }
-            });
-
-            const linkedinBtn = document.querySelector("#bsky");
-            linkedinBtn.addEventListener("click", async () => {
-                posthog.capture("social_click", {
-                    platform: "Bluesky",
-                    from: "Home Page",
-                });
-                window.location.href = "https://bsky.app/profile/kv.codes";
-            });
-        </script>
     </body>
 </html>

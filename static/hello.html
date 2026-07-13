@@ -3,201 +3,384 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <link rel="icon" type="image/png" href="/assets/favicon.png" />
+        <link rel="stylesheet" href="/assets/style.css" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
             rel="stylesheet"
         />
 
-        <link rel="stylesheet" href="/assets/style.css" />
+        <link rel="prefetch" href="/assets/fonts/zed.woff2" />
 
-        <title>Kenton Vizdos - Connect with Me</title>
+        <title>Connect with Kenton Vizdos</title>
 
         <meta
-            property="og:title"
-            content="Kenton Vizdos - Software Dev in Richmond, VA"
+            name="description"
+            content="Connect with Kenton Vizdos on LinkedIn, Bluesky, GitHub, or schedule a conversation."
         />
-        <meta property="og:image" content="/assets/about/og.png" />
-        <meta property="og:image:secure_url" content="/assets/about/og.png" />
-        <meta property="og:description" content="links to connect with me." />
-        <meta name="description" content="links to connect with me." />
+        <meta property="og:title" content="Connect with Kenton Vizdos" />
+        <meta
+            property="og:description"
+            content="Links to Kenton Vizdos on LinkedIn, Bluesky, GitHub, and more."
+        />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://kv.codes/hello" />
+        <meta
+            property="og:image"
+            content="https://kv.codes/assets/about/og.png"
+        />
+        <meta
+            property="og:image:secure_url"
+            content="https://kv.codes/assets/about/og.png"
+        />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <link rel="prefetch" href="/assets/post.css" />
-        <link rel="prefetch" href="/assets/fonts/zed.woff2" />
 
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "ProfilePage",
+                        "@id": "https://kv.codes/hello#page",
+                        "url": "https://kv.codes/hello",
+                        "name": "Connect with Kenton Vizdos",
+                        "mainEntity": {
+                            "@id": "https://kv.codes/#person"
+                        },
+                        "isPartOf": {
+                            "@id": "https://kv.codes/#website"
                         }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_FR3wM2xMD5StKjesbDf0B0seeJQ8bY9UMdoL6YM7Vat", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
+                    },
+                    {
+                        "@type": "Person",
+                        "@id": "https://kv.codes/#person",
+                        "name": "Kenton Vizdos",
+                        "url": "https://kv.codes/about",
+                        "image": "https://kv.codes/assets/icon.webp",
+                        "jobTitle": "Software Engineer",
+                        "sameAs": [
+                            "https://www.linkedin.com/in/kentonvizdos/",
+                            "https://github.com/kvizdos",
+                            "https://bsky.app/profile/kv.codes"
+                        ]
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://kv.codes/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Hello"
+                            }
+                        ]
+                    }
+                ]
+            }
         </script>
-
-        <style>
-            .social {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 1rem;
-                color: black;
-                text-decoration: none;
-                background-color: #fcfbf7;
-                padding: 1rem;
-                border-radius: 0.5rem;
-                color: #0f0d04;
-                transition: 200ms;
-            }
-            .social img {
-                aspect-ratio: var(--aspect-ratio, 1 / 1);
-                height: 2.25rem;
-            }
-
-            .social #title {
-                font-family: "Crimson Pro", sans-serif;
-                font-weight: 600;
-                font-size: 1.25rem;
-            }
-
-            .social #meta {
-                margin-top: 0.25rem;
-                color: #57554f;
-                font-size: 0.85rem;
-            }
-
-            #content {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-        </style>
     </head>
-    <body>
-        <header class="full-center">
-            <a href="/"
-                ><img alt="selfie of Kenton" src="/assets/icon.webp"
-            /></a>
-            <div>
-                <h1>Kenton Vizdos</h1>
-                <p>
-                    i make cool stuff in Go · currently doing contract software
-                    development.
-                </p>
+
+    <body class="bg-white">
+        <header
+            class="mt-8 sm:mt-12 contained mb-10 pb-10 border-b border-slate-100"
+        >
+            <div
+                class="mb-4 flex items-center gap-4 font-content text-xs text-slate-600"
+            >
+                <a href="/" aria-label="Kenton Vizdos homepage">
+                    <img
+                        src="/assets/icon.webp"
+                        alt="Kenton Vizdos"
+                        class="w-6 rounded-full"
+                    />
+                </a>
+
+                <div class="flex flex-1 items-center justify-between">
+                    <a href="/" class="hover:text-primary-700">
+                        Kenton Vizdos
+                    </a>
+
+                    <a href="/about" class="hover:text-primary-700"> About </a>
+                </div>
+            </div>
+
+            <nav
+                aria-label="Breadcrumb"
+                class="mt-2 font-content text-xs text-slate-500"
+            >
+                <ol class="flex items-center gap-2">
+                    <li>
+                        <a href="/" class="hover:text-primary-800">Home</a>
+                    </li>
+
+                    <li aria-hidden="true">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-4"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
+                            />
+                        </svg>
+                    </li>
+
+                    <li class="text-primary-900" aria-current="page">Hello</li>
+                </ol>
+            </nav>
+
+            <div class="mt-6 flex items-center gap-6">
+                <img
+                    src="/assets/icon.webp"
+                    alt="Portrait of Kenton Vizdos"
+                    class="h-20 w-20 shrink-0 rounded-full object-cover ring-1 ring-slate-200"
+                />
+
+                <div>
+                    <h1
+                        class="font-header text-4xl font-bold leading-tight tracking-wide text-primary-900"
+                    >
+                        Hello, I'm Kenton.
+                    </h1>
+
+                    <p
+                        class="mt-2 max-w-[55ch] font-content text-sm leading-6 text-slate-700"
+                    >
+                        I build software with Go, work on tools for education,
+                        and write about what I learn along the way.
+                    </p>
+                </div>
             </div>
         </header>
 
-        <main class="full-center" id="content">
-            <a
-                href="https://www.linkedin.com/in/kentonvizdos/"
-                class="social"
-                id="linkedin"
-            >
-                <img src="/assets/linkedin.png" alt="LinkedIn logo" />
-                <div>
-                    <p id="title">LinkedIn</p>
-                    <p>Easiest way to connect with me is on here!</p>
-                </div>
-            </a>
-            <a class="social" href="https://bsky.app/profile/kv.codes/">
-                <img src="/assets/bsky.svg" />
-                <div>
-                    <p id="title">Bluesky</p>
-                    <p id="meta">@kv.codes</p>
-                </div>
-            </a>
-            <a href="https://github.com/kvizdos" class="social">
-                <img src="/assets/github.svg" />
-                <div>
-                    <p id="title">GitHub</p>
-                    <p id="meta">@kvizdos</p>
-                </div>
-            </a>
+        <main class="contained">
+            <div class="max-w-[44rem] space-y-10">
+                <section>
+                    <h2
+                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
+                    >
+                        Connect with me
+                    </h2>
 
-            <p
-                style="
-                    font-family: &quot;Crimson Pro&quot;, sans-serif;
-                    font-weight: 600;
-                    font-size: 1.5rem;
-                    margin-top: 1rem;
-                "
-            >
-                Other helpful links:
-            </p>
+                    <div class="mt-5 space-y-3">
+                        <a
+                            href="https://www.linkedin.com/in/kentonvizdos/"
+                            class="group flex items-center gap-4 rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        >
+                            <img
+                                src="/assets/linkedin.png"
+                                alt=""
+                                class="h-8 w-8 shrink-0 object-contain"
+                            />
 
-            <a href="https://cal.com/kenton" class="social">
-                <div>
-                    <p id="title">Schedule some time to talk</p>
-                    <p id="meta">cal.com/kenton</p>
-                </div>
-            </a>
-            <a href="/" class="social">
-                <div>
-                    <p id="title">Read my Tech Blog</p>
-                    <p id="meta">kv.codes</p>
-                </div>
-            </a>
+                            <div class="min-w-0 flex-1">
+                                <p
+                                    class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
+                                >
+                                    LinkedIn
+                                </p>
+                                <p
+                                    class="mt-1 font-content text-sm text-slate-600"
+                                >
+                                    The easiest place to connect with me.
+                                </p>
+                            </div>
+
+                            <span
+                                aria-hidden="true"
+                                class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                            >
+                                →
+                            </span>
+                        </a>
+
+                        <a
+                            href="https://bsky.app/profile/kv.codes"
+                            class="group flex items-center gap-4 rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        >
+                            <img
+                                src="/assets/bsky.svg"
+                                alt=""
+                                class="h-8 w-8 shrink-0 object-contain"
+                            />
+
+                            <div class="min-w-0 flex-1">
+                                <p
+                                    class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
+                                >
+                                    Bluesky
+                                </p>
+                                <p
+                                    class="mt-1 font-content text-sm text-slate-600"
+                                >
+                                    @kv.codes
+                                </p>
+                            </div>
+
+                            <span
+                                aria-hidden="true"
+                                class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                            >
+                                →
+                            </span>
+                        </a>
+
+                        <a
+                            href="https://github.com/kvizdos"
+                            class="group flex items-center gap-4 rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        >
+                            <img
+                                src="/assets/github.svg"
+                                alt=""
+                                class="h-8 w-8 shrink-0 object-contain"
+                            />
+
+                            <div class="min-w-0 flex-1">
+                                <p
+                                    class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
+                                >
+                                    GitHub
+                                </p>
+                                <p
+                                    class="mt-1 font-content text-sm text-slate-600"
+                                >
+                                    @kvizdos
+                                </p>
+                            </div>
+
+                            <span
+                                aria-hidden="true"
+                                class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                            >
+                                →
+                            </span>
+                        </a>
+                    </div>
+                </section>
+
+                <section>
+                    <h2
+                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
+                    >
+                        Other links
+                    </h2>
+
+                    <div class="mt-5 space-y-3">
+                        <a
+                            href="https://cal.com/kenton"
+                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        >
+                            <div
+                                class="flex items-center justify-between gap-4"
+                            >
+                                <div>
+                                    <p
+                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
+                                    >
+                                        Schedule some time to talk
+                                    </p>
+                                    <p
+                                        class="mt-1 font-content text-sm text-slate-600"
+                                    >
+                                        cal.com/kenton
+                                    </p>
+                                </div>
+
+                                <span
+                                    aria-hidden="true"
+                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                                >
+                                    →
+                                </span>
+                            </div>
+                        </a>
+
+                        <a
+                            href="/"
+                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        >
+                            <div
+                                class="flex items-center justify-between gap-4"
+                            >
+                                <div>
+                                    <p
+                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
+                                    >
+                                        Read my development log
+                                    </p>
+                                    <p
+                                        class="mt-1 font-content text-sm text-slate-600"
+                                    >
+                                        Go, backend systems, product design,
+                                        security, and things I've learned.
+                                    </p>
+                                </div>
+
+                                <span
+                                    aria-hidden="true"
+                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                                >
+                                    →
+                                </span>
+                            </div>
+                        </a>
+
+                        <a
+                            href="/about"
+                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        >
+                            <div
+                                class="flex items-center justify-between gap-4"
+                            >
+                                <div>
+                                    <p
+                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
+                                    >
+                                        More about me
+                                    </p>
+                                    <p
+                                        class="mt-1 font-content text-sm text-slate-600"
+                                    >
+                                        My background, work, interests, and
+                                        certifications.
+                                    </p>
+                                </div>
+
+                                <span
+                                    aria-hidden="true"
+                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                                >
+                                    →
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
         </main>
+
+        <footer class="contained my-12 border-t border-slate-200 pt-12">
+            <p class="font-content text-sm text-slate-600">
+                &copy; Kenton Vizdos. This website is
+                <a
+                    href="https://github.com/kvizdos/kvizdos.github.io"
+                    class="text-primary-700 underline hover:text-primary-500"
+                >
+                    open source </a
+                >.
+            </p>
+        </footer>
     </body>
 </html>
