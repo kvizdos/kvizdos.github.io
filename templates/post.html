@@ -83,7 +83,10 @@
             <p class="font-content text-slate-700 mt-4 text-sm max-w-[65ch]">
                 {{.Summary}}
             </p>
-            <p class="mt-4 font-content text-xs text-slate-500">
+            <p
+                class="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 font-content text-xs text-slate-500"
+            >
+                <span>
                 <time
                     class="dt-published"
                     datetime="{{ isoDate .PublishedAt }}"
@@ -96,279 +99,242 @@
                     datetime="{{ isoDate .UpdatedAt }}"
                     >{{ formatDate "Jan 2, 2006" .UpdatedAt }}</time
                 >{{ end }}
+                </span>
+                {{ if .Tags }}<span
+                    aria-hidden="true"
+                    class="hidden text-slate-300 sm:inline"
+                    >&middot;</span
+                >
+                <span class="basis-full sm:basis-auto"
+                    >Filed under {{ range $i, $t := .Tags }}{{ if $i
+                    }}<span aria-hidden="true" class="mx-1 text-slate-300"
+                        >/</span
+                    >{{ end }}<a
+                        href="/tags/{{ TagToURL $t }}"
+                        class="p-category underline-offset-2 hover:text-primary-700 hover:underline"
+                        >{{ $t }}</a
+                    >{{ end }}</span
+                >{{ end }}
             </p>
         </header>
 
         {{ if .ToC }}
-        <aside class="contained mb-8">
-            <p
-                class="flex items-center gap-2 font-header font-semibold text-primary-900"
+        <details class="group contained mb-8 lg:hidden">
+            <summary
+                class="flex cursor-pointer list-none items-center gap-2 font-content text-sm text-slate-500 hover:text-primary-700 [&::-webkit-details-marker]:hidden"
             >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="h-5"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                    <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                    <path d="M3 6l0 13" />
-                    <path d="M12 6l0 13" />
-                    <path d="M21 6l0 13" />
-                </svg>
-                {{ if not (contains .Tags "Snippets") }} Table of Contents {{
-                else }} Jump to File {{ end }}
-            </p>
-            <div
-                class="text-sm text-slate-600 *:*:*:*:not-first:mt-1 *:*:*:*:hover:text-primary-600 mt-2"
-            >
-                {{ .ToC }}
-            </div>
-        </aside>
-        {{ end }}
-
-        {{ if contains .Tags "Snippets" }}
-        <div class="bg-rose-50 py-4 mb-8">
-            <blockquote class="contained">
-                <p
-                    class="text-lg font-header flex gap-2 items-center font-bold text-rose-900"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        class="icon-bug"
-                        width="24px"
-                    >
-                        <path
-                            fill="#ac1b1b"
-                            d="M3 9a1 1 0 1 1 2 0c0 1.1.9 2 2 2h1v2H7a4 4 0 0 1-4-4zm18 0a4 4 0 0 1-4 4h-1v-2h1a2 2 0 0 0 2-2 1 1 0 0 1 2 0zM4 21a4 4 0 0 1 4-4h1v2H8a2 2 0 0 0-2 2 1 1 0 0 1-2 0zm-1-7h4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm14 0h4a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2zm3 7a1 1 0 0 1-2 0 2 2 0 0 0-2-2h-1v-2h1a4 4 0 0 1 4 4zM8.27 3.67a5 5 0 0 1 7.46 0A2 2 0 0 1 14.23 7H9.77a2 2 0 0 1-1.49-3.33z"
-                        />
-                        <path
-                            fill="#ac1b1b"
-                            d="M13 19.58V13a1 1 0 0 0-2 0v6.58a1 1 0 0 1-1.4.92A6 6 0 0 1 6 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3a6 6 0 0 1-3.6 5.5 1 1 0 0 1-1.4-.92z"
-                        />
-                    </svg>
-                    This probably isn't production-ready code.
-                </p>
-                <p class="font-content mt-2 text-rose-900">
-                    Unless otherwise specified below, this is just a snippet of
-                    some lightweight code. The following code is probably too
-                    small for a full repo.
-                </p>
-            </blockquote>
-        </div>
-        {{end}}
-
-        <main id="post" class="contained">
-            <div class="e-content">{{.Body}}</div>
-
-            {{ if .Syndications }}
-            <div class="mt-8! border-t border-slate-200 pt-8">
-                <p class="font-header! text-lg font-semibold">
-                    Replies & Comments
-                </p>
-
-                <p class="font-content mt-4 text-sm text-primary-700">
-                    If you spotted an error, disagree with something, or have a
-                    better approach, I'd genuinely love to hear it. Reply to
-                    this post on <a href="{{index .Syndications "Bluesky"}}">Bluesky</a>.
-                </p>
-
-                <div class="mt-4 flex flex-col gap-4">
-                    <div class="border-l border-slate-300 pl-2">
-                        <div class="flex gap-2 items-center">
-                            <img
-                                src="/assets/icon.webp"
-                                class="w-5 rounded-full"
-                            />
-
-                            <a
-                                href="#"
-                                class="font-semibold text-sm flex items-center gap-2 text-sky-600 underline"
-                            >
-                                Kenton Vizdos
-                            </a>
-
-                            <p class="text-xs text-slate-600">via Bluesky</p>
-                        </div>
-
-                        <p class="mt-1">This is a demo of a reply.</p>
-                    </div>
-
-                    <div class="border-l border-slate-300 pl-2">
-                        <div class="flex gap-2 items-center">
-                            <img
-                                src="/assets/icon.webp"
-                                class="w-5 rounded-full"
-                            />
-
-                            <div class="*:leading-normal!">
-                                <p
-                                    class="m-0! font-semibold text-sm flex items-center gap-2 hover:text-sky-600"
-                                >
-                                    Kenton Vizdos (via Bluesky)
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        class="w-4"
-                                    >
-                                        <path
-                                            stroke="none"
-                                            d="M0 0h24v24H0z"
-                                            fill="none"
-                                        />
-                                        <path
-                                            d="M12 5a1 1 0 0 1 0 2h-6a1 1 0 0 0 -1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1 -1v-6a1 1 0 0 1 2 0v6a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3zm3 -2h5l.075 .003l.126 .017l.111 .03l.111 .044l.098 .052l.096 .067l.09 .08q .054 .053 .097 .112l.071 .11l.054 .114l.035 .105l.03 .148l.006 .118v5a1 1 0 0 1 -2 0v-2.586l-7.293 7.293a1 1 0 0 1 -1.414 -1.414l7.291 -7.293h-2.584a1 1 0 0 1 0 -2"
-                                        />
-                                    </svg>
-                                </p>
-                                <p class="text-xs text-slate-700">8:15 AM</p>
-                            </div>
-                        </div>
-
-                        <p>This is a demo of a reply.</p>
-                    </div>
-                </div>
-            </div>
-            {{end}}
-
-            <div class="mt-8! flex gap-2 text-sm items-center">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-5 text-slate-600"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                        d="M3 8v4.172a2 2 0 0 0 .586 1.414l5.71 5.71a2.41 2.41 0 0 0 3.408 0l3.592 -3.592a2.41 2.41 0 0 0 0 -3.408l-5.71 -5.71a2 2 0 0 0 -1.414 -.586h-4.172a2 2 0 0 0 -2 2"
-                    />
-                    <path
-                        d="M18 19l1.592 -1.592a4.82 4.82 0 0 0 0 -6.816l-4.592 -4.592"
-                    />
-                    <path d="M7 10h-.01" />
-                </svg>
-                <p>Tagged with</p>
-
-                {{ range .Tags}}
-                <a href="/tags/{{TagToURL .}}">#{{.}}</a>{{end }}
-            </div>
-            {{ if .Syndications }}
-            <div class="mt-2! flex gap-2 text-sm items-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    class="w-5 text-slate-600"
+                    aria-hidden="true"
+                    class="h-4 transition-transform group-open:rotate-90"
                 >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path
-                        d="M15.707 8.293a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l6 -6a1 1 0 0 1 1.414 0"
-                    />
-                    <path
-                        d="M19.242 4.757c2.343 2.344 2.342 6.143 -.052 8.534l-.534 .464a1 1 0 1 1 -1.312 -1.51l.483 -.416a4 4 0 0 0 0 -5.657c-1.562 -1.563 -4.095 -1.563 -5.607 -.054l-.463 .536a1 1 0 1 1 -1.514 -1.308l.513 -.59a6 6 0 0 1 8.486 .001"
-                    />
-                    <path
-                        d="M6.75 10.338a1 1 0 0 1 -.088 1.411l-.483 .425a3.97 3.97 0 0 0 0 5.649a4.064 4.064 0 0 0 5.678 .038l.34 -.458a1 1 0 1 1 1.606 1.194l-.397 .534l-.1 .114a6.07 6.07 0 0 1 -8.533 0a5.97 5.97 0 0 1 -1.773 -4.247c0 -1.595 .638 -3.124 1.814 -4.284l.524 -.463a1 1 0 0 1 1.411 .087"
+                        d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
                     />
                 </svg>
-                <p>Syndicated to</p>
-                {{ range $provider, $url := .Syndications }}
-                <a href="{{$url}}" rel="syndication" class="u-syndication"
-                    >{{$provider}}</a
+                {{ if contains .Tags "Snippets" }}Jump to file{{ else }}On this page{{ end }}
+            </summary>
+            <nav aria-label="Table of contents" class="toc mt-3 pl-6">
+                {{ .ToC }}
+            </nav>
+        </details>
+        {{ end }}
+
+
+        <div
+            class="contained lg:grid lg:grid-cols-[minmax(0,1fr)_13rem] lg:gap-12"
+        >
+        <div class="min-w-0">
+        {{ if contains .Tags "Snippets" }}
+        <aside
+            role="note"
+            class="mb-10 flex max-w-[80ch] gap-3 font-content text-sm leading-6 text-slate-600"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="mt-0.5 h-5 w-5 shrink-0 text-rose-500"
+            >
+                <path
+                    d="M3 9a1 1 0 1 1 2 0c0 1.1.9 2 2 2h1v2H7a4 4 0 0 1-4-4zm18 0a4 4 0 0 1-4 4h-1v-2h1a2 2 0 0 0 2-2 1 1 0 0 1 2 0zM4 21a4 4 0 0 1 4-4h1v2H8a2 2 0 0 0-2 2 1 1 0 0 1-2 0zm-1-7h4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm14 0h4a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2zm3 7a1 1 0 0 1-2 0 2 2 0 0 0-2-2h-1v-2h1a4 4 0 0 1 4 4zM8.27 3.67a5 5 0 0 1 7.46 0A2 2 0 0 1 14.23 7H9.77a2 2 0 0 1-1.49-3.33z"
+                />
+                <path
+                    d="M13 19.58V13a1 1 0 0 0-2 0v6.58a1 1 0 0 1-1.4.92A6 6 0 0 1 6 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3a6 6 0 0 1-3.6 5.5 1 1 0 0 1-1.4-.92z"
+                />
+            </svg>
+            <p>
+                <span class="font-medium text-rose-700"
+                    >This probably isn't production-ready code.</span
                 >
-                {{ end }}
-            </div>
-            {{ end }}
+                Unless noted below, it's a lightweight snippet, too small for a
+                full repo and not hardened for real use.
+            </p>
+        </aside>
+        {{ end }}
+        <main id="post">
+            <div class="e-content">{{.Body}}</div>
         </main>
 
-        {{ if or .Related .Prev .Next }}
-        <section aria-labelledby="more-heading" class="contained mt-16">
-            {{ if .Related }}
-            <h2
-                id="more-heading"
-                class="font-content text-sm text-slate-400"
+        {{ if .Syndications }}
+        <p class="mt-12 flex flex-wrap gap-x-6 gap-y-1 font-content text-sm">
+            {{ range $provider, $url := .Syndications }}
+            <a
+                href="{{ $url }}"
+                rel="syndication"
+                class="u-syndication font-medium text-primary-700 hover:text-primary-500"
+                >Reply on {{ $provider }} &rarr;</a
             >
-                Related
+            {{ end }}
+        </p>
+        {{ end }}
+        </div>
+
+        {{ if .ToC }}
+        <aside
+            class="hidden lg:sticky lg:top-8 lg:block lg:max-h-[calc(100vh-4rem)] lg:self-start lg:overflow-y-auto"
+        >
+            <p class="font-content text-sm text-slate-400">
+                {{ if contains .Tags "Snippets" }}Jump to file{{ else }}On this page{{ end }}
+            </p>
+            <nav
+                aria-label="Table of contents"
+                class="toc mt-3"
+                data-toc
+            >
+                {{ .ToC }}
+            </nav>
+        </aside>
+        {{ end }}
+        </div>
+
+        {{ if .ToC }}
+        <script>
+            // Highlight the section currently in view in the desktop ToC.
+            (() => {
+                const toc = document.querySelector("[data-toc]");
+                if (!toc || !("IntersectionObserver" in window)) return;
+                const links = new Map(
+                    [...toc.querySelectorAll('a[href^="#"]')].map((a) => [
+                        decodeURIComponent(a.hash.slice(1)),
+                        a,
+                    ]),
+                );
+                const headings = [
+                    ...document.querySelectorAll("#post h2[id], #post h3[id]"),
+                ].filter((h) => links.has(h.id));
+                const setActive = (id) =>
+                    links.forEach((a, key) =>
+                        key === id
+                            ? a.setAttribute("aria-current", "location")
+                            : a.removeAttribute("aria-current"),
+                    );
+                const observer = new IntersectionObserver(
+                    () => {
+                        // Active = last heading scrolled past the top third.
+                        let current = headings[0];
+                        for (const h of headings) {
+                            if (h.getBoundingClientRect().top < innerHeight / 3)
+                                current = h;
+                        }
+                        if (current) setActive(current.id);
+                    },
+                    { rootMargin: "0px 0px -66% 0px" },
+                );
+                headings.forEach((h) => observer.observe(h));
+            })();
+        </script>
+        {{ end }}
+
+        {{ $prev := "" }}{{ with .Prev }}{{ $prev = .Slug }}{{ end }}
+        {{ $next := "" }}{{ with .Next }}{{ $next = .Slug }}{{ end }}
+        {{ $hasRelated := false }}{{ range .Related }}{{ if and (ne .Slug $prev) (ne .Slug $next) }}{{ $hasRelated = true }}{{ end }}{{ end }}
+        {{ if or $hasRelated .Prev .Next }}
+        <section aria-labelledby="more-heading" class="contained mt-20">
+            <h2 id="more-heading" class="font-content text-sm text-slate-400">
+                Keep reading
             </h2>
-            <ul class="mt-3 space-y-3">
-                {{ range .Related }}
-                <li>
-                    <a
-                        href="{{ .Slug }}"
-                        class="font-header text-lg font-semibold text-primary-900 hover:text-primary-600"
-                        >{{ .Title }}</a
+
+            {{ if $hasRelated }}
+            <ul class="mt-4 grid gap-x-10 gap-y-8 md:grid-cols-3">
+                {{ range .Related }}{{ if and (ne .Slug $prev) (ne .Slug $next) }}
+                <li class="group relative">
+                    <h3
+                        class="font-header text-lg font-semibold leading-snug tracking-wide text-primary-900 transition-colors group-hover:text-primary-600"
                     >
-                    <p class="font-content text-xs text-slate-500">
+                        <a
+                            href="{{ .Slug }}"
+                            class="after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                            >{{ .Title }}</a
+                        >
+                    </h3>
+                    <p
+                        class="mt-2 line-clamp-3 font-content text-sm leading-6 text-slate-700"
+                    >
+                        {{ .Summary }}
+                    </p>
+                    <p class="mt-2 font-content text-xs text-slate-500">
                         {{ formatDate "Jan 2, 2006" .PublishedAt }}
                     </p>
                 </li>
-                {{ end }}
+                {{ end }}{{ end }}
             </ul>
-            {{ else }}
-            <h2 id="more-heading" class="sr-only">More posts</h2>
             {{ end }}
 
+            {{ if or .Prev .Next }}
             <nav
                 aria-label="Older and newer posts"
-                class="mt-10 grid gap-6 font-content text-sm sm:grid-cols-2"
+                class="mt-10 grid gap-6 font-content sm:grid-cols-2"
             >
                 {{ with .Prev }}
                 <a href="{{ .Slug }}" class="group">
-                    <span class="text-slate-400">&larr; Older</span>
+                    <span class="text-xs text-slate-500">&larr; Older</span>
                     <span
-                        class="mt-1 block font-header text-base font-semibold text-primary-900 group-hover:text-primary-600"
+                        class="mt-1 block font-header font-semibold leading-snug text-primary-900 transition-colors group-hover:text-primary-600"
                         >{{ .Title }}</span
                     >
                 </a>
-                {{ else }}<span></span>{{ end }} {{ with .Next }}
+                {{ else }}<span aria-hidden="true"></span>{{ end }}
+                {{ with .Next }}
                 <a href="{{ .Slug }}" class="group sm:text-right">
-                    <span class="text-slate-400">Newer &rarr;</span>
+                    <span class="text-xs text-slate-500">Newer &rarr;</span>
                     <span
-                        class="mt-1 block font-header text-base font-semibold text-primary-900 group-hover:text-primary-600"
+                        class="mt-1 block font-header font-semibold leading-snug text-primary-900 transition-colors group-hover:text-primary-600"
                         >{{ .Title }}</span
                     >
                 </a>
                 {{ end }}
             </nav>
+            {{ end }}
         </section>
         {{ end }}
 
-        <footer class="contained mt-12 mb-12 pt-12 border-t border-slate-200">
-            <h2 class="font-header text-primary-900 font-semibold text-xl">
-                Thanks for reading.
-            </h2>
-
-            <div class="mt-4 flex gap-2 text-slate-600 text-sm items-center">
+        <footer class="contained mt-20 mb-10">
+            <p class="mt-8 font-content text-sm text-slate-600">
+                &copy; Kenton Vizdos. Unless otherwise noted, all blog posts,
+                photos, graphics, presentations, and other media are published
+                under a
                 <a
-                    href="https://www.linkedin.com/in/kentonvizdos/"
-                    class="inline-flex items-center gap-2 text-sky-700"
+                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
+                    class="text-primary-700 underline hover:text-primary-500"
+                    >CC BY-NC-SA 4.0</a
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        class="w-6 hover:text-sky-600 duration-200"
-                    >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                            d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
-                        />
-                    </svg>
-                </a>
-                <p>&bull;</p>
-                <a href="/">Continue reading some of my other posts</a>
-            </div>
+                license. Unless otherwise noted, all code snippets are available
+                under the
+                <a
+                    href="https://spdx.org/licenses/Unlicense.html"
+                    class="text-primary-700 underline hover:text-primary-500"
+                    >Unlicense</a
+                >. This website is
+                <a
+                    href="https://github.com/kvizdos/kvizdos.github.io"
+                    class="text-primary-700 underline hover:text-primary-500"
+                    >open source</a
+                >.
+            </p>
         </footer>
     </body>
 </html>

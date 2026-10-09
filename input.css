@@ -50,15 +50,21 @@ body {
     @apply font-content text-primary-800;
 }
 
-#post > * {
+/* Base rhythm for post content. :where() keeps specificity low so the
+   element rules below (pre, figure, headings) still set their own margins. */
+#post :where(.e-content > *) {
     @apply my-2;
+}
+
+#post p + p {
+    @apply mt-5;
 }
 
 #post h2 {
     @apply font-header text-xl font-semibold mb-5 text-primary-800;
 }
 
-#post h2:not(:first-of-type) {
+#post h2:not(:first-child) {
     @apply mt-14;
 }
 
@@ -79,7 +85,7 @@ body {
 }
 
 #post ul {
-    @apply list-disc pl-8 max-w-[calc(80ch+4rem)];
+    @apply my-5 list-disc pl-8 max-w-[calc(80ch+4rem)];
 }
 
 #post ul li:first-of-type {
@@ -91,7 +97,7 @@ body {
 }
 
 #post pre {
-    @apply font-zed px-2 py-4 pr-8 rounded my-8 overflow-x-scroll text-sm w-full md:w-fit  md:min-w-[72ch] md:max-w-3xl;
+    @apply font-zed px-2 py-4 pr-8 rounded my-8 overflow-x-scroll text-sm w-full md:w-fit  md:min-w-[72ch] md:max-w-3xl lg:max-w-full;
 }
 
 #post pre code {
@@ -127,4 +133,26 @@ body {
 
 #post blockquote p {
     @apply font-header;
+}
+
+/* Post table of contents (goldmark-toc output: nested ul > li > a) */
+.toc ul {
+    @apply space-y-1.5;
+}
+
+.toc ul ul ul {
+    @apply mt-1.5 pl-3;
+}
+
+.toc a {
+    @apply block font-content text-sm leading-snug text-slate-600 transition-colors hover:text-primary-700;
+}
+
+.toc a[aria-current] {
+    @apply font-medium text-primary-700;
+}
+
+#post h2[id],
+#post h3[id] {
+    @apply scroll-mt-8;
 }
