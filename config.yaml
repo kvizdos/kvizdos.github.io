@@ -1,6 +1,9 @@
 InputDirectory: .
 CodeStyle: "dracula"
 BaseURL: https://kv.codes
+Title: Kenton Vizdos
+Description: Kenton Vizdos writes about Go, backend performance, security, and accessible UI, from someone building software for K–12 education.
+Author: Kenton Vizdos
 OGImageConfig:
   FontPath: "./og/Literata-Bold.ttf"
   FontSize: 90
@@ -14,3 +17,16 @@ OGImageConfig:
   TextB: 1
 StaticConfig:
   Path: "./static"
+
+Feed:
+  Enabled: true
+  Limit: 20
+  FullContent: true
+
+SkipFuturePosts: true
+ToCMinHeadings: 3
+RelatedPosts: 3
+
+StrictAlt: true
+
+SlugStyle: slugify

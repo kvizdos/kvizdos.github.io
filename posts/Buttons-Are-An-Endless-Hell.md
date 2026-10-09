@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/Buttons-Are-An-Endless-Hell"]
 Date: 03/26/2025
 Summary: "This post humorously exposes the hidden chaos behind designing what appears to be a simple button. From basic styling to a labyrinth of states, variations, and accessibility tweaks, the rant reveals how a single UI element can escalate into a full-blown designer's nightmare."
 Author: Kenton Vizdos
@@ -9,19 +10,19 @@ Tags: Design, Rant
 
 "It's easy, right? It's a box, with some text":
 
-![](/assets/blog/buttons/basic-button.svg)
+![A plain blue rectangular button with white text](/assets/blog/buttons/basic-button.svg)
 A Button; just that.
 
 Yeah, stakeholder.. they are easy.
 
 Until you need to do absolutely anything with the button. Like clicking it.
 
-![](/assets/blog/buttons/basic-button-click.svg)
+![The same button in its default browser active state, turned an unstyled gray](/assets/blog/buttons/basic-button-click.svg)
 An Ugly Button in an "Active" State
 
 Okay.. so.. fix that up. And oh, while your at it, you decide to add a hover state.
 
-![](/assets/blog/buttons/button-hover.svg)
+![The button in a hover state, a lighter blue than the default](/assets/blog/buttons/button-hover.svg)
 A Button in a "Hover" state
 
 We are now up to 3 variations: it's perfect!
@@ -30,7 +31,7 @@ We are now up to 3 variations: it's perfect!
 
 We here at (insert company) are heavily a11y (accessibility) compliant, so our buttons need a custom focus state:
 
-![](/assets/blog/buttons/button-focus.svg)
+![The button with a custom focus ring around it](/assets/blog/buttons/button-focus.svg)
 Button with a Focus state
 
 Okay! We're now cooking with gas.. what else could we need?

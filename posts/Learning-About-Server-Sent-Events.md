@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/Learning-About-Server-Sent-Events"]
 Date: 03/31/2025
 Summary: "This post is a quick, hands-on intro to Server-Sent Events (SSE)—a lightweight way to push real-time updates from server to browser. It walks through sending events with Go, listening in JavaScript, handling custom events, and tweaking reconnection settings. If you want simple, one-way live updates without the overhead of WebSockets, SSE might be your new best friend."
 Author: Kenton Vizdos

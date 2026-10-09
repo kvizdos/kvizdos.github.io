@@ -1,0 +1,20 @@
+{{ define "head-base" }}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="stylesheet" href="/assets/style.css" />
+<link rel="webmention" href="https://webmention.io/kv.codes/webmention" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
+    rel="stylesheet"
+/>
+<link rel="prefetch" href="/assets/fonts/zed.woff2" />
+{{ end }}
+
+{{/* Shared head plus generated title, description, canonical, OpenGraph and feed links. */}}
+{{ define "head" }}
+{{ template "head-base" . }}
+{{ seo . }}
+{{ end }}

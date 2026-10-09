@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/How-to-fix-Docker-BuildX-lfstack-push-Error"]
 Date: 03/17/2025
 Summary: "Encountering the fatal error: lfstack.push when cross-compiling Docker images with buildx? This issue happens when the base image lacks the correct platform setting, leading to runtime failures."
 Author: Kenton Vizdos

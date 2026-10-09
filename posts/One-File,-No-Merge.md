@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/One-File,-No-Merge"]
 Date: 11/11/2025
 Summary: "The easiest way to steal a single file from another branch."
 Author: Kenton Vizdos

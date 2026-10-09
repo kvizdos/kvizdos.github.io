@@ -1,19 +1,16 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="icon" type="image/png" href="/assets/favicon.png" />
-        <link rel="stylesheet" href="/assets/style.css" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        {{ template "head-base" . }}
+        <link rel="canonical" href="{{ .URL }}" />
+        {{ if site.FeedURL }}
         <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
-            rel="stylesheet"
+            rel="alternate"
+            type="application/rss+xml"
+            title="{{ site.Title }}"
+            href="{{ site.FeedURL }}"
         />
-
-        <link rel="prefetch" href="/assets/fonts/zed.woff2" />
+        {{ end }}
 
         <title>Connect with Kenton Vizdos</title>
 
@@ -94,52 +91,12 @@
         <header
             class="mt-8 sm:mt-12 contained mb-10 pb-10 border-b border-slate-100"
         >
-            <div
-                class="mb-4 flex items-center gap-4 font-content text-xs text-slate-600"
-            >
-                <a href="/" aria-label="Kenton Vizdos homepage">
-                    <img
-                        src="/assets/icon.webp"
-                        alt="Kenton Vizdos"
-                        class="w-6 rounded-full"
-                    />
-                </a>
-
-                <div class="flex flex-1 items-center justify-between">
-                    <a href="/" class="hover:text-primary-700">
-                        Kenton Vizdos
-                    </a>
-
-                    <a href="/about" class="hover:text-primary-700"> About </a>
-                </div>
+            <div class="mb-8">
+                {{ template "nav-start" true }}
+                {{ template "crumb-sep" "" }}
+                <li class="min-w-0 truncate text-primary-900" aria-current="page">Hello</li>
+                {{ template "nav-end" "" }}
             </div>
-
-            <nav
-                aria-label="Breadcrumb"
-                class="mt-2 font-content text-xs text-slate-500"
-            >
-                <ol class="flex items-center gap-2">
-                    <li>
-                        <a href="/" class="hover:text-primary-800">Home</a>
-                    </li>
-
-                    <li aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="h-4"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
-                            />
-                        </svg>
-                    </li>
-
-                    <li class="text-primary-900" aria-current="page">Hello</li>
-                </ol>
-            </nav>
 
             <div class="mt-6 flex items-center gap-6">
                 <img

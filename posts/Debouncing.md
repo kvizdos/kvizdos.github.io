@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/Debouncing"]
 Date: 05/27/2025
 Summary: "A practical look at how modern search inputs use debouncing and AbortControllers to feel fast without wasting resources. Includes real examples and tips for building your own."
 Title: Real-Time Search Doesn't Mean Real-Time Requests

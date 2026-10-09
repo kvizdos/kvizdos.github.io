@@ -1,51 +1,20 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="icon" type="image/png" href="/assets/favicon.png" />
-        <link rel="stylesheet" href="/assets/style.css" />
-
-        <link
-            rel="webmention"
-            href="https://webmention.io/kv.codes/webmention"
-        />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
-            rel="stylesheet"
-        />
-
+        {{ template "head" . }}
         <link rel="prefetch" href="/assets/post.css" />
-        <link rel="prefetch" href="/assets/fonts/zed.woff2" />
-
-        <title>{{ .Tag }} Posts - Kenton Vizdos</title>
-
-        <meta
-            name="description"
-            content="Articles and notes tagged with {{ .Tag }} on Kenton Vizdos's development log."
-        />
-
-        <meta property="og:title" content="{{ .Tag }} Posts - Kenton Vizdos" />
-        <meta
-            property="og:description"
-            content="Articles and notes tagged with {{ .Tag }}."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://kv.codes/tags/{{ .Tag }}" />
-        <meta
-            property="og:image"
-            content="https://kv.codes/assets/about/og.png"
-        />
-        <meta
-            property="og:image:secure_url"
-            content="https://kv.codes/assets/about/og.png"
-        />
+        <meta property="og:image" content="{{ absURL "/assets/about/og.png" }}" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        {{ if .FeedURL }}
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="{{ .Tag }} - {{ site.Title }}"
+            href="{{ .FeedURL }}"
+        />
+        {{ end }}
 
         <script type="application/ld+json">
             {
@@ -53,15 +22,15 @@
                 "@graph": [
                     {
                         "@type": "CollectionPage",
-                        "@id": "https://kv.codes/tags/{{ .Tag }}#page",
-                        "url": "https://kv.codes/tags/{{ .Tag }}",
-                        "name": "{{ .Tag }} Posts - Kenton Vizdos",
+                        "@id": "{{ .URL }}#page",
+                        "url": "{{ .URL }}",
+                        "name": "{{ .Tag }} Posts - {{ site.Title }}",
                         "description": "Articles and notes tagged with {{ .Tag }}.",
                         "isPartOf": {
-                            "@id": "https://kv.codes/#website"
+                            "@id": "{{ site.BaseURL }}/#website"
                         },
                         "author": {
-                            "@id": "https://kv.codes/#person"
+                            "@id": "{{ site.BaseURL }}/#person"
                         }
                     },
                     {
@@ -71,7 +40,7 @@
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://kv.codes/"
+                                "item": "{{ site.BaseURL }}/"
                             },
                             {
                                 "@type": "ListItem",
@@ -89,70 +58,12 @@
         <header
             class="mt-8 sm:mt-12 contained mb-8 pb-8 border-b border-slate-100"
         >
-            <div
-                class="mb-4 flex items-center gap-4 font-content text-xs text-slate-600"
-            >
-                <a href="/" aria-label="Kenton Vizdos homepage">
-                    <img
-                        src="/assets/icon.webp"
-                        alt="Kenton Vizdos"
-                        class="w-6 rounded-full"
-                    />
-                </a>
-
-                <div class="flex flex-1 items-center justify-between">
-                    <a href="/" class="hover:text-primary-700">
-                        Kenton Vizdos
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/in/kentonvizdos/"
-                        aria-label="Kenton Vizdos on LinkedIn"
-                        class="hover:text-primary-500"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-6 duration-200"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
-                            />
-                        </svg>
-                    </a>
-                </div>
+            <div class="mb-8">
+                {{ template "nav-start" true }}
+                {{ template "crumb-sep" "" }}
+                <li class="min-w-0 truncate text-primary-900" aria-current="page">{{ .Tag }}</li>
+                {{ template "nav-end" "writing" }}
             </div>
-
-            <nav
-                aria-label="Breadcrumb"
-                class="mt-2 font-content text-xs text-slate-500"
-            >
-                <ol class="flex min-w-0 items-center gap-2">
-                    <li>
-                        <a href="/" class="hover:text-primary-800">Home</a>
-                    </li>
-
-                    <li aria-hidden="true">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="h-4"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
-                            />
-                        </svg>
-                    </li>
-
-                    <li class="truncate text-primary-900" aria-current="page">
-                        {{ .Tag }}
-                    </li>
-                </ol>
-            </nav>
 
             <h1
                 class="mt-4 font-header text-4xl font-bold leading-12 tracking-wide text-primary-900"
@@ -164,7 +75,12 @@
                 Posts, notes, and snippets tagged with
                 <strong class="font-semibold text-primary-900">
                     {{ .Tag }} </strong
-                >.
+                >.{{ if .FeedURL }}
+                <a
+                    href="{{ .FeedURL }}"
+                    class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500"
+                    >Subscribe via RSS</a
+                >{{ end }}
             </p>
         </header>
 
@@ -188,8 +104,8 @@
                     <p class="mt-2 font-content text-xs text-slate-600">
                         {{- range $i, $tag := $post.Tags -}} {{- if $i
                         -}},&nbsp;{{- end -}} {{- $tag -}} {{- end -}} {{- if
-                        $post.Tags }} &bull; {{ end -}} Published on {{
-                        $post.Date }}
+                        $post.Tags }} &bull; {{ end -}} {{ formatDate "Jan 2, 2006"
+                        $post.PublishedAt }}
                     </p>
                 </a>
             </article>

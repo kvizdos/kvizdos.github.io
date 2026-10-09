@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/Bottlenecked-by-My-SSD-—-Not-My-Code:-Searching-Roughly-3M-JSON-Records-in-130ms"]
 Date: 05/01/2025
 Summary: "I built a JSON scanner that beats jq by 200x+, searches 2.7M records in 130ms, and hits 5+ GB/s throughput. All in pure Go, no parsing, just raw bytes and flame charts."
 Author: Kenton Vizdos
@@ -100,7 +101,7 @@ Nobody (well.. minus me.. and probably you.. ya nerd) likes looking at flame cha
 
 After way too many flame charts and pprof runs, `Jetson` (its code name) hit peak velocity. The following is a test, where I set it to count every item where the `categories` contains `hep` (369,868 matches)
 
-![](/assets/blog/jetson-summary.webp)
+![Jetson benchmark summary: 759ms average read, 124ms average processing, 884ms total, 5,005 MB/s throughput](/assets/blog/jetson-summary.webp)
 759ms average read, 124ms average processing, 884ms average total, at a throughput of 5,005 MB/s
 
 Explaining these numbers a tad further..
@@ -114,7 +115,7 @@ Explaining these numbers a tad further..
 
 The title said "Bottlenecked by My SSD — Not My Code" (oh, and that emdash.. my code doesn't support dashes, or commas, ssshhh tech debt). The test script (available on GitHub) called `vmtouch` prior to running the benchmark: this purged the cache. When the cache is live, Jetson got up to 6 GB/s!
 
-![](/assets/blog/jetson-cached.webp)
+![Jetson run with the file cached: 1,284,561 matches in 119ms of processing at 6,116 MB/s](/assets/blog/jetson-cached.webp)
 1,284,561 matches, 119ms processing, at a throughput of 6,116 MB/s
 
 (and notice how the speed is not impacted by the number of matches)
@@ -174,7 +175,7 @@ Also, when a match *is* found, Jetson immediately stops looking at the line: zer
 
 So.. talking talk is easy. Proving it? Also pretty simple, thanks to Go's pprof:
 
-![](/assets/blog/jetson-cpu-pprof.webp)
+![pprof CPU flame graph where indexbytebody is the only significant hotspot](/assets/blog/jetson-cpu-pprof.webp)
 CPU Flame Graph showing `indexbytebody` being the only (real) "bottleneck"
 
 This Flame Graph, like the memory one, is a testament to Jetson's efficiency. The #1 clock-time is `indexbytebody`, which is expected given its role in searching JSON data, but, as mentioned before, this function is already optimized to the max via hand-written (thanks, Go team!) assembly code + SIMD.
@@ -183,7 +184,7 @@ This Flame Graph, like the memory one, is a testament to Jetson's efficiency. Th
 
 **Later on..** I want to start caching the positions of keys to allow for real-time CLI based searches. But for now, 1s total running time will be acceptable :)
 
-![](/assets/blog/jetson-heap-pprof.webp)
+![pprof heap flame graph where os.ReadFile accounts for nearly all allocations](/assets/blog/jetson-heap-pprof.webp)
 Memory Heap Flame Graph showing only the `os.ReadFile` as a primary heap.
 
 The chart explains itself. Really, 0 memory usage other than the `os.ReadFile` call itself. That being said, there were some allocs (~40 in benchmark tests) due to Go's handling of routines and a few other stdlib functions.

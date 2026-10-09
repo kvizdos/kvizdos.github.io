@@ -28,6 +28,14 @@
     --color-go-800: #125a78;
     --color-go-900: #144b65;
     --color-go-950: #063046;
+
+    --animate-drift: drift 48s linear infinite;
+
+    @keyframes drift {
+        to {
+            transform: rotate(1turn);
+        }
+    }
 }
 
 body {

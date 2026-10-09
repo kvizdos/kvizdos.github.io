@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/I-Learned-About-Pipelines-By-Making-A-Blog"]
 Date: 03/16/2025
 Summary: I built a static blog generator using Go's concurrency model, leveraging pipelines for parallel processing. The result? 100 posts built in 25ms!
 Author: Kenton Vizdos

@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/Web-Share-API"]
 Date: 04/21/2025
 Summary: "A quick dive into the Web Share API: how it works, when to use it, and why it's surprisingly useful for modern web apps (especially on mobile). Includes code, fallbacks, and a few UX tips."
 Author: Kenton Vizdos

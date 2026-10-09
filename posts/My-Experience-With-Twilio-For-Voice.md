@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/My-Experience-With-Twilio-For-Voice"]
 Date: 04/09/2025
 Summary: "My experience using Twilio for Voice with Go: easy setup, quick calls, but limited AMD accuracy and no Terraform support."
 Author: Kenton Vizdos

@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/How-to-use-Cloudflare-Turnstile-with-Lit-Components"]
 Date: 03/15/2025
 Summary: Integrate Cloudflare Turnstile in LitJS via slots for seamless, secure bot protection in your apps.
 Author: Kenton Vizdos
@@ -11,7 +12,7 @@ Cloudflare Turnstile is a CAPTCHA alternative designed to protect websites from 
 
 If you've ever seen one of the following pages, you've used Turnstile before:
 
-![](/assets/blog/turnstile.webp)
+![Example Cloudflare Turnstile verification widget](/assets/blog/turnstile.webp)
 This is an example of the Cloudflare Turnstile
 
 ## What makes it so hard to use with LitJS / web components?

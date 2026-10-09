@@ -1,34 +1,8 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="/assets/favicon.png" />
-
-        <link rel="stylesheet" href="/assets/style.css" />
-
-        <link rel="webmention" href="https://webmention.io/kv.codes/webmention" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
-            rel="stylesheet"
-        />
-
-        <meta property="og:title" content="{{.Title}}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content="{{.OGImageURL}}" />
-        <meta property="og:image:secure_url" content="{{.OGImageURL}}" />
-        <meta property="og:description" content="{{.Summary}}" />
-        <meta name="description" content="{{.Summary}}" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <title>{{ .Title }} - Kenton Vizdos</title>
+        {{ template "head" . }}
+        <meta property="og:image:secure_url" content="{{ .OGImageURL }}" />
 
         <script type="application/ld+json">
             {
@@ -36,15 +10,15 @@
                 "@type": "BlogPosting",
                 "headline": "{{ .Title }}",
                 "image": ["{{ .OGImageURL }}"],
-                "datePublished": "{{ .Date }}",
-                "dateModified": "{{ .Date }}",
-                "author": [
-                    {
-                        "@type": "Person",
-                        "name": "{{ .Author }}",
-                        "url": "https://kv.codes/about"
-                    }
-                ]
+                "datePublished": "{{ isoDate .PublishedAt }}",
+                "dateModified": "{{ isoDate .UpdatedAt }}",
+                "description": "{{ .Summary }}",
+                "url": "{{ .URL }}",
+                "mainEntityOfPage": "{{ .URL }}",
+                "wordCount": {{ .WordCount }},
+                "keywords": "{{ range $i, $t := .Tags }}{{ if $i }}, {{ end }}{{ $t }}{{ end }}",
+                "author": { "@id": "{{ site.BaseURL }}/#person" },
+                "publisher": { "@id": "{{ site.BaseURL }}/#person" }
             }
         </script>
 
@@ -57,17 +31,19 @@
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://kv.codes/"
+                        "item": "{{ site.BaseURL }}/"
                     },
+                    {{ if .Tags }}
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "{{ index .Tags 0 }}",
-                        "item": "https://kv.codes/tags/{{ TagToURL (index .Tags 0) }}"
+                        "item": "{{ site.BaseURL }}/tags/{{ TagToURL (index .Tags 0) }}"
                     },
+                    {{ end }}
                     {
                         "@type": "ListItem",
-                        "position": 3,
+                        "position": {{ if .Tags }}3{{ else }}2{{ end }},
                         "name": "{{ .Title }}"
                     }
                 ]
@@ -78,82 +54,26 @@
         <header
             class="mt-8 sm:mt-12 contained mb-12 pb-12 border-b border-slate-100"
         >
-            <div
-                class="mb-4 flex text-slate-600 font-content text-xs items-center gap-4"
-            >
-                <a href="/">
-                    <img
-                        src="/assets/icon.webp"
-                        alt="Kenton Vizdos Headshot"
-                        class="w-6 rounded-full u-photo"
-                    />
-                </a>
-                <div class="flex items-center justify-between flex-1">
-                    <a rel="author" href="/" class="h-card p-author"
-                        >Kenton Vizdos</a
+            <div class="mb-8">
+                {{ template "nav-start" true }}
+                {{ if .Tags }}{{ template "crumb-sep" "" }}
+                <li class="min-w-0 truncate">
+                    <a
+                        href="/tags/{{ TagToURL (index .Tags 0) }}"
+                        class="p-category hover:text-primary-700"
+                        >{{ index .Tags 0 }}</a
                     >
-                    <p>
-                        Published on
-                        <span class="dt-published">{{ .Date }}</span>
-                    </p>
-                </div>
+                </li>
+                {{ end }}{{ template "crumb-sep" "hidden sm:block" }}
+                <li class="hidden min-w-0 sm:block" aria-current="page">
+                    <a
+                        href="{{ .Slug }}"
+                        class="u-url block truncate text-primary-900 hover:text-primary-700"
+                        >{{ .Title }}</a
+                    >
+                </li>
+                {{ template "nav-end" "writing" }}
             </div>
-            <nav
-                aria-label="Breadcrumb"
-                class="contained px-0! mt-2 text-xs font-content text-slate-500"
-            >
-                <ol class="flex items-center gap-2">
-                    <li>
-                        <a href="/" class="hover:text-primary-800">Home</a>
-                    </li>
-
-                    {{ if gt (len .Tags) 0 }}
-                    <li>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="h-4"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
-                            />
-                        </svg>
-                    </li>
-                    <li>
-                        <a
-                            href="/tags/{{ TagToURL (index .Tags 0) }}"
-                            class="hover:text-primary-700 p-category"
-                        >
-                            {{ index .Tags 0 }}
-                        </a>
-                    </li>
-                    {{ end }}
-
-                    <li>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="h-4"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414"
-                            />
-                        </svg>
-                    </li>
-                    <li class="text-primary-900 truncate" aria-current="page">
-                        <a
-                            href="{{ .Slug }}"
-                            class="hover:text-primary-700 u-url"
-                        >
-                            {{ .Title }}
-                        </a>
-                    </li>
-                </ol>
-            </nav>
 
             <h1
                 class="mt-4 max-w-[24ch] tracking-wide leading-14 font-header text-4xl font-bold text-primary-900 p-name"
@@ -163,8 +83,23 @@
             <p class="font-content text-slate-700 mt-4 text-sm max-w-[65ch]">
                 {{.Summary}}
             </p>
+            <p class="mt-4 font-content text-xs text-slate-500">
+                <time
+                    class="dt-published"
+                    datetime="{{ isoDate .PublishedAt }}"
+                    >{{ formatDate "Jan 2, 2006" .PublishedAt }}</time
+                >
+                &middot; {{ .ReadingMinutes }} min read{{ if not
+                (.UpdatedAt.Equal .PublishedAt) }} &middot; Updated
+                <time
+                    class="dt-updated"
+                    datetime="{{ isoDate .UpdatedAt }}"
+                    >{{ formatDate "Jan 2, 2006" .UpdatedAt }}</time
+                >{{ end }}
+            </p>
         </header>
 
+        {{ if .ToC }}
         <aside class="contained mb-8">
             <p
                 class="flex items-center gap-2 font-header font-semibold text-primary-900"
@@ -195,6 +130,7 @@
                 {{ .ToC }}
             </div>
         </aside>
+        {{ end }}
 
         {{ if contains .Tags "Snippets" }}
         <div class="bg-rose-50 py-4 mb-8">
@@ -355,6 +291,58 @@
             </div>
             {{ end }}
         </main>
+
+        {{ if or .Related .Prev .Next }}
+        <section aria-labelledby="more-heading" class="contained mt-16">
+            {{ if .Related }}
+            <h2
+                id="more-heading"
+                class="font-content text-sm text-slate-400"
+            >
+                Related
+            </h2>
+            <ul class="mt-3 space-y-3">
+                {{ range .Related }}
+                <li>
+                    <a
+                        href="{{ .Slug }}"
+                        class="font-header text-lg font-semibold text-primary-900 hover:text-primary-600"
+                        >{{ .Title }}</a
+                    >
+                    <p class="font-content text-xs text-slate-500">
+                        {{ formatDate "Jan 2, 2006" .PublishedAt }}
+                    </p>
+                </li>
+                {{ end }}
+            </ul>
+            {{ else }}
+            <h2 id="more-heading" class="sr-only">More posts</h2>
+            {{ end }}
+
+            <nav
+                aria-label="Older and newer posts"
+                class="mt-10 grid gap-6 font-content text-sm sm:grid-cols-2"
+            >
+                {{ with .Prev }}
+                <a href="{{ .Slug }}" class="group">
+                    <span class="text-slate-400">&larr; Older</span>
+                    <span
+                        class="mt-1 block font-header text-base font-semibold text-primary-900 group-hover:text-primary-600"
+                        >{{ .Title }}</span
+                    >
+                </a>
+                {{ else }}<span></span>{{ end }} {{ with .Next }}
+                <a href="{{ .Slug }}" class="group sm:text-right">
+                    <span class="text-slate-400">Newer &rarr;</span>
+                    <span
+                        class="mt-1 block font-header text-base font-semibold text-primary-900 group-hover:text-primary-600"
+                        >{{ .Title }}</span
+                    >
+                </a>
+                {{ end }}
+            </nav>
+        </section>
+        {{ end }}
 
         <footer class="contained mt-12 mb-12 pt-12 border-t border-slate-200">
             <h2 class="font-header text-primary-900 font-semibold text-xl">

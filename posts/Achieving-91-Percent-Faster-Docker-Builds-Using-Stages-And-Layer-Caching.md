@@ -1,4 +1,5 @@
 ---
+Aliases: ["/post/Achieving-91-Percent-Faster-Docker-Builds-Using-Stages-And-Layer-Caching"]
 Date: 03/18/2025
 Summary: "I Cut Docker BuildX Times from 9 Minutes to 45 Seconds using better Layer Caching and Multi-Stage builds."
 Author: Kenton Vizdos
@@ -227,7 +228,7 @@ COPY --from=user-builder /app/dist /app/internal/frontend/user/dist
 
 By reordering `COPY` instructions, splitting dependencies into separate stages, leveraging parallel multi-stage builds, and minimizing unnecessary rebuilds, I reduced post-first `buildx` build times from 540 seconds to just 45 seconds: **a 91% improvement.**
 
-![](/assets/blog/91-percent.webp)
+![Terminal output of ./build-docker.sh finishing in 47.5 seconds, 35 of 35 steps](/assets/blog/91-percent.webp)
 Screenshot showing final build time of 47.5 seconds.
 
 These optimizations not only speed up development but also reduce resource usage and network overhead, making iteration cycles significantly smoother. More importantly, they create a scalable and maintainable build process that efficiently handles changes without redundant work.
