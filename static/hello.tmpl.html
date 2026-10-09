@@ -88,256 +88,141 @@
     </head>
 
     <body class="bg-white">
-        <header
-            class="mt-8 sm:mt-12 contained mb-10 pb-10 border-b border-slate-100"
-        >
-            <div class="mb-8">
-                {{ template "nav-start" true }}
-                {{ template "crumb-sep" "" }}
-                <li class="min-w-0 truncate text-primary-900" aria-current="page">Hello</li>
-                {{ template "nav-end" "" }}
-            </div>
-
-            <div class="mt-6 flex items-center gap-6">
+        <main class="mx-auto max-w-md px-6 pt-12 pb-16 sm:pt-20">
+            <div class="text-center">
                 <img
                     src="/assets/icon.webp"
                     alt="Portrait of Kenton Vizdos"
-                    class="h-20 w-20 shrink-0 rounded-full object-cover ring-1 ring-slate-200"
+                    class="mx-auto h-24 w-24 rounded-full object-cover"
                 />
-
-                <div>
-                    <h1
-                        class="font-header text-4xl font-bold leading-tight tracking-wide text-primary-900"
-                    >
-                        Hello, I'm Kenton.
-                    </h1>
-
-                    <p
-                        class="mt-2 max-w-[55ch] font-content text-sm leading-6 text-slate-700"
-                    >
-                        I build software with Go, work on tools for education,
-                        and write about what I learn along the way.
-                    </p>
-                </div>
+                <h1
+                    class="mt-5 font-header text-3xl font-bold tracking-wide text-primary-900"
+                >
+                    Hi, I'm Kenton.
+                </h1>
+                <p class="mt-2 font-content leading-7 text-slate-700">
+                    Full-stack engineer in Richmond, VA, building software for
+                    K&ndash;12 education. Co-founder of
+                    <a
+                        href="https://edvizion.com/"
+                        class="text-primary-700 underline decoration-primary-300 underline-offset-2"
+                        >Edvizion</a
+                    >.
+                </p>
             </div>
-        </header>
 
-        <main class="contained">
-            <div class="max-w-[44rem] space-y-10">
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
+            <a
+                href="https://www.linkedin.com/in/kentonvizdos/"
+                class="mt-8 flex min-h-14 items-center justify-center gap-3 rounded-xl bg-[#0A66C2] px-6 font-content text-base font-semibold text-white transition-colors hover:bg-[#004182] active:bg-[#004182] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0A66C2]"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-6 w-6"
+                >
+                    <path
+                        d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
+                    />
+                </svg>
+                Connect on LinkedIn
+            </a>
+
+            <ul class="mt-6 font-content">
+                <li>
+                    <a
+                        href="https://bsky.app/profile/kv.codes"
+                        rel="me"
+                        class="group -mx-3 flex min-h-16 items-center gap-4 rounded-lg px-3 transition-colors hover:bg-slate-50 active:bg-slate-100"
                     >
-                        Connect with me
-                    </h2>
-
-                    <div class="mt-5 space-y-3">
-                        <a
-                            href="https://www.linkedin.com/in/kentonvizdos/"
-                            class="group flex items-center gap-4 rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <img
-                                src="/assets/linkedin.png"
-                                alt=""
-                                class="h-8 w-8 shrink-0 object-contain"
-                            />
-
-                            <div class="min-w-0 flex-1">
-                                <p
-                                    class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                >
-                                    LinkedIn
-                                </p>
-                                <p
-                                    class="mt-1 font-content text-sm text-slate-600"
-                                >
-                                    The easiest place to connect with me.
-                                </p>
-                            </div>
-
-                            <span
-                                aria-hidden="true"
-                                class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                        <img
+                            src="/assets/bsky.svg"
+                            alt=""
+                            class="h-6 w-6 shrink-0 object-contain"
+                        />
+                        <span class="flex-1">
+                            <span class="block font-semibold text-primary-900"
+                                >Bluesky</span
                             >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            href="https://bsky.app/profile/kv.codes"
-                            class="group flex items-center gap-4 rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <img
-                                src="/assets/bsky.svg"
-                                alt=""
-                                class="h-8 w-8 shrink-0 object-contain"
-                            />
-
-                            <div class="min-w-0 flex-1">
-                                <p
-                                    class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                >
-                                    Bluesky
-                                </p>
-                                <p
-                                    class="mt-1 font-content text-sm text-slate-600"
-                                >
-                                    @kv.codes
-                                </p>
-                            </div>
-
-                            <span
-                                aria-hidden="true"
-                                class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
+                            <span class="block text-sm text-slate-500"
+                                >@kv.codes</span
                             >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            href="https://github.com/kvizdos"
-                            class="group flex items-center gap-4 rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        </span>
+                        <span
+                            aria-hidden="true"
+                            class="text-primary-700 transition-transform group-hover:translate-x-1"
+                            >&rarr;</span
                         >
-                            <img
-                                src="/assets/github.svg"
-                                alt=""
-                                class="h-8 w-8 shrink-0 object-contain"
-                            />
-
-                            <div class="min-w-0 flex-1">
-                                <p
-                                    class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                >
-                                    GitHub
-                                </p>
-                                <p
-                                    class="mt-1 font-content text-sm text-slate-600"
-                                >
-                                    @kvizdos
-                                </p>
-                            </div>
-
-                            <span
-                                aria-hidden="true"
-                                class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
-                            >
-                                →
-                            </span>
-                        </a>
-                    </div>
-                </section>
-
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://github.com/kvizdos"
+                        rel="me"
+                        class="group -mx-3 flex min-h-16 items-center gap-4 rounded-lg px-3 transition-colors hover:bg-slate-50 active:bg-slate-100"
                     >
-                        Other links
-                    </h2>
-
-                    <div class="mt-5 space-y-3">
-                        <a
-                            href="https://cal.com/kenton"
-                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <div
-                                class="flex items-center justify-between gap-4"
+                        <img
+                            src="/assets/github.svg"
+                            alt=""
+                            class="h-6 w-6 shrink-0 object-contain"
+                        />
+                        <span class="flex-1">
+                            <span class="block font-semibold text-primary-900"
+                                >GitHub</span
                             >
-                                <div>
-                                    <p
-                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                    >
-                                        Schedule some time to talk
-                                    </p>
-                                    <p
-                                        class="mt-1 font-content text-sm text-slate-600"
-                                    >
-                                        cal.com/kenton
-                                    </p>
-                                </div>
-
-                                <span
-                                    aria-hidden="true"
-                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
-                                >
-                                    →
-                                </span>
-                            </div>
-                        </a>
-
-                        <a
-                            href="/"
-                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <div
-                                class="flex items-center justify-between gap-4"
+                            <span class="block text-sm text-slate-500"
+                                >@kvizdos</span
                             >
-                                <div>
-                                    <p
-                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                    >
-                                        Read my development log
-                                    </p>
-                                    <p
-                                        class="mt-1 font-content text-sm text-slate-600"
-                                    >
-                                        Go, backend systems, product design,
-                                        security, and things I've learned.
-                                    </p>
-                                </div>
-
-                                <span
-                                    aria-hidden="true"
-                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
-                                >
-                                    →
-                                </span>
-                            </div>
-                        </a>
-
-                        <a
-                            href="/about"
-                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        </span>
+                        <span
+                            aria-hidden="true"
+                            class="text-primary-700 transition-transform group-hover:translate-x-1"
+                            >&rarr;</span
                         >
-                            <div
-                                class="flex items-center justify-between gap-4"
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://cal.com/kenton"
+                        class="group -mx-3 flex min-h-16 items-center gap-4 rounded-lg px-3 transition-colors hover:bg-slate-50 active:bg-slate-100"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            class="h-6 w-6 shrink-0 text-primary-700"
+                        >
+                            <path
+                                d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"
+                            />
+                            <path d="M16 3v4" />
+                            <path d="M8 3v4" />
+                            <path d="M4 11h16" />
+                        </svg>
+                        <span class="flex-1">
+                            <span class="block font-semibold text-primary-900"
+                                >Book time to talk</span
                             >
-                                <div>
-                                    <p
-                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                    >
-                                        More about me
-                                    </p>
-                                    <p
-                                        class="mt-1 font-content text-sm text-slate-600"
-                                    >
-                                        My background, work, interests, and
-                                        certifications.
-                                    </p>
-                                </div>
+                            <span class="block text-sm text-slate-500"
+                                >cal.com/kenton</span
+                            >
+                        </span>
+                        <span
+                            aria-hidden="true"
+                            class="text-primary-700 transition-transform group-hover:translate-x-1"
+                            >&rarr;</span
+                        >
+                    </a>
+                </li>
+            </ul>
 
-                                <span
-                                    aria-hidden="true"
-                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
-                                >
-                                    →
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-            </div>
         </main>
 
-        <footer class="contained my-12 border-t border-slate-200 pt-12">
-            <p class="font-content text-sm text-slate-600">
-                &copy; Kenton Vizdos. This website is
-                <a
-                    href="https://github.com/kvizdos/kvizdos.github.io"
-                    class="text-primary-700 underline hover:text-primary-500"
-                >
-                    open source </a
-                >.
-            </p>
-        </footer>
     </body>
 </html>

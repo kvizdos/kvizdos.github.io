@@ -97,119 +97,489 @@
     </head>
 
     <body class="bg-white">
-        <header
-            class="mt-8 sm:mt-12 contained mb-10 pb-10 border-b border-slate-100"
-        >
-            <div class="mb-8">
-                {{ template "nav-start" true }}
-                {{ template "crumb-sep" "" }}
-                <li class="min-w-0 truncate text-primary-900" aria-current="page">About</li>
-                {{ template "nav-end" "about" }}
-            </div>
+        <header class="contained pt-8 sm:pt-12">
+            {{ template "nav-start" true }}
+            {{ template "crumb-sep" "" }}
+            <li class="min-w-0 truncate text-primary-900" aria-current="page">
+                About
+            </li>
+            {{ template "nav-end" "about" }}
+        </header>
 
-            <div class="mt-6 flex items-center gap-6">
-                <img
-                    src="/assets/icon.webp"
-                    alt="Portrait of Kenton Vizdos"
-                    class="h-20 w-20 shrink-0 rounded-full object-cover ring-1 ring-slate-200"
-                />
-
-                <div>
+        <main class="contained mt-14 space-y-16 sm:mt-20">
+            <section aria-labelledby="name-heading">
+                <div class="max-w-[48rem]">
                     <h1
+                        id="name-heading"
                         class="font-header text-4xl font-bold leading-tight tracking-wide text-primary-900"
                     >
                         Kenton Vizdos
                     </h1>
-
-                    <p class="mt-2 font-content text-sm text-slate-700">
-                        Full-stack software engineer in Richmond, Virginia.
+                    <p
+                        class="mt-3 font-header text-xl leading-snug text-primary-900 sm:text-2xl"
+                    >
+                        Full-stack engineer in Richmond, VA, turning messy
+                        real-world processes into software people can actually
+                        use.
                     </p>
-                </div>
-            </div>
-        </header>
-
-        <main class="contained">
-            <div class="max-w-[68ch] space-y-12">
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
-                    >
-                        About me
-                    </h2>
-
                     <div
-                        class="mt-4 space-y-4 font-content leading-7 text-slate-800"
+                        class="mt-5 space-y-4 font-content leading-7 text-slate-700"
                     >
                         <p>
-                            I'm a software engineer with a focus on building
-                            accessible, secure, and practical full-stack
-                            applications. Most of my work involves taking messy
-                            real-world processes and turning them into software
-                            that is easier for people to use.
+                            I focus on building accessible, secure, and
+                            practical full-stack applications, mostly in Go and
+                            TypeScript. As technical co-founder of Edvizion, I
+                            build and run software for K&ndash;12 schools. That
+                            work has included ecommerce, enrollment systems,
+                            workflow automation, reporting, integrations, and
+                            occasionally sending faxes with code.
                         </p>
-
                         <p>
-                            I currently work as a contract software engineer
-                            building internal tools and student-facing systems
-                            for K–12 education. That work has included
-                            ecommerce, enrollment systems, workflow automation,
-                            reporting, integrations, and occasionally sending
-                            faxes with code.
-                        </p>
-
-                        <p>
-                            Outside of client work, I spend a lot of time
+                            Outside of work, I spend a lot of time
                             experimenting with Go, distributed systems, product
                             design, security, home automation, and whatever else
                             has caught my attention that week.
                         </p>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
-                    >
-                        What I work with
-                    </h2>
+            <section aria-labelledby="certs-heading">
+                <h2 id="certs-heading" class="sr-only">
+                    Certifications
+                </h2>
+                <ul
+                    class="flex max-w-[48rem] flex-col gap-4 font-content lg:flex-row lg:items-center lg:justify-between"
+                >
+                    <li class="flex items-center gap-2.5">
+                        <img
+                            src="/assets/about/csd.png"
+                            alt=""
+                            class="h-10 w-10 shrink-0 object-contain"
+                        />
+                        <span class="leading-snug">
+                            <span class="block whitespace-nowrap text-sm font-medium text-primary-900"
+                                >Certified Scrum Developer&reg;</span
+                            >
+                            <span class="block text-xs text-slate-500"
+                                >Scrum Alliance &middot;
+                                <time datetime="2025-04-10">2025</time></span
+                            >
+                        </span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <img
+                            src="/assets/about/cspo.png"
+                            alt=""
+                            class="h-10 w-10 shrink-0 object-contain"
+                        />
+                        <span class="leading-snug">
+                            <span class="block whitespace-nowrap text-sm font-medium text-primary-900"
+                                >Certified Scrum Product Owner&reg;</span
+                            >
+                            <span class="block text-xs text-slate-500"
+                                >Scrum Alliance &middot;
+                                <time datetime="2018-07-30">2018</time></span
+                            >
+                        </span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <img
+                            src="/assets/about/csm.png"
+                            alt=""
+                            class="h-10 w-10 shrink-0 object-contain"
+                        />
+                        <span class="leading-snug">
+                            <span class="block whitespace-nowrap text-sm font-medium text-primary-900"
+                                >Certified ScrumMaster&reg;</span
+                            >
+                            <span class="block text-xs text-slate-500"
+                                >Scrum Alliance &middot;
+                                <time datetime="2017-05-05">2017</time></span
+                            >
+                        </span>
+                    </li>
+                </ul>
+            </section>
 
-                    <p class="mt-4 font-content leading-7 text-slate-800">
-                        I primarily work with Go, TypeScript, JavaScript, HTML,
-                        CSS, PostgreSQL, MongoDB, and Web Components. I also
-                        have experience with cloud infrastructure, event-driven
-                        systems, APIs, authentication, security, accessibility,
-                        and product design.
-                    </p>
-                </section>
+            <section
+                id="experience"
+                aria-labelledby="experience-heading"
+                class="grid scroll-mt-8 gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="experience-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    Experience
+                </h2>
+                <div class="max-w-[44rem]">
+                    <ol class="space-y-10">
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-2xl font-semibold text-primary-900"
+                                >
+                                    <a
+                                        href="https://edvizion.com/"
+                                        class="hover:text-primary-600"
+                                        >Edvizion</a
+                                    >
+                                </h3>
+                                <p class="basis-full font-content text-sm text-slate-500 sm:basis-auto">
+                                    <time datetime="2023-06">June 2023</time>
+                                    &ndash; Present &middot; Remote
+                                </p>
+                            </div>
+                            <p class="font-content font-medium text-primary-700">
+                                Technical Co-founder &amp; Software Engineer
+                            </p>
+                            <div
+                                class="mt-3 space-y-4 font-content leading-7 text-slate-700"
+                            >
+                                <p>
+                                    I architect and maintain cloud-based
+                                    education systems in Go, TypeScript, and AWS,
+                                    with event-driven integrations, for three
+                                    schools: two public schools in one district
+                                    and a private school. They cover student
+                                    enrollment, attendance, reporting, and
+                                    ecommerce. My
+                                    work focuses on replacing manual processes
+                                    with reliable systems, improving operational
+                                    visibility, and making complicated workflows
+                                    easier for schools and families.
+                                </p>
+                                <p>
+                                    Records requests used to mean staff taking
+                                    printers home and working late into the night
+                                    every peak season. After I automated them,
+                                    one staff member told us, in the middle of
+                                    the next peak, that it "works great for when
+                                    we don't have a lot going on." They hadn't
+                                    noticed it was their busiest time of the
+                                    year. I also redesigned
+                                    attendance reporting for an online school,
+                                    increasing average documented instructional
+                                    time by about 7 hours per student per week,
+                                    and built
+                                    enrollment tracking and analytics across
+                                    multiple systems.
+                                </p>
+                                <p>
+                                    With Michael Vizdos, I also co-lead Academic
+                                    Threat Intelligence, an applied research
+                                    initiative mapping the gray-market ecosystem
+                                    and incentives behind academic fraud in K&ndash;12
+                                    and higher-ed distance learning. It's the
+                                    basis for
+                                    <a
+                                        href="#speaking"
+                                        class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500"
+                                        >my talks</a
+                                    >, including the MCTA keynote.
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
 
-                <section id="speaking" class="scroll-mt-8">
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
-                    >
-                        Speaking
-                    </h2>
+                    <details class="group mt-10">
+                        <summary
+                            class="cursor-pointer list-none font-content text-sm font-medium text-primary-700 hover:text-primary-500 [&::-webkit-details-marker]:hidden"
+                        >
+                            <span class="group-open:hidden"
+                                >Earlier roles
+                                <span class="font-normal text-slate-500"
+                                    >&middot; SingleStone, Vizdos Enterprises,
+                                    MetaCTF, Reverb</span
+                                ></span
+                            >
+                            <span class="hidden group-open:inline"
+                                >Hide earlier roles</span
+                            >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                class="ml-1 inline-block h-4 w-4 align-[-3px] transition-transform group-open:rotate-180"
+                            >
+                                <path
+                                    d="M18.707 8.293a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1 -1.414 0l-6 -6a1 1 0 0 1 1.414 -1.414l5.293 5.292l5.293 -5.292a1 1 0 0 1 1.414 0"
+                                />
+                            </svg>
+                        </summary>
 
-                    <p class="mt-4 font-content leading-7 text-slate-800">
-                        Alongside Michael Vizdos, I co-founded
+                        <ol class="mt-8 space-y-10">
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-lg font-semibold text-primary-900"
+                                >
+                                    SingleStone
+                                </h3>
+                                <p class="basis-full font-content text-sm text-slate-500 sm:basis-auto">
+                                    <time datetime="2020-07">July 2020</time>
+                                    &ndash;
+                                    <time datetime="2021-08">August 2021</time>
+                                </p>
+                            </div>
+                            <p class="font-content text-sm font-medium text-primary-700">
+                                Full Stack Engineer &middot; Internship
+                            </p>
+                            <p
+                                class="mt-2 font-content text-sm leading-6 text-slate-700"
+                            >
+                                Helped develop a custom recruitment platform
+                                using serverless AWS infrastructure and Python.
+                                Built and tested application features using
+                                PyTest and Cypress, with an emphasis on
+                                maintainable code and reliable deployments.
+                            </p>
+                        </li>
+
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-lg font-semibold text-primary-900"
+                                >
+                                    Vizdos Enterprises, LLC
+                                </h3>
+                                <p class="basis-full font-content text-sm text-slate-500 sm:basis-auto">
+                                    <time datetime="2018-06">June 2018</time>
+                                    &ndash;
+                                    <time datetime="2020-06">June 2020</time>
+                                </p>
+                            </div>
+                            <p class="font-content text-sm font-medium text-primary-700">
+                                Full Stack Engineer &middot; Internship
+                            </p>
+                            <p
+                                class="mt-2 font-content text-sm leading-6 text-slate-700"
+                            >
+                                Worked on full-stack application development,
+                                gaining early experience designing and
+                                delivering software for real-world projects.
+                            </p>
+                        </li>
+
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-lg font-semibold text-primary-900"
+                                >
+                                    Earlier experience
+                                </h3>
+                                <p
+                                    class="basis-full font-content text-sm text-slate-500 sm:basis-auto"
+                                >
+                                    <time datetime="2018">2018</time> &ndash;
+                                    <time datetime="2019">2019</time>
+                                </p>
+                            </div>
+                            <ol class="mt-3 space-y-4 font-content text-sm">
+                                <li>
+                                    <div
+                                        class="flex flex-wrap items-baseline justify-between gap-x-4"
+                                    >
+                                        <p class="font-medium text-primary-900">
+                                            MetaCTF
+                                            <span class="font-normal text-primary-700"
+                                                >&middot; Application Development Intern</span
+                                            >
+                                        </p>
+                                        <p class="basis-full text-slate-500 sm:basis-auto">
+                                            <time datetime="2019-06">Jun</time> &ndash; <time datetime="2019-09">Sep 2019</time>
+                                        </p>
+                                    </div>
+                                    <p class="mt-1 leading-6 text-slate-700">
+                                        Built a content management system, with a full back end and modal-based front end, that quickly and securely served and cached problem content like frontends and binary files to competitors, using object-oriented TypeScript, MongoDB, and Redis.
+                                    </p>
+                                </li>
+                                <li>
+                                    <div
+                                        class="flex flex-wrap items-baseline justify-between gap-x-4"
+                                    >
+                                        <p class="font-medium text-primary-900">
+                                            SingleStone
+                                            <span class="font-normal text-primary-700"
+                                                >&middot; Application Development Intern</span
+                                            >
+                                        </p>
+                                        <p class="basis-full text-slate-500 sm:basis-auto">
+                                            <time datetime="2019-06">Jun</time> &ndash; <time datetime="2019-09">Sep 2019</time>
+                                        </p>
+                                    </div>
+                                    <p class="mt-1 leading-6 text-slate-700">
+                                        Built a "Gong" notification for their chat system that announced new sales.
+                                    </p>
+                                </li>
+                                <li>
+                                    <div
+                                        class="flex flex-wrap items-baseline justify-between gap-x-4"
+                                    >
+                                        <p class="font-medium text-primary-900">
+                                            Reverb <span class="font-normal text-slate-500">(now SingleStone)</span>
+                                            <span class="font-normal text-primary-700"
+                                                >&middot; Web Developer Intern</span
+                                            >
+                                        </p>
+                                        <p class="basis-full text-slate-500 sm:basis-auto">
+                                            <time datetime="2018-07">Jul</time> &ndash; <time datetime="2018-09">Sep 2018</time>
+                                        </p>
+                                    </div>
+                                    <p class="mt-1 leading-6 text-slate-700">
+                                        Worked with a designer to implement modern Angular 6 frontends, adding, modifying, and simplifying sections and features on Reverb's website.
+                                    </p>
+                                </li>
+                            </ol>
+                        </li>
+                        </ol>
+
                         <a
-                            href="https://edvizion.com/"
-                            class="text-primary-700 underline hover:text-primary-500"
-                            >Edvizion</a
+                            href="https://www.linkedin.com/in/kentonvizdos/"
+                            class="mt-8 inline-block font-content text-sm font-medium text-primary-700 hover:text-primary-500"
+                            >Full work history on LinkedIn &nearr;</a
                         >
-                        and
-                        speak about academic integrity as a systemic market
-                        problem rather than a policing one.
-                    </p>
+                    </details>
 
-                    <article class="mt-8">
-                        <p
-                            class="font-content text-xs font-medium uppercase tracking-widest text-primary-600"
-                        >
-                            Talk
-                        </p>
+                </div>
+            </section>
 
+            <section
+                id="recognition"
+                aria-labelledby="recognition-heading"
+                class="grid scroll-mt-8 gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="recognition-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    Recognition
+                </h2>
+                <ol class="max-w-[44rem] space-y-8">
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-lg font-semibold text-primary-900"
+                                >
+                                    RVATech Next-Gen Award
+                                </h3>
+                                <p
+                                    class="basis-full font-content text-sm text-slate-500 sm:basis-auto"
+                                >
+                                    <time datetime="2020-10">Oct 2020</time>
+                                </p>
+                            </div>
+                            <p
+                                class="font-content text-sm font-medium text-primary-700"
+                            >
+                                RVATech
+                            </p>
+                            <p
+                                class="mt-2 font-content text-sm leading-6 text-slate-700"
+                            >
+                                Sponsored by GE and awarded to a K&ndash;12
+                                student who has demonstrated a meaningful impact
+                                on the technology ecosystem in Richmond.
+                            </p>
+                        </li>
+
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-lg font-semibold text-primary-900"
+                                >
+                                    Best Financial Hack &middot; SpiderHacks 2019
+                                </h3>
+                                <p
+                                    class="basis-full font-content text-sm text-slate-500 sm:basis-auto"
+                                >
+                                    <time datetime="2019-01">Jan 2019</time>
+                                </p>
+                            </div>
+                            <p
+                                class="font-content text-sm font-medium text-primary-700"
+                            >
+                                ACM @ University of Richmond
+                            </p>
+                            <p
+                                class="mt-2 font-content text-sm leading-6 text-slate-700"
+                            >
+                                My new high school team and I won the SpiderHacks
+                                2019 "Best Financial Hack" prize (sponsored by
+                                Capital One) by creating a financial app called
+                                "Spend n' Save" that automatically places a
+                                percentage of money spent into savings after
+                                every purchase using Capital One's "Nessie" API.
+                                The code is on GitHub as
+                                <a
+                                    href="https://github.com/kvizdos/SpiderHacks2019"
+                                    class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500"
+                                    >SpiderHacks2019</a
+                                >.
+                            </p>
+                        </li>
+
+                        <li>
+                            <div
+                                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                            >
+                                <h3
+                                    class="font-header text-lg font-semibold text-primary-900"
+                                >
+                                    1st Place &middot; SpiderHacks 2018
+                                </h3>
+                                <p
+                                    class="basis-full font-content text-sm text-slate-500 sm:basis-auto"
+                                >
+                                    <time datetime="2018-03">Mar 2018</time>
+                                </p>
+                            </div>
+                            <p
+                                class="font-content text-sm font-medium text-primary-700"
+                            >
+                                ACM @ University of Richmond
+                            </p>
+                            <p
+                                class="mt-2 font-content text-sm leading-6 text-slate-700"
+                            >
+                                My high school team and I won first place at the
+                                2018 SpiderHacks hackathon by creating an Ionic
+                                app made to reduce the possibility of online
+                                embarrassment in college.
+                            </p>
+                        </li>
+                </ol>
+            </section>
+
+            <section
+                id="speaking"
+                aria-labelledby="speaking-heading"
+                class="grid scroll-mt-8 gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="speaking-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    Speaking
+                </h2>
+                <div class="max-w-[44rem]">
+                    <article>
                         <h3
-                            class="mt-3 font-header text-2xl font-semibold leading-snug text-primary-900"
+                            class="font-header text-2xl font-semibold leading-snug text-primary-900"
                         >
                             The Integrity Illusion
                             <span
@@ -223,13 +593,13 @@
                         <p class="mt-3 font-content text-sm text-slate-600">
                             Kenton Vizdos &amp; Michael Vizdos &middot;
                             <a
-                                    href="https://edvizion.com/"
-                                    class="font-medium text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500 hover:decoration-primary-500"
-                                    >Edvizion</a
-                                >
+                                href="https://edvizion.com/"
+                                class="font-medium text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500 hover:decoration-primary-500"
+                                >Edvizion</a
+                            >
                         </p>
 
-                        <p class="mt-5 font-content leading-7 text-slate-800">
+                        <p class="mt-5 font-content leading-7 text-slate-700">
                             Most conversations about academic integrity focus on
                             individual students and "cheating catchers." This
                             session zooms out to the whole economic ecosystem:
@@ -263,6 +633,10 @@
                                     class="ml-1 font-content text-xs font-normal text-slate-500"
                                     >MCTA</span
                                 >
+                                <span
+                                    class="ml-2 font-content text-xs font-medium text-primary-600"
+                                    >Keynote</span
+                                >
                             </dd>
                             <dt class="text-sm text-slate-500">June 2026</dt>
                             <dd
@@ -276,189 +650,59 @@
                             </dd>
                         </dl>
                     </article>
-                </section>
+                </div>
+            </section>
 
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
+            <section
+                id="community"
+                aria-labelledby="community-heading"
+                class="grid scroll-mt-8 gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="community-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    Community
+                </h2>
+                <div class="max-w-[44rem]">
+                    <div
+                        class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
                     >
-                        Certifications
-                    </h2>
-
-                    <div class="mt-5 flex flex-wrap gap-4">
-                        <img
-                            src="/assets/about/csd.png"
-                            alt="Certified Scrum Developer"
-                            class="h-20 w-20 object-contain"
-                        />
-                        <img
-                            src="/assets/about/csm.png"
-                            alt="Certified Scrum Master"
-                            class="h-20 w-20 object-contain"
-                        />
-                        <img
-                            src="/assets/about/cspo.png"
-                            alt="Certified Scrum Product Owner"
-                            class="h-20 w-20 object-contain"
-                        />
-                    </div>
-                </section>
-
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
-                    >
-                        More from me
-                    </h2>
-
-                    <div class="mt-5 space-y-3">
-                        <a
-                            href="/"
-                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        <h3
+                            class="font-header text-lg font-semibold text-primary-900"
                         >
-                            <div
-                                class="flex items-center justify-between gap-4"
+                            <a
+                                href="https://www.meetup.com/scrum-rva/"
+                                class="hover:text-primary-600"
+                                >ScrumRVA</a
                             >
-                                <div>
-                                    <p
-                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                    >
-                                        Read my development log
-                                    </p>
-                                    <p
-                                        class="mt-1 font-content text-sm leading-6 text-slate-600"
-                                    >
-                                        Notes about Go, backend systems, product
-                                        design, UX, security, and things I've
-                                        learned.
-                                    </p>
-                                </div>
-
-                                <span
-                                    aria-hidden="true"
-                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
-                                >
-                                    →
-                                </span>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://cal.com/kenton"
-                            class="group block rounded-lg border border-slate-200 px-5 py-4 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                        </h3>
+                        <p
+                            class="basis-full font-content text-sm text-slate-500 sm:basis-auto"
                         >
-                            <div
-                                class="flex items-center justify-between gap-4"
-                            >
-                                <div>
-                                    <p
-                                        class="font-header text-lg font-semibold text-primary-900 group-hover:text-primary-600"
-                                    >
-                                        Schedule some time to talk
-                                    </p>
-                                    <p
-                                        class="mt-1 font-content text-sm text-slate-600"
-                                    >
-                                        cal.com/kenton
-                                    </p>
-                                </div>
-
-                                <span
-                                    aria-hidden="true"
-                                    class="text-lg text-primary-700 transition-transform group-hover:translate-x-1"
-                                >
-                                    →
-                                </span>
-                            </div>
-                        </a>
+                            <time datetime="2017">2017</time> &ndash; Present
+                        </p>
                     </div>
-                </section>
-
-                <section>
-                    <h2
-                        class="font-header text-2xl font-semibold tracking-wide text-primary-900"
+                    <p class="font-content text-sm font-medium text-primary-700">
+                        Co-Organizer
+                    </p>
+                    <p
+                        class="mt-2 font-content text-sm leading-6 text-slate-700"
                     >
-                        Connect
-                    </h2>
+                        Since 2017, I've helped organize Richmond's official
+                        Scrum user group, sponsored by the Scrum Alliance. We
+                        meet the last Tuesday of every month for lightning
+                        talks, Lean Coffee, Open Space sessions, and guest
+                        speakers. It's free and open to everyone, whether
+                        you're just starting out or a seasoned Scrum coach.
+                    </p>
+                </div>
+            </section>
 
-                    <div class="mt-5 grid gap-3 sm:grid-cols-3">
-                        <a
-                            href="https://www.linkedin.com/in/kentonvizdos/"
-                            class="group flex items-center gap-3 rounded-lg border border-slate-200 px-4 py-3 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <img
-                                src="/assets/linkedin.png"
-                                alt=""
-                                class="h-7 w-7 object-contain"
-                            />
 
-                            <div class="min-w-0">
-                                <p
-                                    class="font-header font-semibold text-primary-900 group-hover:text-primary-600"
-                                >
-                                    LinkedIn
-                                </p>
-                                <p
-                                    class="truncate font-content text-xs text-slate-600"
-                                >
-                                    Kenton Vizdos
-                                </p>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://bsky.app/profile/kv.codes"
-                            class="group flex items-center gap-3 rounded-lg border border-slate-200 px-4 py-3 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <img
-                                src="/assets/bsky.svg"
-                                alt=""
-                                class="h-7 w-7 object-contain"
-                            />
-
-                            <div class="min-w-0">
-                                <p
-                                    class="font-header font-semibold text-primary-900 group-hover:text-primary-600"
-                                >
-                                    Bluesky
-                                </p>
-                                <p
-                                    class="truncate font-content text-xs text-slate-600"
-                                >
-                                    @kv.codes
-                                </p>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/kvizdos"
-                            class="group flex items-center gap-3 rounded-lg border border-slate-200 px-4 py-3 transition hover:border-primary-300 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
-                        >
-                            <img
-                                src="/assets/github.svg"
-                                alt=""
-                                class="h-7 w-7 object-contain"
-                            />
-
-                            <div class="min-w-0">
-                                <p
-                                    class="font-header font-semibold text-primary-900 group-hover:text-primary-600"
-                                >
-                                    GitHub
-                                </p>
-                                <p
-                                    class="truncate font-content text-xs text-slate-600"
-                                >
-                                    @kvizdos
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-            </div>
         </main>
 
-        <footer class="contained my-12 border-t border-slate-200 pt-12">
+        <footer class="contained mt-20 mb-10">
             <p class="font-content text-sm text-slate-600">
                 &copy; Kenton Vizdos. Unless otherwise noted, all blog posts,
                 photos, graphics, presentations, and other media are published
@@ -466,22 +710,19 @@
                 <a
                     href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
                     class="text-primary-700 underline hover:text-primary-500"
+                    >CC BY-NC-SA 4.0</a
                 >
-                    CC BY-NC-SA 4.0
-                </a>
                 license. Unless otherwise noted, all code snippets are available
                 under the
                 <a
                     href="https://spdx.org/licenses/Unlicense.html"
                     class="text-primary-700 underline hover:text-primary-500"
-                >
-                    Unlicense </a
+                    >Unlicense</a
                 >. This website is
                 <a
                     href="https://github.com/kvizdos/kvizdos.github.io"
                     class="text-primary-700 underline hover:text-primary-500"
-                >
-                    open source </a
+                    >open source</a
                 >.
             </p>
         </footer>

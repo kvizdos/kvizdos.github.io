@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {{ template "head-base" . }}
+        <link rel="canonical" href="{{ .URL }}" />
+
+        <!-- Also used as the default PDF file name when saving. -->
+        <title>Kenton Vizdos - Resume</title>
+
+        <meta
+            name="description"
+            content="Resume for Kenton Vizdos, a full-stack software engineer in Richmond, Virginia."
+        />
+        <meta property="og:title" content="Kenton Vizdos - Resume" />
+        <meta
+            property="og:description"
+            content="Full-stack software engineer building secure, accessible software for K-12 education."
+        />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="{{ .URL }}" />
+        <meta
+            property="og:image"
+            content="{{ absURL "/assets/about/og.png" }}"
+        />
+
+        <style>
+            @media print {
+                /* Zero page margin stops browsers printing their own
+                   date/title/URL headers; the margin moves to body padding. */
+                @page {
+                    size: letter;
+                    margin: 0;
+                }
+
+                /* Tailwind sizes are rem-based, so this scales the whole
+                   resume to print proportions in one place. */
+                html {
+                    font-size: 11px;
+                }
+
+                body {
+                    padding: 0.5in 0.7in;
+                    color: var(--color-slate-900);
+                }
+
+                section {
+                    break-inside: avoid;
+                }
+
+                .resume-label {
+                    font-family: var(--font-header);
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: var(--color-primary-900);
+                    padding-top: 0;
+                }
+
+                .resume-body,
+                .resume-body dd,
+                .resume-body li,
+                .resume-body p {
+                    color: var(--color-slate-800);
+                }
+
+                .resume-meta {
+                    color: var(--color-slate-600);
+                }
+            }
+        </style>
+    </head>
+
+    <body class="bg-white print:bg-white">
+        <header class="contained pt-8 sm:pt-12 print:hidden">
+            {{ template "nav-start" true }}
+            {{ template "crumb-sep" "" }}
+            <li class="min-w-0 truncate text-primary-900" aria-current="page">
+                Resume
+            </li>
+            {{ template "nav-end" "" }}
+        </header>
+
+        <main
+            class="contained mt-14 space-y-12 sm:mt-20 resume-body print:mt-0 print:max-w-none print:space-y-5 print:px-0"
+        >
+            <section aria-labelledby="name-heading">
+                <div class="flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                        <h1
+                            id="name-heading"
+                            class="font-header text-4xl font-bold leading-tight tracking-wide text-primary-900"
+                        >
+                            Kenton Vizdos
+                        </h1>
+                        <p
+                            class="mt-1 font-header text-xl text-primary-800"
+                        >
+                            Full-Stack Software Engineer
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="window.print()"
+                        class="inline-flex items-center gap-2 font-content text-sm font-medium text-primary-700 hover:text-primary-500 print:hidden"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            class="h-5 w-5"
+                        >
+                            <path
+                                d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                            />
+                            <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                            <path
+                                d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                            />
+                        </svg>
+                        Print / Save as PDF
+                    </button>
+                </div>
+
+                <p
+                    class="resume-meta mt-4 flex flex-wrap gap-x-2 gap-y-1 font-content text-sm text-slate-600"
+                >
+                    <span>Richmond, VA</span>
+                    <span aria-hidden="true" class="text-slate-300">&middot;</span>
+                    <a href="https://kv.codes" class="hover:text-primary-700"
+                        >kv.codes</a
+                    >
+                    <span aria-hidden="true" class="text-slate-300">&middot;</span>
+                    <a
+                        href="https://www.linkedin.com/in/kentonvizdos/"
+                        class="hover:text-primary-700"
+                        >linkedin.com/in/kentonvizdos</a
+                    >
+                    <span aria-hidden="true" class="text-slate-300">&middot;</span>
+                    <a
+                        href="https://github.com/kvizdos"
+                        class="hover:text-primary-700"
+                        >github.com/kvizdos</a
+                    >
+                </p>
+            </section>
+
+            <section
+                aria-labelledby="summary-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="summary-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Summary
+                </h2>
+                <p
+                    class="max-w-[48rem] font-content leading-7 text-slate-800 print:leading-relaxed"
+                >
+                    Full-stack engineer who turns messy, real-world processes
+                    into software people actually use. Takes products from
+                    loosely defined problems to secure, accessible, shipped
+                    systems across ecommerce, enrollment, workflow automation,
+                    reporting, and third-party integrations. Strongest in Go and
+                    TypeScript, with a product mindset. Technical co-founder of Edvizion and conference keynote speaker.
+                </p>
+            </section>
+
+            <section
+                aria-labelledby="experience-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="experience-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Experience
+                </h2>
+                <ol class="max-w-[48rem] space-y-5 font-content">
+                    <li class="break-inside-avoid">
+                        <div
+                            class="flex flex-wrap items-baseline justify-between gap-x-4"
+                        >
+                            <h3
+                                class="font-header text-xl font-semibold text-primary-900"
+                            >
+                                <a href="https://edvizion.com/" class="hover:text-primary-600">Edvizion</a>
+                                <span class="font-content text-base font-normal text-slate-600"
+                                    >&middot; Technical Co-founder &amp; Software Engineer</span
+                                >
+                            </h3>
+                            <p class="resume-meta text-sm text-slate-500">
+                                <time datetime="2023-06">Jun 2023</time> &ndash; Present &middot; Remote
+                            </p>
+                        </div>
+                        <ul class="mt-1 list-disc space-y-0.5 pl-5 leading-7 text-slate-800 marker:text-slate-400 print:leading-relaxed">
+                            <li>Architected and maintained cloud-based education systems using Go, TypeScript, AWS, and event-driven integrations to support student enrollment, reporting, and ecommerce workflows.</li>
+                            <li>Redesigned online attendance reporting workflows, increasing average documented instructional time by approximately 7 hours per student per week across an online school.</li>
+                            <li>Automated student records requests, eliminating intensive manual processing during peak enrollment periods and enabling staff to handle request volume without seasonal overtime.</li>
+                            <li>Co-lead <span class="font-medium text-slate-900">Academic Threat Intelligence</span>, an applied research initiative mapping the gray-market ecosystem and incentives behind academic fraud in K&ndash;12 and higher-ed distance learning; basis for an MCTA keynote and a USDLA session.</li>
+                        </ul>
+                    </li>
+                    <li class="break-inside-avoid">
+                        <div
+                            class="flex flex-wrap items-baseline justify-between gap-x-4"
+                        >
+                            <h3
+                                class="font-header text-lg font-semibold text-primary-900"
+                            >
+                                SingleStone
+                                <span class="font-content text-base font-normal text-slate-600"
+                                    >&middot; Full Stack Engineer Intern</span
+                                >
+                            </h3>
+                            <p class="resume-meta text-sm text-slate-500">
+                                <time datetime="2020-07">Jul 2020</time> &ndash; <time datetime="2021-08">Aug 2021</time>
+                            </p>
+                        </div>
+                        <ul class="mt-1 list-disc space-y-0.5 pl-5 leading-7 text-slate-800 marker:text-slate-400 print:leading-relaxed">
+                            <li>Helped develop a custom recruitment platform on serverless AWS infrastructure with Python.</li>
+                            <li>Built and tested features with PyTest and Cypress, emphasizing maintainable code and reliable deployments.</li>
+                        </ul>
+                    </li>
+                    <li class="break-inside-avoid">
+                        <div
+                            class="flex flex-wrap items-baseline justify-between gap-x-4"
+                        >
+                            <h3
+                                class="font-header text-lg font-semibold text-primary-900"
+                            >
+                                Earlier internships
+                                <span class="font-content text-base font-normal text-slate-600"
+                                    >&middot; Reverb (now SingleStone), MetaCTF,
+                                    SingleStone</span
+                                >
+                            </h3>
+                            <p class="resume-meta text-sm text-slate-500">
+                                <time datetime="2018">2018</time> &ndash;
+                                <time datetime="2019">2019</time>
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section
+                aria-labelledby="skills-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="skills-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Skills
+                </h2>
+                <dl
+                    class="grid max-w-[48rem] gap-x-6 gap-y-1 font-content leading-7 sm:grid-cols-[7.5rem_minmax(0,1fr)] print:grid-cols-[7.5rem_minmax(0,1fr)] print:leading-relaxed"
+                >
+                    <dt class="font-medium text-primary-900">Languages</dt>
+                    <dd class="text-slate-800">Go, TypeScript, JavaScript, Python, SQL</dd>
+                    <dt class="mt-2 font-medium text-primary-900 sm:mt-0 print:mt-0">Cloud &amp; infra</dt>
+                    <dd class="text-slate-800">AWS (Lambda, Fargate, API Gateway, SQS, EventBridge), Terraform, Docker, CI/CD</dd>
+                    <dt class="mt-2 font-medium text-primary-900 sm:mt-0 print:mt-0">Architecture</dt>
+                    <dd class="text-slate-800">Event-driven, serverless, multi-tenant systems; REST and GraphQL API design</dd>
+                    <dt class="mt-2 font-medium text-primary-900 sm:mt-0 print:mt-0">Data</dt>
+                    <dd class="text-slate-800">PostgreSQL, MongoDB, DynamoDB, Cloudflare D1</dd>
+                    <dt class="mt-2 font-medium text-primary-900 sm:mt-0 print:mt-0">Frontend</dt>
+                    <dd class="text-slate-800">Web Components, Lit, HTML, CSS</dd>
+                    <dt class="mt-2 font-medium text-primary-900 sm:mt-0 print:mt-0">Security</dt>
+                    <dd class="text-slate-800">OAuth 2.0, OpenID Connect, JWT, IAM</dd>
+                </dl>
+            </section>
+
+            <section
+                aria-labelledby="speaking-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="speaking-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Speaking
+                </h2>
+                <div class="max-w-[48rem] font-content">
+                    <h3
+                        class="font-header text-lg font-semibold text-primary-900"
+                    >
+                        The Integrity Illusion: Mapping the Ecosystem of Buyers,
+                        Sellers, and Incentives
+                    </h3>
+                    <p class="mt-1 leading-7 text-slate-800 print:leading-relaxed">
+                        Reframes academic integrity as a market problem, mapping
+                        gray-market &ldquo;homework helpers,&rdquo; usage-driven
+                        EdTech incentives, and institutional retention pressure.
+                        Co-presented with Michael Vizdos.
+                    </p>
+                    <ul class="resume-meta mt-2 space-y-1 text-sm text-slate-600">
+                        <li>
+                            <span class="font-medium text-primary-900"
+                                >Keynote</span
+                            >, Maryland College Testing Association (MCTA)
+                            &middot; October 2026
+                        </li>
+                        <li>
+                            United States Distance Learning Association (USDLA)
+                            &middot; June 2026
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section
+                aria-labelledby="community-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="community-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Community
+                </h2>
+                <div class="max-w-[48rem] font-content">
+                    <div
+                        class="flex flex-wrap items-baseline justify-between gap-x-4"
+                    >
+                        <h3 class="font-header text-lg font-semibold text-primary-900">
+                            ScrumRVA
+                            <span class="font-content text-base font-normal text-slate-600"
+                                >&middot; Co-Organizer</span
+                            >
+                        </h3>
+                        <p class="resume-meta text-sm text-slate-500">
+                            <time datetime="2017">2017</time> &ndash; Present
+                        </p>
+                    </div>
+                    <p class="mt-1 leading-7 text-slate-800 print:leading-relaxed">
+                        Help run Richmond&rsquo;s Scrum Alliance&ndash;sponsored
+                        user group: free monthly meetups with lightning talks,
+                        Lean Coffee, Open Space, and guest speakers.
+                    </p>
+                </div>
+            </section>
+
+            <section
+                aria-labelledby="recognition-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="recognition-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Recognition
+                </h2>
+                <ul class="max-w-[48rem] space-y-3 font-content print:space-y-1">
+                    <li class="break-inside-avoid">
+                        <div
+                            class="flex flex-wrap items-baseline justify-between gap-x-4"
+                        >
+                            <span class="font-medium text-primary-900"
+                                >RVATech Next-Gen Award
+                                <span class="font-normal text-slate-600"
+                                    >&middot; RVATech</span
+                                ></span
+                            >
+                            <time
+                                datetime="2020-10"
+                                class="resume-meta text-sm text-slate-500"
+                                >2020</time
+                            >
+                        </div>
+                        <p class="text-sm leading-6 text-slate-700 print:hidden">
+                            Sponsored by GE; awarded to a K&ndash;12 student for meaningful impact on Richmond&rsquo;s technology ecosystem.
+                        </p>
+                    </li>
+                    <li class="break-inside-avoid">
+                        <div
+                            class="flex flex-wrap items-baseline justify-between gap-x-4"
+                        >
+                            <span class="font-medium text-primary-900"
+                                >SpiderHacks: Best Financial Hack (2019), 1st Place (2018)
+                                <span class="font-normal text-slate-600"
+                                    >&middot; ACM @ University of Richmond</span
+                                ></span
+                            >
+                            <span class="resume-meta text-sm text-slate-500"
+                                ><time datetime="2018">2018</time> &ndash;
+                                <time datetime="2019">2019</time></span
+                            >
+                        </div>
+                        <p class="text-sm leading-6 text-slate-700 print:hidden">
+                            Won Best Financial Hack (sponsored by Capital One) for
+                            &ldquo;Spend n&rsquo; Save,&rdquo; which moves a
+                            percentage of every purchase into savings via Capital
+                            One&rsquo;s Nessie API, and first place the year before
+                            with an Ionic app designed to reduce online
+                            embarrassment in college.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <section
+                aria-labelledby="certs-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[7rem_minmax(0,1fr)] print:grid-cols-[8.5rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="certs-heading"
+                    class="resume-label font-content text-sm font-medium text-slate-500 sm:pt-0.5"
+                >
+                    Certifications
+                </h2>
+                <ul class="max-w-[48rem] space-y-1 font-content leading-7 print:hidden">
+                    <li class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <span class="text-slate-800"
+                            >Certified Scrum Developer&reg;
+                            <span class="resume-meta text-slate-500">&middot; Scrum Alliance</span></span
+                        >
+                        <time datetime="2025-04-10" class="resume-meta text-sm text-slate-500"
+                            >2025</time
+                        >
+                    </li>
+                    <li class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <span class="text-slate-800"
+                            >Certified Scrum Product Owner&reg;
+                            <span class="resume-meta text-slate-500">&middot; Scrum Alliance</span></span
+                        >
+                        <time datetime="2018-07-30" class="resume-meta text-sm text-slate-500"
+                            >2018</time
+                        >
+                    </li>
+                    <li class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <span class="text-slate-800"
+                            >Certified ScrumMaster&reg;
+                            <span class="resume-meta text-slate-500">&middot; Scrum Alliance</span></span
+                        >
+                        <time datetime="2017-05-05" class="resume-meta text-sm text-slate-500"
+                            >2017</time
+                        >
+                    </li>
+                </ul>
+                <p class="hidden max-w-[48rem] font-content leading-relaxed text-slate-800 print:block">
+                    Certified Scrum Developer&reg; (2025) &middot; Certified
+                    Scrum Product Owner&reg; (2018) &middot; Certified
+                    ScrumMaster&reg; (2017)
+                    <span class="resume-meta text-slate-500">&middot; Scrum Alliance</span>
+                </p>
+            </section>
+        </main>
+
+        <footer class="contained mt-20 mb-10 print:hidden">
+            <p class="font-content text-sm text-slate-600">
+                &copy; Kenton Vizdos &middot;
+                <a href="/about" class="text-primary-700 hover:text-primary-500"
+                    >More about me &rarr;</a
+                >
+            </p>
+        </footer>
+    </body>
+</html>
