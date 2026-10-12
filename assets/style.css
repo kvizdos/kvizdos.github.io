@@ -8,10 +8,8 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-sky-600: oklch(58.8% 0.158 241.966);
-    --color-rose-50: oklch(96.9% 0.015 12.422);
     --color-rose-500: oklch(64.5% 0.246 16.439);
     --color-rose-700: oklch(51.4% 0.222 16.935);
-    --color-rose-900: oklch(41% 0.159 10.272);
     --color-slate-50: oklch(98.4% 0.003 247.858);
     --color-slate-100: oklch(96.8% 0.007 247.896);
     --color-slate-200: oklch(92.9% 0.013 255.508);
@@ -51,8 +49,6 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --tracking-wide: 0.025em;
-    --tracking-wider: 0.05em;
-    --tracking-widest: 0.1em;
     --leading-tight: 1.25;
     --leading-snug: 1.375;
     --leading-relaxed: 1.625;
@@ -66,7 +62,6 @@
     --font-header: "Literata", serif;
     --font-content: "IBM Plex Sans", sans-serif;
     --font-zed: "Zed", monospace;
-    --color-primary-50: #f8f6f9;
     --color-primary-100: #efebf3;
     --color-primary-200: #dbd3e4;
     --color-primary-300: #baadcc;
@@ -1389,6 +1384,34 @@
 }
 body {
   background-color: var(--color-white);
+}
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+::view-transition-old(root), ::view-transition-new(root) {
+  animation-duration: 180ms;
+}
+::view-transition-group(*) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+::view-transition-old(*.post-text), ::view-transition-new(*.post-text) {
+  width: auto;
+  height: auto;
+}
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+p, li, dd, blockquote {
+  text-wrap: pretty;
+}
+.font-header, h1, h2, h3, h4 {
+  font-optical-sizing: auto;
+}
+p, blockquote {
+  hanging-punctuation: first;
 }
 .contained {
   margin-inline: auto;

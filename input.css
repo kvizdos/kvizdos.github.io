@@ -42,6 +42,62 @@ body {
     @apply bg-white;
 }
 
+/* Cross-page transitions: pages crossfade, and a post title morphs from the
+   list into the post header (paired by view-transition-name in templates). */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 180ms;
+}
+
+::view-transition-group(*) {
+    animation-duration: 280ms;
+    animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Summaries and dates rewrap at a different width on each page; keep their
+   snapshots at natural size so the text slides and crossfades instead of
+   stretching. */
+::view-transition-old(*.post-text),
+::view-transition-new(*.post-text) {
+    width: auto;
+    height: auto;
+}
+
+/* Typesetting: even heading breaks, no orphaned last words, optical sizing
+   for Literata, and quotes that hang outside the text edge (Safari only). */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+p,
+li,
+dd,
+blockquote {
+    text-wrap: pretty;
+}
+
+.font-header,
+h1,
+h2,
+h3,
+h4 {
+    font-optical-sizing: auto;
+}
+
+p,
+blockquote {
+    hanging-punctuation: first;
+}
+
 .contained {
     @apply max-w-5xl mx-auto sm:px-8 px-6;
 }

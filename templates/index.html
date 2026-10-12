@@ -60,7 +60,9 @@
     <div
         class="flex flex-wrap items-center gap-x-2 font-content text-xs text-slate-500"
     >
-        <time datetime="{{ isoDate .PublishedAt }}"
+        <time
+            datetime="{{ isoDate .PublishedAt }}"
+            style="view-transition-name: date-{{ TagToURL .Title }}; view-transition-class: post-text"
             >{{ formatDate "Jan 2, 2006" .PublishedAt }}</time
         >
         {{ if .Tags }}<span aria-hidden="true" class="text-slate-300"
@@ -106,6 +108,7 @@
                 <article class="group relative mx-auto mt-4 max-w-3xl">
                     <h2
                         class="font-header text-3xl font-bold leading-tight tracking-wide text-primary-900 transition-colors group-hover:text-primary-600 sm:text-5xl"
+                        style="view-transition-name: post-{{ TagToURL $post.Title }}"
                     >
                         <a
                             href="{{ $post.Slug }}"
@@ -115,6 +118,7 @@
                     </h2>
                     <p
                         class="mx-auto mt-4 max-w-[56ch] font-content text-lg leading-8 text-slate-700"
+                        style="view-transition-name: summary-{{ TagToURL $post.Title }}; view-transition-class: post-text"
                     >
                         {{ $post.Summary }}
                     </p>
@@ -207,6 +211,7 @@
                         <article class="group relative max-w-[44rem] py-3">
                             <h3
                                 class="flex items-center font-header text-lg font-semibold tracking-wide text-primary-900 transition-colors group-hover:text-primary-600"
+                                style="view-transition-name: post-{{ TagToURL $post.Title }}"
                             >
                                 {{ if (contains $post.Tags "Snippets") }}
                                 <svg
@@ -235,6 +240,7 @@
                             </h3>
                             <p
                                 class="mt-1 font-content leading-7 text-slate-700"
+                                style="view-transition-name: summary-{{ TagToURL $post.Title }}; view-transition-class: post-text"
                             >
                                 {{ $post.Summary }}
                             </p>

@@ -82,10 +82,14 @@
 
             <h1
                 class="mt-4 max-w-[24ch] tracking-wide leading-14 font-header text-4xl font-bold text-primary-900 p-name"
+                style="view-transition-name: post-{{ TagToURL .Title }}"
             >
                 {{.Title}}
             </h1>
-            <p class="font-content text-slate-700 mt-4 text-sm max-w-[65ch]">
+            <p
+                class="font-content text-slate-700 mt-4 text-sm max-w-[65ch]"
+                style="view-transition-name: summary-{{ TagToURL .Title }}; view-transition-class: post-text"
+            >
                 {{.Summary}}
             </p>
             <p
@@ -93,8 +97,9 @@
             >
                 <span>
                 <time
-                    class="dt-published"
+                    class="dt-published inline-block"
                     datetime="{{ isoDate .PublishedAt }}"
+                    style="view-transition-name: date-{{ TagToURL .Title }}; view-transition-class: post-text"
                     >{{ formatDate "Jan 2, 2006" .PublishedAt }}</time
                 >
                 &middot; {{ .ReadingMinutes }} min read{{ if not

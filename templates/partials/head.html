@@ -11,6 +11,22 @@
     rel="stylesheet"
 />
 <link rel="prefetch" href="/assets/fonts/zed.woff2" />
+{{/* Prerender same-site pages on hover so navigation feels instant. Unsupported browsers ignore it. */}}
+<script type="speculationrules">
+    {
+        "prerender": [
+            {
+                "where": {
+                    "and": [
+                        { "href_matches": "/*" },
+                        { "not": { "href_matches": ["/*.xml", "/assets/*", "/og_images/*"] } }
+                    ]
+                },
+                "eagerness": "moderate"
+            }
+        ]
+    }
+</script>
 {{ end }}
 
 {{/* Shared head plus generated title, description, canonical, OpenGraph and feed links. */}}
