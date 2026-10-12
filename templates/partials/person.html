@@ -1,0 +1,40 @@
+{{/* Canonical schema.org Person, shared by every page that defines https://kv.codes/#person. */}}
+{{ define "person-jsonld" }}
+{
+    "@type": "Person",
+    "@id": "https://kv.codes/#person",
+    "name": "Kenton Vizdos",
+    "givenName": "Kenton",
+    "familyName": "Vizdos",
+    "url": "https://kv.codes/",
+    "image": "https://kv.codes/assets/icon.webp",
+    "jobTitle": "Full-Stack Engineer",
+    "description": "Full-stack engineer in Richmond, VA building software for K–12 education, co-founder of Edvizion, and speaker on the economics of academic integrity.",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Richmond",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+    },
+    "knowsAbout": [
+        "Go",
+        "TypeScript",
+        "Web Components",
+        "Backend performance",
+        "Web security",
+        "Accessibility",
+        "Education technology",
+        "Academic integrity"
+    ],
+    "affiliation": {
+        "@type": "Organization",
+        "name": "Edvizion",
+        "url": "https://edvizion.com/"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/in/kentonvizdos/",
+        "https://github.com/kvizdos",
+        "https://bsky.app/profile/kv.codes"
+    ]
+}
+{{ end }}

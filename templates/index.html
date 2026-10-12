@@ -42,50 +42,7 @@
                             "@id": "https://kv.codes/#person"
                         }
                     },
-                    {
-                        "@type": "ProfilePage",
-                        "@id": "https://kv.codes/#profilepage",
-                        "url": "https://kv.codes/",
-                        "isPartOf": { "@id": "https://kv.codes/#website" },
-                        "mainEntity": { "@id": "https://kv.codes/#person" }
-                    },
-                    {
-                        "@type": "Person",
-                        "@id": "https://kv.codes/#person",
-                        "name": "Kenton Vizdos",
-                        "givenName": "Kenton",
-                        "familyName": "Vizdos",
-                        "url": "https://kv.codes/",
-                        "image": "https://kv.codes/assets/icon.webp",
-                        "jobTitle": "Full-Stack Engineer",
-                        "description": "Full-stack engineer in Richmond, VA building software for K–12 education, co-founder of Edvizion, and speaker on the economics of academic integrity.",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Richmond",
-                            "addressRegion": "VA",
-                            "addressCountry": "US"
-                        },
-                        "knowsAbout": [
-                            "Go",
-                            "TypeScript",
-                            "Web Components",
-                            "Backend performance",
-                            "Web security",
-                            "Accessibility",
-                            "Education technology",
-                            "Academic integrity"
-                        ],
-                        "affiliation": {
-                            "@type": "Organization",
-                            "name": "Edvizion",
-                            "url": "https://edvizion.com/"
-                        },
-                        "sameAs": [
-                            "https://www.linkedin.com/in/kentonvizdos/",
-                            "https://github.com/kvizdos",
-                            "https://bsky.app/profile/kv.codes"
-                        ]
-                    }
+                    {{ template "person-jsonld" }}
                 ]
             }
         </script>
