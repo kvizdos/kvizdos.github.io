@@ -9,7 +9,7 @@
     nav-start takes whether the page has crumbs (true hides the name text on
     small screens so the crumbs fit; the avatar stays as the home link).
     crumb-sep takes extra classes for the separator ("" for none).
-    nav-end takes the active menu item: "writing", "about", or "".
+    nav-end takes the active menu item: "writing", "about", "speaking", or "".
     Pages without breadcrumbs can use {{ template "nav" "writing" }}.
 */}}
 
@@ -75,7 +75,10 @@
                 >
             </li>
             <li class="hidden sm:block">
-                <a href="/about#speaking" class="hover:text-primary-700"
+                <a
+                    href="/speaking"
+                    {{ if eq . "speaking" }}aria-current="page"{{ end }}
+                    class="{{ if eq . "speaking" }}font-medium text-primary-800{{ else }}hover:text-primary-700{{ end }}"
                     >Speaking</a
                 >
             </li>
