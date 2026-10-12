@@ -241,6 +241,9 @@
   .absolute {
     position: absolute;
   }
+  .fixed {
+    position: fixed;
+  }
   .relative {
     position: relative;
   }
@@ -406,6 +409,9 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
@@ -433,6 +439,9 @@
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
+  }
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
@@ -444,6 +453,9 @@
   }
   .w-\[min\(40rem\,95vw\)\] {
     width: min(40rem, 95vw);
+  }
+  .w-fit {
+    width: fit-content;
   }
   .max-w-2xl {
     max-width: var(--container-2xl);

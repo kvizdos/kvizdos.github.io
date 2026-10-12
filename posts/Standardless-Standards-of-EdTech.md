@@ -3,7 +3,11 @@ Title: The Standardless Standards of EdTech
 Date: 10/12/2026
 Summary: "We standardized everything in EdTech. Unfortunately, nobody standardized how to follow the standards."
 Author: Kenton Vizdos
-Tags: EdTech, Thinking Out Loud
+Tags: EdTech
+# Presented:
+#   - At: RVA Software Development User Group
+#     When: October 2026
+# SlidesLink: /assets/slides/standards.pdf
 #Syndications:
 #  Bluesky: https://bsky.app/profile/kv.codes
 ---

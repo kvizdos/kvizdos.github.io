@@ -126,6 +126,51 @@
                     >{{ end }}</span
                 >{{ end }}
             </p>
+            {{ $presented := .RawMetadata.Presented }}
+            {{ with .RawMetadata.SlidesLink }}
+            <a
+                href="{{ . }}"
+                target="_blank"
+                rel="noopener"
+                class="group mt-8 flex w-fit items-center gap-4"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-9 w-9 shrink-0 text-primary-600 transition-colors group-hover:text-primary-500"
+                >
+                    <path
+                        d="M21 3a1 1 0 0 1 0 2v9a3 3 0 0 1-3 3h-5v2.27l2.55 1.7a1 1 0 1 1-1.1 1.66L12 20.2l-2.45 1.63a1 1 0 1 1-1.1-1.66L11 19.27V17H6a3 3 0 0 1-3-3V5a1 1 0 0 1 0-2h18z"
+                    />
+                </svg>
+                <span>
+                    <span
+                        class="flex items-center gap-2 font-header text-lg font-semibold tracking-wide text-primary-900 transition-colors group-hover:text-primary-600"
+                        >Slides available
+                        <span
+                            aria-hidden="true"
+                            class="transition-transform group-hover:translate-x-1"
+                            >&rarr;</span
+                        ></span
+                    >
+                    <span class="block font-content text-xs text-slate-500"
+                        >{{ with $presented }}{{ template "presented" . }}{{
+                        else }}View the deck as a PDF{{ end }}<span
+                            class="sr-only"
+                        >
+                            ({{ if $presented }}PDF, {{ end }}opens in a new
+                            tab)</span
+                        ></span
+                    >
+                </span>
+            </a>
+            {{ else }}{{ with $presented }}
+            <p class="mt-6 font-content text-sm text-slate-500">
+                {{ template "presented" . }}
+            </p>
+            {{ end }}{{ end }}
         </header>
 
         {{ if .ToC }}

@@ -1,0 +1,2 @@
+{{/* "Presented at A (June 2026) and B (October 2026)" from a post's Presented frontmatter list of {At, When}. */}}
+{{ define "presented" }}{{ $last := 0 }}{{ range $i, $_ := . }}{{ $last = $i }}{{ end }}Presented at {{ range $i, $p := . }}{{ if $i }}{{ if lt $i $last }}, {{ else if gt $last 1 }}, and {{ else }} and {{ end }}{{ end }}{{ $p.At }}{{ with $p.When }} ({{ . }}){{ end }}{{ end }}{{ end }}
