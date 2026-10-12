@@ -1,13 +1,31 @@
 <!doctype html>
 <html lang="en">
     <head>
-        {{ template "head" . }}
-        <link rel="indieauth-metadata" href="https://indiekey.id/.well-known/oauth-authorization-server/s/akzxk4njr7z5cgd2">
-        <link rel="token_endpoint" href="https://indiekey.id/token">
+        {{ template "head-base" . }}
+        {{/* Hand-written instead of {{ seo . }}, which forces the index title to the site name and a "summary" Twitter card. */}}
+        <title>Kenton Vizdos: Full-Stack Engineer in Richmond, VA</title>
+        <meta name="description" content="{{ site.Description }}" />
+        <link rel="canonical" href="https://kv.codes/" />
+        <meta property="og:title" content="Kenton Vizdos: Full-Stack Engineer in Richmond, VA" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://kv.codes/" />
+        <meta property="og:description" content="{{ site.Description }}" />
+        <meta property="og:site_name" content="Kenton Vizdos" />
+        <meta property="profile:first_name" content="Kenton" />
+        <meta property="profile:last_name" content="Vizdos" />
         <meta property="og:image" content="{{ absURL "/assets/about/og.png" }}" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Kenton Vizdos" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="alternate" type="application/rss+xml" title="Kenton Vizdos" href="https://kv.codes/rss.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Kenton Vizdos" href="https://kv.codes/atom.xml" />
+        <link rel="me" href="https://github.com/kvizdos" />
+        <link rel="me" href="https://www.linkedin.com/in/kentonvizdos/" />
+        <link rel="me" href="https://bsky.app/profile/kv.codes" />
+        <link rel="indieauth-metadata" href="https://indiekey.id/.well-known/oauth-authorization-server/s/akzxk4njr7z5cgd2">
+        <link rel="token_endpoint" href="https://indiekey.id/token">
         <link rel="prefetch" href="/assets/post.css" />
         <script type="application/ld+json">
             {
@@ -17,18 +35,51 @@
                         "@type": "WebSite",
                         "@id": "https://kv.codes/#website",
                         "url": "https://kv.codes/",
-                        "name": "Kenton Vizdos Development Log",
+                        "name": "Kenton Vizdos",
+                        "alternateName": "kv.codes",
                         "description": "A development log about programming, product design, UX, and things I've learned.",
                         "publisher": {
                             "@id": "https://kv.codes/#person"
                         }
                     },
                     {
+                        "@type": "ProfilePage",
+                        "@id": "https://kv.codes/#profilepage",
+                        "url": "https://kv.codes/",
+                        "isPartOf": { "@id": "https://kv.codes/#website" },
+                        "mainEntity": { "@id": "https://kv.codes/#person" }
+                    },
+                    {
                         "@type": "Person",
                         "@id": "https://kv.codes/#person",
                         "name": "Kenton Vizdos",
-                        "url": "https://kv.codes/about",
+                        "givenName": "Kenton",
+                        "familyName": "Vizdos",
+                        "url": "https://kv.codes/",
                         "image": "https://kv.codes/assets/icon.webp",
+                        "jobTitle": "Full-Stack Engineer",
+                        "description": "Full-stack engineer in Richmond, VA building software for K–12 education, co-founder of Edvizion, and speaker on the economics of academic integrity.",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Richmond",
+                            "addressRegion": "VA",
+                            "addressCountry": "US"
+                        },
+                        "knowsAbout": [
+                            "Go",
+                            "TypeScript",
+                            "Web Components",
+                            "Backend performance",
+                            "Web security",
+                            "Accessibility",
+                            "Education technology",
+                            "Academic integrity"
+                        ],
+                        "affiliation": {
+                            "@type": "Organization",
+                            "name": "Edvizion",
+                            "url": "https://edvizion.com/"
+                        },
                         "sameAs": [
                             "https://www.linkedin.com/in/kentonvizdos/",
                             "https://github.com/kvizdos",
@@ -136,6 +187,8 @@
                 <img
                     src="/assets/icon.webp"
                     alt="Portrait of Kenton Vizdos"
+                    width="80"
+                    height="80"
                     class="h-16 w-16 rounded-full object-cover sm:h-20 sm:w-20"
                 />
                 <div class="max-w-[44rem]">
@@ -143,7 +196,7 @@
                         id="about-heading"
                         class="font-header text-2xl font-semibold text-primary-900"
                     >
-                        Hi, I'm Kenton.
+                        Hi, I'm Kenton Vizdos.
                     </h2>
                     <p class="mt-2 font-content leading-7 text-slate-700">
                         I'm a full-stack engineer in Richmond, VA, turning messy
