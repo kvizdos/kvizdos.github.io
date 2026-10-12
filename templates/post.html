@@ -7,18 +7,23 @@
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "BlogPosting",
-                "headline": "{{ .Title }}",
-                "image": ["{{ .OGImageURL }}"],
-                "datePublished": "{{ isoDate .PublishedAt }}",
-                "dateModified": "{{ isoDate .UpdatedAt }}",
-                "description": "{{ .Summary }}",
-                "url": "{{ .URL }}",
-                "mainEntityOfPage": "{{ .URL }}",
-                "wordCount": {{ .WordCount }},
-                "keywords": "{{ range $i, $t := .Tags }}{{ if $i }}, {{ end }}{{ $t }}{{ end }}",
-                "author": { "@id": "{{ site.BaseURL }}/#person" },
-                "publisher": { "@id": "{{ site.BaseURL }}/#person" }
+                "@graph": [
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "{{ .Title }}",
+                        "image": ["{{ .OGImageURL }}"],
+                        "datePublished": "{{ rfc3339 .PublishedAt }}",
+                        "dateModified": "{{ rfc3339 .UpdatedAt }}",
+                        "description": "{{ .Summary }}",
+                        "url": "{{ .URL }}",
+                        "mainEntityOfPage": "{{ .URL }}",
+                        "wordCount": {{ .WordCount }},
+                        "keywords": "{{ range $i, $t := .Tags }}{{ if $i }}, {{ end }}{{ $t }}{{ end }}",
+                        "author": { "@id": "{{ site.BaseURL }}/#person" },
+                        "publisher": { "@id": "{{ site.BaseURL }}/#person" }
+                    },
+                    {{ template "person-jsonld" }}
+                ]
             }
         </script>
 
