@@ -65,6 +65,7 @@
     --color-primary-100: #efebf3;
     --color-primary-200: #dbd3e4;
     --color-primary-300: #baadcc;
+    --color-primary-400: #9480b0;
     --color-primary-500: #776097;
     --color-primary-600: #624c7d;
     --color-primary-700: #503e66;
@@ -263,6 +264,24 @@
   }
   .z-10 {
     z-index: 10;
+  }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
   }
   .-mx-3 {
     margin-inline: calc(var(--spacing) * -3);
@@ -1474,16 +1493,26 @@ p, blockquote {
   font-weight: var(--font-weight-medium);
   color: var(--color-primary-800);
 }
-#post ul {
+#post ul, #post ol {
   margin-block: calc(var(--spacing) * 5);
   max-width: calc(80ch + 4rem);
-  list-style-type: disc;
   padding-left: calc(var(--spacing) * 8);
 }
-#post ul li:first-of-type {
+#post ul {
+  list-style-type: disc;
+}
+#post ol {
+  list-style-type: decimal;
+}
+#post ol > li::marker {
+  color: var(--color-slate-500);
+  --tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+}
+#post :is(ul, ol) li:first-of-type {
   margin-top: 0;
 }
-#post ul li:not(:first-of-type) {
+#post :is(ul, ol) li:not(:first-of-type) {
   margin-top: var(--spacing);
 }
 #post pre {
@@ -1543,6 +1572,83 @@ p, blockquote {
 }
 #post figure figcaption p {
   max-width: unset;
+}
+#post hr {
+  margin-block: calc(var(--spacing) * 8);
+  height: auto;
+  max-width: 80ch;
+  overflow: visible;
+  border-style: var(--tw-border-style);
+  border-width: 0px;
+  text-align: center;
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary-400);
+}
+#post hr::after {
+  content: "• • •";
+  content: "• • •" / "";
+  letter-spacing: 0.6em;
+  margin-right: -0.6em;
+}
+#post table {
+  margin-block: calc(var(--spacing) * 8);
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  font-family: var(--font-content);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  --tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+  border-collapse: collapse;
+}
+#post th {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--color-slate-200);
+  padding-bottom: calc(var(--spacing) * 2);
+  text-align: left;
+  vertical-align: bottom;
+  font-size: var(--text-xs);
+  line-height: var(--tw-leading, var(--text-xs--line-height));
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+  --tw-tracking: var(--tracking-wide);
+  letter-spacing: var(--tracking-wide);
+  white-space: nowrap;
+  color: var(--color-slate-500);
+  text-transform: uppercase;
+}
+#post td {
+  padding-block: calc(var(--spacing) * 2);
+  vertical-align: top;
+  --tw-leading: calc(var(--spacing) * 6);
+  line-height: calc(var(--spacing) * 6);
+  color: var(--color-primary-800);
+}
+#post th, #post td {
+  padding-inline: calc(var(--spacing) * 4);
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+#post tbody tr:first-child td {
+  padding-top: calc(var(--spacing) * 3);
+}
+#post td code {
+  border-radius: 0.25rem;
+  background-color: var(--color-slate-50);
+  padding-inline: var(--spacing);
+  padding-block: calc(var(--spacing) * 0.5);
+  font-family: var(--font-zed);
+  color: var(--color-slate-800);
 }
 #post blockquote {
   margin-block: calc(var(--spacing) * 4);
@@ -1775,6 +1881,26 @@ p, blockquote {
   initial-value: "";
   inherits: false;
 }
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
 @keyframes drift {
   to {
     transform: rotate(1turn);
@@ -1824,6 +1950,11 @@ p, blockquote {
       --tw-translate-y: 0;
       --tw-translate-z: 0;
       --tw-content: "";
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
     }
   }
 }

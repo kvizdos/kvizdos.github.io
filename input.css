@@ -140,15 +140,28 @@ blockquote {
     @apply font-medium text-primary-800;
 }
 
-#post ul {
-    @apply my-5 list-disc pl-8 max-w-[calc(80ch+4rem)];
+#post ul,
+#post ol {
+    @apply my-5 pl-8 max-w-[calc(80ch+4rem)];
 }
 
-#post ul li:first-of-type {
+#post ul {
+    @apply list-disc;
+}
+
+#post ol {
+    @apply list-decimal;
+}
+
+#post ol > li::marker {
+    @apply tabular-nums text-slate-500;
+}
+
+#post :is(ul, ol) li:first-of-type {
     @apply mt-0;
 }
 
-#post ul li:not(:first-of-type) {
+#post :is(ul, ol) li:not(:first-of-type) {
     @apply mt-1;
 }
 
@@ -181,6 +194,49 @@ blockquote {
 
 #post figure figcaption p {
     @apply max-w-[unset];
+}
+
+/* Section breaks: a centered typographic ornament instead of a rule, centered
+   on the text column (same max width as paragraphs). The "/ ''" alt text keeps
+   screen readers on the hr's own "separator" role. */
+#post hr {
+    @apply my-8 h-auto max-w-[80ch] overflow-visible border-0 text-center text-sm leading-none text-primary-400;
+}
+
+#post hr::after {
+    content: "• • •";
+    content: "• • •" / "";
+    letter-spacing: 0.6em;
+    margin-right: -0.6em;
+}
+
+/* Tables: GFM emits a bare <table>, so the table itself is the scroll
+   container. Cells wrap until they can't, then the table scrolls sideways
+   instead of widening the page. */
+#post table {
+    @apply my-8 block w-fit max-w-full overflow-x-auto font-content text-sm tabular-nums;
+    border-collapse: collapse;
+}
+
+#post th {
+    @apply border-b border-slate-200 pb-2 text-left align-bottom text-xs font-medium uppercase tracking-wide whitespace-nowrap text-slate-500;
+}
+
+#post td {
+    @apply py-2 align-top leading-6 text-primary-800;
+}
+
+#post th,
+#post td {
+    @apply px-4 first:pl-0 last:pr-0;
+}
+
+#post tbody tr:first-child td {
+    @apply pt-3;
+}
+
+#post td code {
+    @apply font-zed bg-slate-50 text-slate-800 px-1 py-0.5 rounded;
 }
 
 #post blockquote {
