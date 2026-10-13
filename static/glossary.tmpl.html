@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {{ template "head-base" . }}
+        <link rel="canonical" href="{{ .URL }}" />
+        {{ if site.FeedURL }}
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="{{ site.Title }}"
+            href="{{ site.FeedURL }}"
+        />
+        {{ end }}
+
+        <title>Kenton Vizdos: Glossary</title>
+
+        <meta
+            name="description"
+            content="Plain-English definitions of the acronyms and jargon I write about, from SSO, OAuth and JWTs to EdTech standards like OneRoster and LTI."
+        />
+        <meta property="og:title" content="Kenton Vizdos: Glossary" />
+        <meta
+            property="og:description"
+            content="Plain-English definitions of the acronyms and jargon I write about, from SSO, OAuth and JWTs to EdTech standards like OneRoster and LTI."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kv.codes/glossary" />
+        <meta property="og:site_name" content="Kenton Vizdos" />
+        <meta
+            property="og:image"
+            content="https://kv.codes/assets/about/og.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Kenton Vizdos" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "DefinedTermSet",
+                        "@id": "https://kv.codes/glossary#page",
+                        "url": "https://kv.codes/glossary",
+                        "name": "Glossary",
+                        "author": {
+                            "@id": "https://kv.codes/#person"
+                        },
+                        "isPartOf": {
+                            "@id": "https://kv.codes/#website"
+                        }
+                    },
+                    {{ template "person-jsonld" }},
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://kv.codes/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Glossary"
+                            }
+                        ]
+                    }
+                ]
+            }
+        </script>
+    </head>
+
+    {{/*
+        Each term is a <div id="..."> inside a <dl>, so posts can link to
+        /glossary#term. Keep ids lowercase and stable: posts depend on them.
+    */}}
+    <body class="bg-white">
+        <header class="contained pt-8 sm:pt-12">
+            {{ template "nav-start" true }}
+            {{ template "crumb-sep" "" }}
+            <li class="min-w-0 truncate text-primary-900" aria-current="page">
+                Glossary
+            </li>
+            {{ template "nav-end" "" }}
+        </header>
+
+        <main class="contained mt-14 space-y-16 sm:mt-20">
+            <section aria-labelledby="glossary-heading">
+                <div class="max-w-[48rem]">
+                    <h1
+                        id="glossary-heading"
+                        class="font-header text-4xl font-bold leading-tight tracking-wide text-primary-900"
+                    >
+                        Glossary
+                    </h1>
+                    <p
+                        class="mt-3 font-header text-xl leading-snug text-primary-900 sm:text-2xl"
+                    >
+                        Tech runs on acronyms. Here's what the ones I write
+                        about actually mean.
+                    </p>
+                    <p class="mt-5 font-content leading-7 text-slate-700">
+                        Plain-English definitions of the jargon that shows up
+                        across my writing, from web sign-in to EdTech. Every
+                        term has its own link, so posts can point straight to
+                        it.
+                    </p>
+                </div>
+            </section>
+
+            <section
+                aria-labelledby="general-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="general-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    General
+                </h2>
+                <dl class="max-w-[44rem] space-y-8">
+                    <div id="authentication" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#authentication" class="hover:text-primary-600">Authentication</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">AuthN</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Proving who you are: a password, a passkey, a code
+                            from your phone, or another service vouching for
+                            you. It answers "who is this?" and nothing more.
+                            Knowing who someone is doesn't say what they're
+                            allowed to do; that's
+                            <a href="#authorization" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">authorization</a>.
+                            <span class="text-slate-500">See
+                                <a href="/post/authentication-vs-authorization" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">Authentication vs. Authorization</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="authorization" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#authorization" class="hover:text-primary-600">Authorization</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">AuthZ</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Deciding what someone is allowed to do once you
+                            know who they are: which records they can see, what
+                            they can change, which actions they can take. It
+                            always comes after
+                            <a href="#authentication" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">authentication</a>,
+                            and it's where most access bugs actually live.
+                            <span class="text-slate-500">See
+                                <a href="/post/authentication-vs-authorization" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">Authentication vs. Authorization</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="sso" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#sso" class="hover:text-primary-600">SSO</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Single sign-on</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            One login that gets you into many apps, instead of a
+                            separate account for each. An identity provider
+                            (Google, Microsoft, Okta; in schools, often Clever
+                            or ClassLink) vouches for you to each app over <a
+                            href="#oidc" class="text-primary-700 underline
+                            decoration-primary-300 underline-offset-2
+                            hover:text-primary-500">OIDC</a> or SAML. It handles
+                            <a href="#authentication" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">authentication</a>,
+                            proving who you are; what you're allowed to do
+                            there is still each app's
+                            <a href="#authorization" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">authorization</a>.
+                        </dd>
+                    </div>
+                    <div id="oauth" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#oauth" class="hover:text-primary-600">OAuth</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A family of protocols for letting one app act on
+                            behalf of a user or another server, without handing
+                            over passwords. OAuth 1.0a signs every request;
+                            OAuth 2.0 hands out tokens, and its client
+                            credentials grant is how servers authenticate to
+                            each other. (LTI 1.1 uses the former, <a
+                            href="#lti-advantage" class="text-primary-700
+                            underline decoration-primary-300 underline-offset-2
+                            hover:text-primary-500">LTI Advantage</a> the
+                            latter.)
+                        </dd>
+                    </div>
+                    <div id="oidc" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#oidc" class="hover:text-primary-600">OIDC</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">OpenID Connect</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            An identity layer on top of OAuth 2.0 that tells an
+                            app who the user is, adding
+                            <a href="#authentication" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">authentication</a>
+                            to a protocol built for
+                            <a href="#authorization" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">authorization</a>. It's the protocol behind most
+                            "Sign in with&hellip;" buttons, and every <a
+                            href="#lti" class="text-primary-700 underline
+                            decoration-primary-300 underline-offset-2
+                            hover:text-primary-500">LTI</a> 1.3 launch.
+                        </dd>
+                    </div>
+                    <div id="jwt" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#jwt" class="hover:text-primary-600">JWT</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">JSON Web Token</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A signed bundle of JSON claims: anyone can read it,
+                            but only the holder of the key could have produced
+                            it. Common as access and ID tokens, and as the
+                            launch message in LTI 1.3.
+                        </dd>
+                    </div>
+                    <div id="pkce" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#pkce" class="hover:text-primary-600">PKCE</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Proof Key for Code Exchange</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Pronounced "pixy." An OAuth 2.0 extension that
+                            proves whoever redeems a one-time code is the same
+                            party that asked for it, so an intercepted code is
+                            useless. Built for mobile and browser apps; also
+                            handy for safely handing a session from an iframe to
+                            a new tab.
+                        </dd>
+                    </div>
+                    <div id="third-party-cookies" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#third-party-cookies" class="hover:text-primary-600">Third-party cookies</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Cookies set by a site embedded inside another site,
+                            like an iframe or an ad. Safari blocks them and
+                            Firefox partitions them by default, which quietly
+                            breaks embedded logins.
+                            <span class="text-slate-500">See
+                                <a href="/post/standardless-standards-of-edtech#lti-13-only-and-a-button-for-when-the-cookie-fails" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">how I work around it</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="sftp" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#sftp" class="hover:text-primary-600">SFTP</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">SSH File Transfer Protocol</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            File transfer over SSH. One system drops files on a
+                            server, another picks them up on a schedule. Old,
+                            boring, and still how a surprising amount of
+                            business data moves around, schools included.
+                        </dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section
+                aria-labelledby="systems-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="systems-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    Schools
+                </h2>
+                <dl class="max-w-[44rem] space-y-8">
+                    <div id="sis" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#sis" class="hover:text-primary-600">SIS</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Student Information System</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The school's source of truth for who a student is:
+                            demographics, guardians, enrollments, schedules,
+                            grades on the transcript, and usually attendance.
+                            When two systems disagree, the SIS wins.
+                        </dd>
+                    </div>
+                    <div id="lms" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#lms" class="hover:text-primary-600">LMS</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Learning Management System</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Where students actually do the work: courses,
+                            assignments, quizzes and the gradebook. Canvas,
+                            Schoology, Moodle and Brightspace are common ones.
+                            Outside tools usually plug in through
+                            <a href="#lti" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">LTI</a>.
+                        </dd>
+                    </div>
+                    <div id="lcp" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#lcp" class="hover:text-primary-600">LCP</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Learning Content Provider</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A vendor that sells the course content itself:
+                            lessons, modules and activities that schools run
+                            inside their LMS.
+                        </dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section
+                aria-labelledby="standards-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="standards-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    EdTech standards
+                </h2>
+                <dl class="max-w-[44rem] space-y-8">
+                    <div id="1edtech" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#1edtech" class="hover:text-primary-600">1EdTech</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The member consortium behind OneRoster, LTI and
+                            QTI. Formerly IMS Global Learning Consortium, so
+                            older docs use that name.
+                        </dd>
+                    </div>
+                    <div id="oneroster" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#oneroster" class="hover:text-primary-600">OneRoster</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            1EdTech's standard for exchanging rosters:
+                            students, teachers, classes and enrollments. It
+                            comes as CSV files or a REST API, in versions 1.1
+                            and 1.2, and vendors pick which parts they
+                            support. "We support OneRoster" always needs a
+                            follow-up question.
+                            <span class="text-slate-500">See
+                                <a href="/post/standardless-standards-of-edtech#rostering-everyone-agrees-on-students-nobody-agrees-on-a-student" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">Rostering</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="bulk-delta" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#bulk-delta" class="hover:text-primary-600">Bulk vs. Delta</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The two OneRoster CSV modes. Bulk sends
+                            everything, every time; Delta sends only what
+                            changed. Many systems only do Bulk, which leaves
+                            the receiver to work out what changed.
+                        </dd>
+                    </div>
+                    <div id="lti" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#lti" class="hover:text-primary-600">LTI</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Learning Tools Interoperability</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            How an LMS launches an outside tool, usually
+                            inside an iframe, and tells it who the student is
+                            and which course they're in. LTI 1.1 signs
+                            requests with OAuth 1.0a and is legacy; LTI 1.3
+                            uses
+                            <a href="#oidc" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">OIDC</a>
+                            and signed
+                            <a href="#jwt" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">JWTs</a>.
+                            <span class="text-slate-500">See
+                                <a href="/post/standardless-standards-of-edtech#lti-same-spec-different-dialects" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">LTI: Same Spec, Different Dialects</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="lti-advantage" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#lti-advantage" class="hover:text-primary-600">LTI Advantage</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Not a version, but a bundle of extra services on
+                            top of LTI 1.3:
+                            <a href="#ags" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">AGS</a>,
+                            <a href="#nrps" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">NRPS</a>
+                            and
+                            <a href="#deep-linking" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">Deep Linking</a>.
+                            Its APIs authenticate with the OAuth 2.0 client
+                            credentials grant.
+                        </dd>
+                    </div>
+                    <div id="ags" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#ags" class="hover:text-primary-600">AGS</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Assignment and Grade Services</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The LTI Advantage service that lets a tool create
+                            gradebook columns and send scores back to the LMS.
+                        </dd>
+                    </div>
+                    <div id="nrps" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#nrps" class="hover:text-primary-600">NRPS</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Names and Role Provisioning Services</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The LTI Advantage service that lists who's in the
+                            course a tool was launched from. Rostering again,
+                            from the same consortium as OneRoster, but scoped
+                            to one course.
+                        </dd>
+                    </div>
+                    <div id="deep-linking" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#deep-linking" class="hover:text-primary-600">Deep Linking</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The LTI Advantage flow that lets a teacher browse a
+                            tool's content and drop a specific activity into
+                            their course, instead of pasting launch URLs by
+                            hand.
+                        </dd>
+                    </div>
+                    <div id="platform-storage" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#platform-storage" class="hover:text-primary-600">LTI Platform Storage</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A 1EdTech spec that lets a tool in an iframe store
+                            launch state through the LMS window, for browsers
+                            that block
+                            <a href="#third-party-cookies" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">third-party cookies</a>.
+                            Only helps if the LMS supports it, and many don't.
+                        </dd>
+                    </div>
+                    <div id="qti" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#qti" class="hover:text-primary-600">QTI</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Question &amp; Test Interoperability</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            1EdTech's format for moving test questions and
+                            assessments between systems.
+                        </dd>
+                    </div>
+                    <div id="ed-fi" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#ed-fi" class="hover:text-primary-600">Ed-Fi</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A data standard and API from the Ed-Fi Alliance,
+                            mostly used to move SIS data into state and
+                            district reporting systems.
+                        </dd>
+                    </div>
+                    <div id="sif" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#sif" class="hover:text-primary-600">SIF</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Schools Interoperability Framework</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            An older K&ndash;12 data exchange standard, now
+                            run by the Access 4 Learning Community. Many
+                            systems still carry it around.
+                        </dd>
+                    </div>
+                    <div id="clever-classlink" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#clever-classlink" class="hover:text-primary-600">Clever / ClassLink</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Companies, not standards. They sit between a
+                            school's SIS and its vendors to handle rostering
+                            and
+                            <a href="#sso" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">single sign-on</a>,
+                            which is often how
+                            "standards-based" rostering actually happens.
+                        </dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section
+                aria-labelledby="students-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="students-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    Students
+                </h2>
+                <dl class="max-w-[44rem] space-y-8">
+                    <div id="ssid" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#ssid" class="hover:text-primary-600">SSID</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">State Student ID</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            An ID the state assigns, meant to follow a student
+                            between schools in that state. The closest thing to
+                            a reliable identifier, when a system actually has
+                            it.
+                            <span class="text-slate-500">See
+                                <a href="/post/standardless-standards-of-edtech#the-identity-problem" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">The Identity Problem</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="guardian" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#guardian" class="hover:text-primary-600">Guardian</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A contact attached to a student in the SIS. That
+                            can mean a parent with full rights, a grandparent,
+                            an emergency contact, or someone whose rights
+                            changed last month. The record rarely tells you
+                            which, and once a student becomes an
+                            <a href="#eligible-student" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">eligible student</a>,
+                            the answer can change on their birthday.
+                        </dd>
+                    </div>
+                    <div id="iep" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#iep" class="hover:text-primary-600">IEP</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Individualized Education Program</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A legal plan for a student receiving special
+                            education services, including accommodations like
+                            extended testing time. Vendors often need to know
+                            about the accommodations, and rostering standards
+                            don't carry them.
+                        </dd>
+                    </div>
+                    <div id="504" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#504" class="hover:text-primary-600">504 plan</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Accommodations for a student with a disability
+                            under Section 504 of the Rehabilitation Act,
+                            without special education services. Same data
+                            problem as an
+                            <a href="#iep" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">IEP</a>.
+                        </dd>
+                    </div>
+                    <div id="ferpa" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#ferpa" class="hover:text-primary-600">FERPA</a>
+                            <span class="ml-1 font-content text-xs font-normal text-slate-500">Family Educational Rights and Privacy Act</span>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            The US federal law protecting student education
+                            records. It's why a bad record merge isn't just a
+                            bug, it's a privacy incident.
+                        </dd>
+                    </div>
+                    <div id="eligible-student" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#eligible-student" class="hover:text-primary-600">Eligible student</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Under <a href="#ferpa" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">FERPA</a>, a student who
+                            has turned 18 or attends a college or university at
+                            any age. Their record rights move from their
+                            parents to them. Overnight, a parent who could see
+                            everything may no longer be entitled to, even though
+                            nothing in the
+                            <a href="#guardian" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">guardian</a> record
+                            changed. (Schools may still share with parents of a
+                            tax dependent, but that's the school's call.)
+                        </dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section
+                aria-labelledby="time-heading"
+                class="grid gap-x-8 gap-y-2 sm:grid-cols-[6rem_minmax(0,1fr)]"
+            >
+                <h2
+                    id="time-heading"
+                    class="font-content text-sm font-normal text-slate-400 sm:pt-0.5"
+                >
+                    School calendars
+                </h2>
+                <dl class="max-w-[44rem] space-y-8">
+                    <div id="term" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#term" class="hover:text-primary-600">Term</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            A fixed block of the school year (semester,
+                            trimester, quarter) that classes and enrollments
+                            hang off. Grading periods usually sit inside a
+                            term.
+                        </dd>
+                    </div>
+                    <div id="rolling-enrollment" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#rolling-enrollment" class="hover:text-primary-600">Rolling enrollment</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Each student starts and ends a course on their own
+                            dates instead of with a term. Common in online
+                            schools. Some systems only support terms, others
+                            only rolling.
+                            <span class="text-slate-500">See
+                                <a href="/post/standardless-standards-of-edtech#time-is-a-social-construct-especially-in-schools" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">Time Is a Social Construct</a>.</span>
+                        </dd>
+                    </div>
+                    <div id="instructional-hours" class="scroll-mt-8 [&:target_dt_a]:text-primary-600">
+                        <dt class="font-header text-lg font-semibold text-primary-900">
+                            <a href="#instructional-hours" class="hover:text-primary-600">Instructional hours</a>
+                        </dt>
+                        <dd class="mt-1 font-content leading-7 text-slate-700">
+                            Time a student spends learning, used as
+                            "attendance" where seat time doesn't exist, like
+                            online and homeschool programs. Often has to be
+                            verified by a
+                            <a href="#guardian" class="text-primary-700 underline decoration-primary-300 underline-offset-2 hover:text-primary-500">guardian</a>.
+                        </dd>
+                    </div>
+                </dl>
+            </section>
+        </main>
+
+        <footer class="contained mt-20 mb-10">
+            <p class="font-content text-sm text-slate-600">
+                &copy; Kenton Vizdos. Unless otherwise noted, all blog posts,
+                photos, graphics, presentations, and other media are published
+                under a
+                <a
+                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
+                    class="text-primary-700 underline hover:text-primary-500"
+                    >CC BY-NC-SA 4.0</a
+                >
+                license. Unless otherwise noted, all code snippets are available
+                under the
+                <a
+                    href="https://spdx.org/licenses/Unlicense.html"
+                    class="text-primary-700 underline hover:text-primary-500"
+                    >Unlicense</a
+                >. This website is
+                <a
+                    href="https://github.com/kvizdos/kvizdos.github.io"
+                    class="text-primary-700 underline hover:text-primary-500"
+                    >open source</a
+                >.
+            </p>
+        </footer>
+    </body>
+</html>

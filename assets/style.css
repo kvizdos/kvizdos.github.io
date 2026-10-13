@@ -394,6 +394,9 @@
   .inline-flex {
     display: inline-flex;
   }
+  .table {
+    display: table;
+  }
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -919,6 +922,9 @@
   .text-white {
     color: var(--color-white);
   }
+  .lowercase {
+    text-transform: lowercase;
+  }
   .uppercase {
     text-transform: uppercase;
   }
@@ -1412,6 +1418,11 @@
       display: none;
     }
   }
+  .\[\&\:target_dt_a\]\:text-primary-600 {
+    &:target dt a {
+      color: var(--color-primary-600);
+    }
+  }
 }
 body {
   background-color: var(--color-white);
@@ -1558,6 +1569,26 @@ p, blockquote {
 #post a:not(.headerPermalink) {
   color: var(--color-sky-600);
   text-decoration-line: underline;
+}
+#post a[href^="/glossary"], #post a[href^="https://kv.codes/glossary"] {
+  color: inherit;
+  text-decoration-color: var(--color-slate-400);
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-sky-600);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      text-decoration-color: var(--color-sky-600);
+    }
+  }
 }
 #post p > code {
   border-radius: 0.25rem;

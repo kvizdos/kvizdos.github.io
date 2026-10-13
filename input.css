@@ -177,6 +177,12 @@ blockquote {
     @apply text-sky-600 underline;
 }
 
+/* Links to /glossary read as defined terms, not navigation. */
+#post a[href^="/glossary"],
+#post a[href^="https://kv.codes/glossary"] {
+    @apply text-inherit decoration-slate-400 decoration-dotted decoration-[1.5px] underline-offset-[3px] transition-colors hover:text-sky-600 hover:decoration-sky-600;
+}
+
 #post p > code {
     @apply font-zed bg-slate-50 text-slate-800 px-1 py-0.5 rounded;
 }
